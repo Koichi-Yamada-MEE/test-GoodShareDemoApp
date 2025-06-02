@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="10.5" viewBox="0 0 14.5 10.5">
+  <g id="tab" transform="translate(-636 -1757.639)">
+    <line id="線_5999" data-name="線 5999" x2="3" transform="translate(636 1760.639)" fill="none" stroke="#d19882" stroke-width="1"/>
+    <line id="線_6000" data-name="線 6000" y2="6" transform="translate(636.5 1761.139)" fill="none" stroke="#d19882" stroke-width="1"/>
+    <line id="線_6001" data-name="線 6001" y2="2" transform="translate(647.5 1765.139)" fill="none" stroke="#d19882" stroke-width="1"/>
+    <line id="線_6002" data-name="線 6002" x2="12" transform="translate(636 1767.639)" fill="none" stroke="#d19882" stroke-width="1"/>
+    <g id="長方形_26198" data-name="長方形 26198" transform="translate(638.5 1757.639)" fill="none" stroke="#d19882" stroke-width="1">
+      <rect width="12" height="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="11" height="7" fill="none"/>
+    </g>
+  </g>
+</svg>
