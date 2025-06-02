@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <link rel="shortcut icon" type="image/x-icon" href="../shared_resp/v0006/img/favicon.ico">
+  <link rel="canonical" href="../demo.1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="機能・特長｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mitsubishielectric.co.jp/home/goodshare/demo/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://www.mitsubishielectric.co.jp/home/goodshare/img/ogp_goodshare.jpg">
+  <meta property="og:site_name" content="三菱電機 オフィシャルサイト">
+  <meta property="og:description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
+  <!-- 三菱共通 -->
+  <!-- <link href="../shared_resp/v0006/css/base.css" rel="stylesheet"> -->
+  <!-- demoベース -->
+  <link rel="stylesheet" href="../assets/css/p_meamor_demo.css">
+  <!-- 三菱共通 -->
+  <!-- <script src="../shared_resp/v0006/js/init.min.js"></script>
+  <script src="../shared/js/head_include.js"></script> -->
+  <!-- /三菱共通 -->
+  <!-- くらトク共通 -->
+  <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
+  <!-- GoodShareデモアプリ -->
+  <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
+  <!-- driver.js -->
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0" />
+</head>
+
+<body>
+  <div id="loading_overlay" class="loading_overlay">
+    <div class="loading_spinner_wrap">
+      <span class="loading_spinner"></span>
+    </div>
+  </div>
+  <div class="p_meamor_demo_wrap">
+    <div class="p_meamor_demo_wrap__fixed_txt">
+      <div class="p_meamor_demo_wrap__fixed_txt_inr">
+        実際のアプリとは仕様が異なる場合があります
+      </div>
+    </div>
+
+    <!-- ヘッダー -->
+    <div class="p_meamor_demo_wrap__header">
+      <div class="p_meamor_demo_wrap__header_inr">
+        <img src="../assets/img/header_goodshare_settings.svg" alt="">
+      </div>
+      <!-- 戻るボタン -->
+      <img src="../assets/img/btn_back.png"
+        style="position: absolute; top: 4px; left: 3px; width: 36px; height: auto; cursor: pointer;"
+        onclick="history.back()" alt="">
+    </div>
+
+    <!-- メイン -->
+    <div style="position: relative;">
+      <!-- ベース画面 グッシェア初期設定 -->
+      <img id="settingOperation01" src="../assets/img/settings.png" style="display: block;" alt="">
+
+      <!-- 郵便番号 -->
+      <div id="btn_chg" style="position: absolute; top: 257px; left: 284px; width: 71px; height: 26px; cursor: pointer;" onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></div>
+      <!-- 連携する環境センサー -->
+      <div style="position: absolute; top: 396px; left: 284px; width: 71px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <!-- 異常時お知らせ通知 -->
+      <div style="position: absolute; top: 532px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <!-- 衣類乾燥完了お知らせ通知 -->
+      <div style="position: absolute; top: 612px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <!-- 常時送風設定 -->
+      <div style="position: absolute; top: 753px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <!-- 空調連携時ひかえめ制御 -->
+      <div style="position: absolute; top: 892px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+
+      <!-- モーダル 郵便番号 -->
+      <div id="modalPostalCode" class="drawer_menu modal-container"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
+        <div id="modal-main"
+          style="position: relative;  top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: auto;">
+          <!-- モーダル -->
+          <img id="modal-image" src="../assets/img/modal_postalcode.png"
+            style="width: 100%; height: auto;" alt="">
+          <!-- モーダル 決定ボタン -->
+          <img id="modal-ok-button" src="../assets/img/btn_ok.png"
+            style="position: absolute; top: 180px; left: 223px; width: 71px; height: auto; cursor: pointer;"
+            onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png'), updatePostalCode()"
+            alt="">
+          <!-- モーダル キャンセルボタン -->
+          <img id="modal-cancel-button" src="../assets/img/btn_cancel.png"
+            style="position: absolute; top: 180px; left: 38px; width: 96px; height: auto; cursor: pointer;"
+            onclick="hideModal(this)" alt="">
+        </div>
+      </div>
+
+      <!-- 置換パーツ 郵便番号 -->
+      <img id="postalCode"
+        style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
+
+      <!-- <div id="postalCode" class="elements-container">
+        <img id="postalCode01" data-group="parts" src="../assets/img/postal-code_off.png"
+          style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
+        <img id="postalCode02" data-group="parts" src="../assets/img/postal-code_on.png"
+          style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
+      </div> -->
+    </div>
+  </div>
+
+  <!-- GoodShareデモアプリ -->
+  <script src="../assets/js/goodshare_demo_app.js"></script>
+
+  <!-- 置換パーツ初期状態 郵便番号 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const targetElemen = document.getElementById('postalCode');
+      const targetElementUrl = getJsonValue("baseUrl") + getJsonValue("gsSettinngs.postalCode")
+      targetElemen.src = targetElementUrl;
+      targetElemen.style.display = 'block'; // 必要に応じて表示する
+    });
+  </script>
+
+  <!-- 置換パーツ更新後 郵便番号 -->
+  <script>
+    const buttonIds = ['modal-ok-button'];
+    const targetURL = getJsonValue("baseUrl") + getJsonValue("gsSettinngs.postalCode");
+    buttonIds.forEach(function (id) {
+      const button = document.getElementById(id);
+      if (button) {
+        button.addEventListener('click', function () {
+          // テキスト置換パーツ
+          const targetElemen = document.getElementById('postalCode');
+          const targetElementUrl = getJsonValue("baseUrl") + getJsonValue("gsSettinngs.postalCode")
+          targetElemen.src = targetElementUrl;
+          targetElemen.style.display = 'block'; // 必要に応じて表示する
+        });
+      }
+    });
+  </script>
+
+  <script>
+    // 郵便番号 変更ボタン
+    window.addEventListener('load', () => {
+
+      const driver = window.driver.js.driver;
+      const driverObj = driver({
+        popoverClass: 'driverjs-theme',
+        overlayOpacity: 0.4,
+        animate: true,
+        showButtons: ("next"),
+        doneBtnText: '閉じる',
+        scrollIntoViewOptions: {
+          behavior: 'smooth', // スムーズスクロール
+          block: 'center',    // 画面中央に配置
+          inline: 'center'
+        },
+        steps: [
+          {
+            element: '#btn_chg',
+            popover: {
+              description: '変更ボタンをタップして郵便番号入力画面を表示させます。'
+            }
+          },
+        ]
+      });
+      driverObj.drive();
+    });
+  </script>
+
+  <!-- driver.js/郵便番号変更 -->
+  <script>
+    function showChangePostalCodeModal() {
+      const driver = window.driver.js.driver;
+      const driverObj = driver({
+        popoverClass: 'driverjs-theme',
+        overlayOpacity: 0.4,
+        animate: true,
+        showButtons: ("next"),
+        doneBtnText: '閉じる',
+        steps: [
+          {
+            element: '#modal-main', popover: { description: 'お住まいの郵便番号に変更します。' }
+          },
+        ],
+      });
+      driverObj.drive();
+      // ボタンをタップするとpopoverを閉じる
+      document.querySelectorAll('#modal-cancel-button, #modal-ok-button').forEach(button => {
+        button.addEventListener('click', () => {
+          driverObj.destroy();
+        });
+      });
+    }
+  </script>
+
+</body>
+
+</html>

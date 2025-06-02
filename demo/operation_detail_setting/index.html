@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <link rel="shortcut icon" type="image/x-icon" href="../shared_resp/v0006/img/favicon.ico">
+  <link rel="canonical" href="../demo.1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="機能・特長｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mitsubishielectric.co.jp/home/goodshare/demo/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://www.mitsubishielectric.co.jp/home/goodshare/img/ogp_goodshare.jpg">
+  <meta property="og:site_name" content="三菱電機 オフィシャルサイト">
+  <meta property="og:description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
+  <!-- 三菱共通 -->
+  <!-- <link href="../shared_resp/v0006/css/base.css" rel="stylesheet"> -->
+  <!-- demoベース -->
+  <link rel="stylesheet" href="../assets/css/p_meamor_demo.css">
+  <!-- 三菱共通 -->
+  <!-- <script src="../shared_resp/v0006/js/init.min.js"></script>
+  <script src="../shared/js/head_include.js"></script> -->
+  <!-- /三菱共通 -->
+  <!-- くらトク共通 -->
+  <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
+  <!-- GoodShareデモアプリ -->
+  <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
+  <!-- driver.js -->
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0" />
+</head>
+
+<body>
+  <div id="loading_overlay" class="loading_overlay">
+    <div class="loading_spinner_wrap">
+      <span class="loading_spinner"></span>
+    </div>
+  </div>
+  <div class="p_meamor_demo_wrap">
+    <div class="p_meamor_demo_wrap__fixed_txt">
+      <div class="p_meamor_demo_wrap__fixed_txt_inr">
+        実際のアプリとは仕様が異なる場合があります
+      </div>
+    </div>
+
+    <!-- ヘッダー -->
+    <div class="p_meamor_demo_wrap__header">
+      <div class="p_meamor_demo_wrap__header_inr">
+        <img id="header_setting" style="display: none;" alt="">
+      </div>
+      <!-- 戻る -->
+      <img id="btnBack" src="../assets/img/btn_back.png"
+        style="position: absolute; top: 4px; left: 3px; width: 36px; height: auto; cursor: pointer;"
+        onclick="window.location.href='../operation_switch/'" alt="">
+    </div>
+
+    <!-- メイン -->
+    <div style="position: relative;">
+      <!-- ベース画面 空調シェア設定・手動操作設定・衣類乾燥設定 -->
+      <img id="gsImageSetting" style="display: none;" alt="">
+
+      <!-- 空調シェア設定 -->
+      <div id="buttonSetting11" class="elements-container" style="display: none;">
+        <!-- 空調シェア エアコン運転モードボタン -->
+        <div id="racOpeModeBtn">
+          <img id="racOpeModeBtn11" class="toggle-btn" data-group="radio" data-img="replace"
+            src="../assets/img/btn_racSettingsCool_off.png"
+            style="position: absolute; top: 157px; left: 20px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 11), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
+            alt="">
+          <img id="racOpeModeBtn12" class="toggle-btn" data-group="radio" data-img="replace"
+            src="../assets/img/btn_racSettingsHeat_off.png"
+            style="position: absolute; top: 157px; left: 191px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 12), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
+            alt="">
+          <img id="racOpeModeBtn13" class="toggle-btn" data-group="radio" data-img="replace"
+            src="../assets/img/btn_racSettingsDry_off.png"
+            style="position: absolute; top: 213px; left: 20px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
+            alt="">
+      
+          <!-- 無効ボタン -->
+          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+        </div>
+
+        <!-- 空調シェア 変更ボタン -->
+        <div>
+          <img id="btnChange01" src="../assets/img/btn_change.png"
+            style="position: absolute; top: 370px; left: 284px; width: 71px; height: auto; cursor: pointer; display: none;"
+            onclick="createModal(), btnClick()" alt="">
+        </div>
+      </div>
+
+      <!-- 手動操作設定 -->
+      <div id="buttonSetting31" class="elements-container" style="display: none;">
+        <!-- 手動操作 エアコン運転モードボタン -->
+        <div>
+          <img id="racOpeModeBtn31" class="toggle-btn" data-group="radio" data-img="replace"
+            src="../assets/img/btn_racSettingsCool_off.png"
+            style="position: absolute; top: 157px; left: 20px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
+            alt="">
+          <img id="racOpeModeBtn32" class="toggle-btn" data-group="radio" data-img="replace"
+            src="../assets/img/btn_racSettingsHeat_off.png"
+            style="position: absolute; top: 157px; left: 191px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
+            alt="">
+          <img id="racOpeModeBtn33" class="toggle-btn" data-group="radio" data-img="replace"
+            src="../assets/img/btn_racSettingsDry_off.png"
+            style="position: absolute; top: 213px; left: 20px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
+            alt="">
+
+          <!-- 無効ボタン -->
+          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 325px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+
+          <div style="position: absolute; top: 538px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 538px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 594px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+
+
+        </div>
+        <!-- 手動操作 変更ボタン -->
+        <div>
+          <img id="btnChange02" src="../assets/img/btn_change.png"
+            style="position: absolute; top: 425px; left: 284px; width: 71px; height: auto; cursor: pointer; display: none;"
+            onclick="createModal(), btnClick()" alt="">
+        </div>
+        <!-- 手動操作 送風ファン運転モードボタン -->
+        <!-- <div id="fanOpeModeBtn" class="elements-container">
+          <img id="fanSettingsStrong" class="toggle-btn" data-group="radio"
+            src="../assets/img/btn_fanSettingsStrong_off.png"
+            style="position: absolute; top: 538px; left: 20px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="">
+          <img id="fanSettingsWeak" class="toggle-btn" data-group="radio"
+            src="../assets/img/btn_fanSettingsWeak_off.png"
+            style="position: absolute; top: 538px; left: 191px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 12)" alt="">
+          <img id="fanSettingsStop" class="toggle-btn" data-group="radio"
+            src="../assets/img/btn_fanSettingsStop_off.png"
+            style="position: absolute; top: 594px; left: 20px; width: 164px; height: auto; cursor: pointer;"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 13)" alt="">
+        </div> -->
+      </div>
+
+      <!-- 衣類乾燥 -->
+      <div id="buttonSetting41" style="display: none;">
+        <!-- 衣類乾燥 変更ボタン -->
+        <div>
+          <img id="btnChange01_man" src="../assets/img/btn_change.png"
+            style="position: absolute; top: 135px; left: 284px; width: 71px; height: auto; cursor: pointer;"
+            onclick="createModal()" alt="">
+        </div>
+      </div>
+
+      <!-- モーダル/空調シェア 手動操作 衣類乾燥 -->
+      <div id="modal-container" class="drawer_menu modal-container"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
+        <div id="modal-main"
+          style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: 257px;">
+          <!-- モーダル -->
+          <img id="modal-image" style="width: 346px; height: 257px;" alt="">
+          <!-- モーダル 決定ボタン -->
+          <img id="modal-ok-button" src="../assets/img/btn_ok.png"
+            style="position: absolute; top: 218px; left: 267px; width: 71px; height: auto; cursor: pointer;"
+            onclick="hideModal(this)" alt="">
+          <!-- モーダル キャンセルボタン -->
+          <img id="modal-cancel-button" src="../assets/img/btn_cancel.png"
+            style="position: absolute; top: 218px; left: 166px; width: 96px; height: auto; cursor: pointer;"
+            onclick="hideModal(this)" alt="">
+        </div>
+      </div>
+
+      <!-- 置換パーツ 温湿度・タイマー時間 -->
+      <!-- 空調シェア 冷房・暖房・除湿 温湿度 -->
+      <img id="setElement11"
+        style="position: absolute; top: 384px; left: 40px; width: 248px; height: auto; display: none;" alt="">
+      <!-- 手動操作 冷房・暖房・除湿 温湿度 -->
+      <img id="setElement31"
+        style="position: absolute; top: 440px; left: 40px; width: 248px; height: auto; display: none;" alt="">
+      <!-- 衣類乾燥 タイマー時間 -->
+      <img id="setElement41"
+        style="position: absolute; top: 149px; left: 22px; width: 268px; height: auto; display: none;" alt="">
+
+    </div>
+  </div>
+
+  <!-- GoodShareデモアプリ -->
+  <script src="../assets/js/goodshare_demo_app.js"></script>
+
+  <!-- 初期表示 空調シェア設定画面・手動操作設定画面・衣類乾燥設定画面 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const gsOpeMode = getJsonValue("currentOperationMode");
+      const baseUrl = getJsonValue("baseUrl");
+
+      // ヘッダー
+      const targetElementHeader = document.getElementById('header_setting');
+      const imageMapHeader = {
+        11: baseUrl + "header_setting_11.svg",
+        12: baseUrl + "header_setting_11.svg",
+        13: baseUrl + "header_setting_11.svg",
+        // 21:
+        31: baseUrl + "header_setting_31.svg",
+        41: baseUrl + "header_setting_41.svg",
+      };
+      if (targetElementHeader) {
+        targetElementHeader.src = imageMapHeader[gsOpeMode];
+        targetElementHeader.style.display = 'block';
+      }
+
+      // 空調シェア設定画面・手動操作設定画面・衣類乾燥設定画面
+      const targetElementImg = document.getElementById('gsImageSetting');
+      const imageMapBase = {
+        11: baseUrl + "main_setting_11.png",
+        12: baseUrl + "main_setting_11.png",
+        13: baseUrl + "main_setting_11.png",
+        // 21:
+        31: baseUrl + "main_setting_31.png",
+        41: baseUrl + "main_setting_41.png",
+      };
+      if (targetElementImg) {
+        targetElementImg.src = imageMapBase[gsOpeMode];
+        targetElementImg.style.display = 'block';
+      }
+
+      // エアコン運転モードボタン
+      const imageMapBtn = {
+        11: "buttonSetting11",
+        12: "buttonSetting11",
+        13: "buttonSetting11",
+        // 21:
+        31: "buttonSetting31",
+        41: "buttonSetting41",
+      };
+      const targetElementBtn = document.getElementById(imageMapBtn[gsOpeMode]);
+      if (targetElementBtn) {
+        targetElementBtn.style.display = 'block';
+      }
+
+      // 置換パーツ 温湿度 タイマー時間
+      const imageMapReplaceParts = {
+
+        11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
+        12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
+        13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
+        // 21: 
+        31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
+        32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
+        33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
+        41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
+
+        // 11: "setElement11",
+        // 12: "setElement11",
+        // 13: "setElement11",
+        // // 21:
+        // 31: "setElement31",
+        // 41: "setElement41",
+      };
+      const targetElement = document.getElementById(imageMapReplaceParts[gsOpeMode]);
+      const replaceParts = imageMapReplaceParts[gsOpeMode];
+      const targetElementReplaceParts = document.getElementById(replaceParts[0]);
+      if (targetElementReplaceParts) {
+        targetElementReplaceParts.src = replaceParts[1];
+        targetElementReplaceParts.style.display = "block";
+      }
+    });
+  </script>
+
+  <!-- 空調シェア設定画面・手動操作設定画面・衣類乾燥設定画面の置換パーツの表示切替 初期値 -->
+  <script>
+    const buttonIds = ['racOpeModeBtn11', 'racOpeModeBtn12', 'racOpeModeBtn13', 'racOpeModeBtn31', 'racOpeModeBtn32', 'racOpeModeBtn33'];
+    buttonIds.forEach(function (id) {
+      const button = document.getElementById(id);
+      if (button) {
+        button.addEventListener('click', function () {
+          // テキスト置換パーツ
+          const gsOpeMode = getJsonValue("currentOperationMode");
+          const imageMapReplaceParts = {
+            11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
+            12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
+            13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
+            // 21: 
+            31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
+            32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
+            33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
+            41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
+          };
+          const replaceParts = imageMapReplaceParts[gsOpeMode];
+          const targetElementReplaceParts = document.getElementById(replaceParts[0]);
+          if (targetElementReplaceParts) {
+            targetElementReplaceParts.src = replaceParts[1];
+            targetElementReplaceParts.style.display = "block";
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- モーダルで温湿度の設定後、 -->
+  <script>
+    const buttonOkIds = ['modal-ok-button'];
+    buttonOkIds.forEach(function (id) {
+      const button = document.getElementById(id);
+      if (button) {
+        button.addEventListener('click', function () {
+          const gsOpeMode = getJsonValue("currentOperationMode");
+          // jsonを更新
+          const jsonUpdate = {
+            11: setJsonValue("modes.mode1.operations.0.imageUrl", "tmp_260.png"),
+            12: setJsonValue("modes.mode1.operations.1.imageUrl", "tmp_220.png"),
+            13: setJsonValue("modes.mode1.operations.2.imageUrl", "tmp_260.png"),
+            // 21: 
+            31: setJsonValue("modes.mode3.operations.0.imageUrl", "tmp_260.png"),
+            32: setJsonValue("modes.mode3.operations.1.imageUrl", "tmp_220.png"),
+            33: setJsonValue("modes.mode3.operations.2.imageUrl", "tmp_260.png"),
+            41: setJsonValue("modes.mode4.operations.0.imageUrl", "timer_on.png"),
+          };
+
+          // 置換パーツを更新
+          const imageMapReplaceParts = {
+            11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
+            12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
+            13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
+            // 21: 
+            31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
+            32: ["setElement32", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
+            33: ["setElement33", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
+            41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
+          };
+          const replaceParts = imageMapReplaceParts[gsOpeMode];
+          const targetElementReplaceParts = document.getElementById(replaceParts[0]);
+          if (targetElementReplaceParts) {
+            targetElementReplaceParts.src = replaceParts[1];
+            targetElementReplaceParts.style.display = "block";
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- 初期画面 -->
+  <script>
+    // popoverの表示を2回目以降から無効にする
+    window.addEventListener('DOMContentLoaded', () => {
+      const gsOpeMode = getJsonValue("currentOperationMode");
+      setJsonValue("isFirstVisit.opeModeSelection", false);
+    });
+
+    // グッシェア運転モードとエアコン運転モードの取得
+    function getPropertyPath() {
+      const parts = [
+        "modes",
+        getJsonValue("modalGsOpeMode"),
+        getJsonValue("modalRacOpeMode"),
+        getJsonValue("modalPropatyValue")
+      ];
+      return parts.filter(part => part != null).join('.');
+    }
+
+    // 表示するモーダル選択
+    function createModal() {
+      const gsOpeMode = getJsonValue("currentOperationMode");
+      const modalMap = {
+        11: getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.modalUrl"),
+        12: getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.modalUrl"),
+        13: getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.modalUrl"),
+        31: getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.modalUrl"),
+        32: getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.modalUrl"),
+        33: getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.modalUrl"),
+        41: getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.modalUrl"),
+      };
+      showModal('modal-container', modalMap[gsOpeMode]);
+    }
+
+    // モーダルに表示するpopoverの説明文を設定
+    function btnClick() {
+      const driver = window.driver.js.driver;
+      const propertyPath = getPropertyPath();
+      const variableMap = {
+        "modes.mode1.operations.0.setTemp": "26.0 ℃",
+        "modes.mode1.operations.1.setTemp": "22.0 ℃",
+        "modes.mode1.operations.2.setHum": "40 %",
+        "modes.mode3.operations.0.setTemp": "26.0 ℃",
+        "modes.mode3.operations.1.setTemp": "22.0 ℃",
+        "modes.mode3.operations.2.setHum": "40 %",
+        "modes.mode4": "5 時間"
+      };
+      const variable = variableMap[propertyPath] || "条件に一致しません";
+      const driverObj = new driver({
+        popoverClass: 'driverjs-theme',
+        overlayOpacity: 0.4,
+        animate: true,
+        showButtons: ("next"),
+        doneBtnText: '閉じる',
+        steps: [
+          {
+            element: '#modal-main',
+            popover: { description: `ここでは、<span style="color:#ff0000">${variable}</span>に設定するとします。` },
+          },
+        ],
+      });
+      driverObj.drive();
+      // ボタンをタップするとpopoverを閉じる
+      document.querySelectorAll('#modal-cancel-button, #modal-ok-button').forEach(button => {
+        button.addEventListener('click', () => {
+          driverObj.destroy();
+        });
+      });
+    }
+  </script>
+
+  <!-- driver.js -->
+  <script>
+    window.addEventListener('load', () => {
+      const driver = window.driver.js.driver;
+      const driverObj = driver({
+        popoverClass: 'driverjs-theme',
+        overlayOpacity: 0.4,
+        animate: true,
+        nextBtnText: '進む',
+        prevBtnText: '戻る',
+        doneBtnText: '閉じる',
+        scrollIntoViewOptions: {
+          behavior: 'smooth', // スムーズスクロール
+          block: 'center',    // 画面中央に配置
+          inline: 'center'
+        },
+        steps: [
+          {
+            popover: {
+              title: '運転詳細の設定',
+              description: '次に空調機器の運転詳細を設定します。'
+            }
+          },
+          {
+            element: '#btnBack',
+            popover: {
+              title: '運転詳細の設定',
+              description: '設定後は「＜ ボタン」をタップし、前の画面に戻ります。',
+            },
+          }
+        ],
+      });
+      driverObj.drive();
+    });
+  </script>
+</body>
+
+</html>

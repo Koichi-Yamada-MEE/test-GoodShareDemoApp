@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <link rel="shortcut icon" type="image/x-icon" href="../shared_resp/v0006/img/favicon.ico">
+  <link rel="canonical" href="../demo.1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="機能・特長｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mitsubishielectric.co.jp/home/goodshare/demo/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://www.mitsubishielectric.co.jp/home/goodshare/img/ogp_goodshare.jpg">
+  <meta property="og:site_name" content="三菱電機 オフィシャルサイト">
+  <meta property="og:description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
+  <!-- 三菱共通 -->
+  <!-- <link href="../shared_resp/v0006/css/base.css" rel="stylesheet"> -->
+  <!-- demoベース -->
+  <link rel="stylesheet" href="../assets/css/p_meamor_demo.css">
+  <!-- 三菱共通 -->
+  <!-- <script src="../shared_resp/v0006/js/init.min.js"></script>
+  <script src="../shared/js/head_include.js"></script> -->
+  <!-- /三菱共通 -->
+  <!-- くらトク共通 -->
+  <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
+  <!-- GoodShareデモアプリ -->
+  <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
+  <!-- driver.js -->
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0"/>
+</head>
+
+<body>
+  <div id="loading_overlay" class="loading_overlay">
+    <div class="loading_spinner_wrap">
+      <span class="loading_spinner"></span>
+    </div>
+  </div>
+  <div class="p_meamor_demo_wrap">
+    <div class="p_meamor_demo_wrap__fixed_txt">
+      <div class="p_meamor_demo_wrap__fixed_txt_inr">
+        実際のアプリとは仕様が異なる場合があります
+      </div>
+    </div>
+
+    <!-- ヘッダー -->
+    <div class="p_meamor_demo_wrap__header">
+      <div class="p_meamor_demo_wrap__header_inr">
+        <img src="../assets/img/header_op_mode_selection.svg" alt="">
+      </div>
+      <!-- 戻るボタン -->
+      <img src="../assets/img/btn_back.png"
+        style="position: absolute; top: 4px; left: 3px; width: 36px; height: auto; cursor: pointer;"
+        onclick="window.location.href='../home/'" alt="">
+    </div>
+
+    <!-- メイン -->
+    <div style="position: relative;">
+      <!-- 基本画面 -->
+      <img src="../assets/img/operation_switch.png" alt="">
+
+      <!-- 運転モードカード -->
+      <div id="racOpeModeBtn" class="elements-container">
+        <div id="operationMode11" style="position: absolute; top: 88px; left: 16px; width: 343px; height: 190px;">
+          <img src="../assets/img/gsOpeModeCard11.png"
+            style="position: absolute; top: 0px; left: 0px; width: 343px; height: auto; cursor: pointer;"
+            onclick="setJsonValue('currentOperationMode', 11), setJsonValue('modalGsOpeMode', 'mode1'), window.location.href='../operation_detail_setting/'"
+            alt="">
+          <img id="radioBtn11" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="">
+        </div>
+        <div id="operationMode21" style="position: absolute; top: 286px; left: 16px; width: 343px; height: 190px;">
+          <img src="../assets/img/gsOpeModeCard21.png"
+            style="position: absolute; top: 0px; left: 0px; width: 343px; height: auto;"
+            onclick="setJsonValue('currentOperationMode', 21), setJsonValue('modalGsOpeMode', 'mode2')" alt="">
+          <img id="radioBtn21" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 21)" alt="">
+        </div>
+        <div id="operationMode31" style="position: absolute; top: 484px; left: 16px; width: 343px; height: 190px;">
+          <img src="../assets/img/gsOpeModeCard31.png"
+            style="position: absolute; top: 0px; left: 0px; width: 343px; height: auto; cursor: pointer;"
+            onclick="setJsonValue('currentOperationMode', 31), setJsonValue('modalGsOpeMode', 'mode3'), window.location.href='../operation_detail_setting/'"
+            alt="">
+          <img id="radioBtn31" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 31)" alt="">
+        </div>
+        <div id="operationMode41" style="position: absolute; top: 682px; left: 16px; width: 343px; height: 190px;">
+          <img src="../assets/img/gsOpeModeCard41.png"
+            style="position: absolute; top: 0px; left: 0px; width: 343px; height: auto; cursor: pointer;"
+            onclick="setJsonValue('currentOperationMode', 41), setJsonValue('modalGsOpeMode', 'mode4'), setJsonValue('modalRacOpeMode', null), window.location.href='../operation_detail_setting/'"
+            alt="">
+          <img id="radioBtn41" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
+            onclick="toggleButton(this), setJsonValue('currentOperationMode', 41)" alt="">
+        </div>
+      </div>
+      <!-- モーダル 運転モード切替確認 -->
+      <div id="modalOpeStart" class="drawer_menu modal-container"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
+        <div
+          style="position: relative;  top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: auto;">
+          <img id="modal-image" src="../assets/img/modal_switch.svg" style="width: 100%; height: auto;"
+            alt="">
+          <img id="modal-ok-button" src="../assets/img/btn_ok.png"
+            style="position: absolute; top: 115px; left: 223px; width: 71px; height: auto; cursor: pointer;"
+            onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"
+            alt="">
+          <img id="modal-cancel-button" src="../assets/img/btn_cancel.png"
+            style="position: absolute; top: 115px; left: 38px; width: 96px; height: auto; cursor: pointer;"
+            onclick="hideModal(this)" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <div class="p_meamor_demo_wrap__footer" style="z-index: 20;">
+      <div class="p_meamor_demo_wrap__footer_inr" style="position: relative;">
+        <img src="../assets/img/footer_ope_mode.svg" alt="">
+        <!-- リンク領域／運転開始ボタン-->
+        <img src="../assets/img/btn_ope_start.svg"
+          style="position: absolute; top: 12px; left: 33px; width: 311px; height: 48px; cursor: pointer;"
+          onclick="showImg('modalOpeStart')" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- GoodShareデモアプリ -->
+  <script src="../assets/js/goodshare_demo_app.js"></script>
+
+  <!-- 初期画面 ラジオボタン -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const gsOpeMode = getJsonValue("currentOperationMode");
+      // ホーム画面
+      const imageMapRadioButton = {
+        11: "radioBtn11",
+        12: "radioBtn11",
+        13: "radioBtn11",
+        21: "radioBtn21",
+        30: "radioBtn31",
+        31: "radioBtn31",
+        41: "radioBtn41",
+      };
+      const targetElement = document.getElementById(imageMapRadioButton[gsOpeMode])
+      targetElement.src = targetElement.src.replace('btn_radio_off.png', 'btn_radio_on.png');
+      targetElement.style.display = 'block';
+    });
+  </script>
+
+  <!-- driver.js -->
+  <script>
+    // isFirstVisitがtrueの場合にDriver.jsのツアーを実行
+    window.addEventListener('load', () => {
+      const propertyValue = getJsonValue('isFirstVisit.opeModeSelection');
+
+      if (propertyValue) {
+        const driver = window.driver.js.driver;
+        const driverObj = driver({
+          popoverClass: 'driverjs-theme',
+          overlayOpacity: 0.2,
+          animate: true,
+          nextBtnText: '進む',
+          prevBtnText: '戻る',
+          doneBtnText: '閉じる',
+          scrollIntoViewOptions: {
+            behavior: 'smooth', // スムーズスクロール
+            block: 'center',    // 画面中央に配置
+            inline: 'center'
+          },
+          steps: [
+            {
+              element: '#operationMode11',
+              popover: {
+                title: '運転モードの選択',
+                description: '<p>エアコンのある部屋の空気をシェアして様々なスペースを快適にします。</p>'
+                // description: '<img src="../assets/img/catalogImages01.png" style="width: 211px; height: 135px;"><p>エアコンのある部屋の空気をシェアして様々なスペースを快適にします。</p>'
+              }
+            },
+            {
+              element: '#operationMode21',
+              popover: {
+                title: '運転モードの選択',
+                description: '<p>気象情報による自然エネルギー（日射）活用で快適にします。</p>'
+                // description: '<img src="../assets/img/catalogImages06.png" style="width: 211px; height: 135px;"><p>気象情報による自然エネルギー（日射）活用で快適にします。</p>'
+              }
+            },
+            {
+              element: '#operationMode31',
+              popover: {
+                title: '運転モードの選択',
+                description: '<p>エアコンや送風ファンを停止するなど、手動による設定が可能です。</p>'
+                // description: '<img src="../assets/img/catalogImages03.png" style="width: 211px; height: 135px;"><p>エアコンや送風ファンを停止するなど、手動による設定が可能です。</p>'
+              }
+            },
+            {
+              element: '#operationMode41',
+              popover: {
+                title: '運転モードの選択',
+                description: '<p>外干しによる花粉やホコリが気になる方に部屋干しをアシストします。</p>',
+                // description: '<img src="../assets/img/catalogImages02.png" style="width: 211px; height: 135px;"><p>外干しによる花粉やホコリが気になる方に部屋干しをアシストします。</p>',
+              }
+            }
+          ]
+        });
+        driverObj.drive();
+      }
+    });
+  </script>
+
+</body>
+</html>
