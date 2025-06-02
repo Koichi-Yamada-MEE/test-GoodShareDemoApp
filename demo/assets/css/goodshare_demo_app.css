@@ -1,0 +1,102 @@
+/* ====================================
+   チュートリアル
+   ==================================== */
+
+/* 最終ページの「進む」を無効化 */
+.slick-disabled {
+  cursor: default;
+}
+
+/* 画面にカーソルが挿入されないように */
+body {
+  -webkit-user-select: none;  /* Safari用のベンダープレフィックス付きプロパティ */
+  user-select: none;
+}
+
+/* 縦スクロールした時にヘッダーの上にリンク領域が表示されないように */
+.p_meamor_demo_wrap__header {
+  z-index: 10;
+  /* ヘッダーを前面に表示 */
+}
+
+.drawer_menu {
+  z-index: 50;
+  /* ヘッダーを前面に表示 */
+}
+
+/* ====================================
+   Driver.js
+   ==================================== */
+
+/* Driver.js Styling Popover */
+.driver-popover.driverjs-theme {
+  background-color: #f2f0eb;
+  border-top: 8px solid;
+  border-image: linear-gradient(to left, #ED701E 0, #FFC000 33%, #60C4B4 66%, #1E8CE6 100%);
+  border-image-slice: 1;
+  padding-top: 30px;
+  /* color: #000; */
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  font-size: 20px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title,
+.driver-popover.driverjs-theme .driver-popover-description,
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+/* .driver-popover.driverjs-theme button {
+  flex: 1;
+  text-align: center;
+  background-color: #000;
+  color: #ffffff;
+  border: 2px solid #000;
+  text-shadow: none;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 6px;
+} */
+
+.driver-popover.driverjs-theme button:hover {
+  background-color: #000;
+  color: #ffffff;
+}
+
+/* .driver-popover.driverjs-theme .driver-popover-navigation-btns {
+  justify-content: space-between;
+  gap: 3px;
+} */
+
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: #9b9b9b;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn:hover {
+  color: #000;
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-left.driver-popover-arrow {
+  border-left-color: #f2f0eb;
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-right.driver-popover-arrow {
+  border-right-color: #f2f0eb;
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-top.driver-popover-arrow {
+  border-top-color: #f2f0eb;
+}
+
+.driver-popover.driverjs-theme .driver-popover-arrow-side-bottom.driver-popover-arrow {
+  border-bottom-color: #f2f0eb;
+}
+
+.driver-popover.driverjs-theme.driver-test {
+  margin-bottom: 80px;
+  color: red;
+}
