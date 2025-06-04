@@ -238,7 +238,7 @@
         targetElementImg.style.display = 'block';
       }
 
-      // エアコン運転モードボタン
+      // エアコン運転モードボタンセット
       const imageMapBtn = {
         11: "buttonSetting11",
         12: "buttonSetting11",
@@ -271,7 +271,6 @@
         // 31: "setElement31",
         // 41: "setElement41",
       };
-      const targetElement = document.getElementById(imageMapReplaceParts[gsOpeMode]);
       const replaceParts = imageMapReplaceParts[gsOpeMode];
       const targetElementReplaceParts = document.getElementById(replaceParts[0]);
       if (targetElementReplaceParts) {
@@ -311,7 +310,7 @@
     });
   </script>
 
-  <!-- モーダルで温湿度の設定後、 -->
+  <!-- モーダルで温湿度の設定後のJSONアップデート -->
   <script>
     const buttonOkIds = ['modal-ok-button'];
     buttonOkIds.forEach(function (id) {
@@ -321,15 +320,21 @@
           const gsOpeMode = getJsonValue("currentOperationMode");
           // jsonを更新
           const jsonUpdate = {
-            11: setJsonValue("modes.mode1.operations.0.imageUrl", "tmp_260.png"),
-            12: setJsonValue("modes.mode1.operations.1.imageUrl", "tmp_220.png"),
-            13: setJsonValue("modes.mode1.operations.2.imageUrl", "tmp_260.png"),
+            11: ["modes.mode1.operations.0.imageUrl", "tmp_260.png"],
+            12: ["modes.mode1.operations.1.imageUrl", "tmp_220.png"],
+            13: ["modes.mode1.operations.2.imageUrl", "hum_050.png"],
             // 21: 
-            31: setJsonValue("modes.mode3.operations.0.imageUrl", "tmp_260.png"),
-            32: setJsonValue("modes.mode3.operations.1.imageUrl", "tmp_220.png"),
-            33: setJsonValue("modes.mode3.operations.2.imageUrl", "tmp_260.png"),
-            41: setJsonValue("modes.mode4.operations.0.imageUrl", "timer_on.png"),
+            31: ["modes.mode3.operations.0.imageUrl", "tmp_260.png"],
+            32: ["modes.mode3.operations.1.imageUrl", "tmp_220.png"],
+            33: ["modes.mode3.operations.2.imageUrl", "hum_050.png"],
+            41: ["modes.mode4.operations.0.imageUrl", "timer_on.png"],
           };
+
+          // 該当する設定がある場合のみ setJsonValue を実行
+          if (jsonUpdate[gsOpeMode]) {
+            const [jsonPath, imageFileName] = jsonUpdate[gsOpeMode];
+            setJsonValue(jsonPath, imageFileName);
+          }
 
           // 置換パーツを更新
           const imageMapReplaceParts = {
@@ -338,8 +343,8 @@
             13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
             // 21: 
             31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
-            32: ["setElement32", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
-            33: ["setElement33", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
+            32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
+            33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
             41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
           };
           const replaceParts = imageMapReplaceParts[gsOpeMode];
@@ -394,10 +399,10 @@
       const variableMap = {
         "modes.mode1.operations.0.setTemp": "26.0 ℃",
         "modes.mode1.operations.1.setTemp": "22.0 ℃",
-        "modes.mode1.operations.2.setHum": "40 %",
+        "modes.mode1.operations.2.setHum": "50 %",
         "modes.mode3.operations.0.setTemp": "26.0 ℃",
         "modes.mode3.operations.1.setTemp": "22.0 ℃",
-        "modes.mode3.operations.2.setHum": "40 %",
+        "modes.mode3.operations.2.setHum": "50 %",
         "modes.mode4": "5 時間"
       };
       const variable = variableMap[propertyPath] || "条件に一致しません";
