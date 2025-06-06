@@ -26,21 +26,21 @@ const demoAppData = {
           "name": "冷房",
           "imageUrl": "tmp_270.png",
           "modalUrl": "modal_tmp260.png",
-          "switchLabel": false
+          "switchLabel": null
         },
         {
           "id": 12,
           "name": "暖房",
           "imageUrl": "tmp_150.png",
           "modalUrl": "modal_tmp220.png",
-          "switchLabel": false
+          "switchLabel": null
         },
         {
           "id": 13,
           "name": "除湿",
           "imageUrl": "hum_070.png",
           "modalUrl": "modal_hum400.png",
-          "switchLabel": false
+          "switchLabel": null
         }
       ]
     },
@@ -61,21 +61,21 @@ const demoAppData = {
           "name": "冷房",
           "imageUrl": "tmp_270.png",
           "modalUrl": "modal_tmp260.png",
-          "switchLabel": false
+          "switchLabel": null
         },
         {
           "id": 32,
           "name": "暖房",
           "imageUrl": "tmp_150.png",
           "modalUrl": "modal_tmp220.png",
-          "switchLabel": false
+          "switchLabel": null
         },
         {
           "id": 33,
           "name": "除湿",
           "imageUrl": "hum_070.png",
           "modalUrl": "modal_hum400.png",
-          "switchLabel": false
+          "switchLabel": null
         },
         {
           "id": 34,
@@ -96,7 +96,7 @@ const demoAppData = {
           "name": "自動",
           "imageUrl": "timer_off.png",
           "modalUrl": "modal_timer.png",
-          "switchLabel": false
+          "switchLabel": null
 
         }
       ]

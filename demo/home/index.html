@@ -188,13 +188,13 @@
                 description: '現在選択しているグッシェア運転モードを表示します。'
               }
             },
-            {
-              element: '#gsIcons',
-              popover: {
-                title: '連携機能アイコン',
-                description: '運転モードと連携している機能を表示します。'
-              }
-            },
+            // {
+            //   element: '#gsIcons',
+            //   popover: {
+            //     title: '連携機能アイコン',
+            //     description: '運転モードと連携している機能を表示します。'
+            //   }
+            // },
             {
               element: '#racStatus',
               popover: {
@@ -206,7 +206,7 @@
               element: '#fanStatus',
               popover: {
                 title: '送風ファンの状態',
-                description: '送風ファンの運転状態を表示します。'
+                description: '送風ファンの運転状態を表示します。送風が開始されると矢印の色が変化します。'
               }
             },
             {
@@ -295,7 +295,7 @@
         doneBtnText: '閉じる',
         steps: [
           {
-            element: '#settings', popover: { description: 'タップしてグッシェア設定画面に移動します。' }
+            element: '#settings', popover: { title: 'グッシェア設定', description: 'このボタンからグッシェア設定画面に移動します。' }
           },
         ],
       });

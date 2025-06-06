@@ -106,6 +106,17 @@
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 41)" alt="">
         </div>
       </div>
+
+      <!-- 運転モードカード 動的テキスト部分 -->
+      <!-- 空調シェア -->
+      <img id="cardLabel11" style="position: absolute; top: 127px; left: 32px; width: 317px; height: 38px; display: none;">
+      <!-- 循環シェア -->
+      <img id="cardLabel21" style="position: absolute; top: 327px; left: 32px; width: 317px; height: 38px; display: none;">
+      <!-- 手動操作 -->
+      <img id="cardLabel31" style="position: absolute; top: 525px; left: 32px; width: 317px; height: 38px; display: none;">
+      <!-- 衣類乾燥-->
+      <img id="cardLabel41" style="position: absolute; top: 723px; left: 32px; width: 317px; height: 38px; display: none;">
+
       <!-- モーダル 運転モード切替確認 -->
       <div id="modalOpeStart" class="drawer_menu modal-container"
         style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
@@ -159,6 +170,32 @@
     });
   </script>
 
+  <!-- 運転モードカード 動的テキスト部分 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const gsOpeMode = getJsonValue("currentOperationMode");
+      const baseUrl = getJsonValue("baseUrl");
+
+      // 置換パーツ 各カード内の説明ラベル
+      const imageMapReplaceParts = {
+        11: ["cardLabel11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.switchLabel")],
+        12: ["cardLabel11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.switchLabel")],
+        13: ["cardLabel11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.switchLabel")],
+        // 21: 
+        31: ["cardLabel31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.switchLabel")],
+        32: ["cardLabel31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.switchLabel")],
+        33: ["cardLabel31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.switchLabel")],
+        41: ["cardLabel41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.switchLabel")],
+      };
+      const replaceParts = imageMapReplaceParts[gsOpeMode];
+      const targetElementReplaceParts = document.getElementById(replaceParts[0]);
+      if (targetElementReplaceParts) {
+        targetElementReplaceParts.src = replaceParts[1];
+        targetElementReplaceParts.style.display = "block";
+      }
+    });
+  </script>
+
   <!-- driver.js -->
   <script>
     // isFirstVisitがtrueの場合にDriver.jsのツアーを実行
@@ -184,7 +221,7 @@
               element: '#operationMode11',
               popover: {
                 title: '運転モードの選択',
-                description: '<p>エアコンのある部屋の空気をシェアして様々なスペースを快適にします。</p>'
+                description: '<p>エアコン運転時に快適な空気をシェアします。エアコンが停止すると自動で循環シェアに切り替わります。</p>'
                 // description: '<img src="../assets/img/catalogImages01.png" style="width: 211px; height: 135px;"><p>エアコンのある部屋の空気をシェアして様々なスペースを快適にします。</p>'
               }
             },
@@ -192,7 +229,7 @@
               element: '#operationMode21',
               popover: {
                 title: '運転モードの選択',
-                description: '<p>気象情報による自然エネルギー（日射）活用で快適にします。</p>'
+                description: '<p>エアコンは停止時に室内温度や湿度、気象情報と連携して宅内を快適にします。エアコンが運転開始すると自動で空調シェアに切り替わります。</p>'
                 // description: '<img src="../assets/img/catalogImages06.png" style="width: 211px; height: 135px;"><p>気象情報による自然エネルギー（日射）活用で快適にします。</p>'
               }
             },
@@ -200,7 +237,7 @@
               element: '#operationMode31',
               popover: {
                 title: '運転モードの選択',
-                description: '<p>エアコンや送風ファンを停止するなど、手動による設定が可能です。</p>'
+                description: '<p>エアコンや送風ファンを手動で停止するなどの設定が可能です。</p>'
                 // description: '<img src="../assets/img/catalogImages03.png" style="width: 211px; height: 135px;"><p>エアコンや送風ファンを停止するなど、手動による設定が可能です。</p>'
               }
             },
@@ -208,7 +245,7 @@
               element: '#operationMode41',
               popover: {
                 title: '運転モードの選択',
-                description: '<p>外干しによる花粉やホコリが気になる方に部屋干しをアシストします。</p>',
+                description: '<p>送風ファンを強で運転して衣類乾燥をアシストします。</p>',
                 // description: '<img src="../assets/img/catalogImages02.png" style="width: 211px; height: 135px;"><p>外干しによる花粉やホコリが気になる方に部屋干しをアシストします。</p>',
               }
             }

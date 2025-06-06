@@ -135,7 +135,7 @@
         doneBtnText: '閉じる',
         steps: [
           {
-            element: '#settings', popover: { description: 'タップしてグッシェア設定画面に移動します。' }
+            element: '#settings', popover: { title: 'グッシェア設定', description: 'このボタンからグッシェア設定画面に移動します。' }
           },
         ],
       });
@@ -170,14 +170,14 @@
       steps = [
         {
           popover: {
-            title: '運転スケジュールの作成',
-            description: '次に運転スケジュールを作成します。'
+            title: '運転スケジュールの作成（新規作成）',
+            description: 'ここでは運転スケジュールを作成します。'
           }
         },
         {
           element: '#scheduleAdd',
           popover: {
-            title: '運転スケジュールの作成',
+            title: '運転スケジュールの作成（新規作成）',
             description: 'タップして新規スケジュール画面に進みます。'
           }
         }
