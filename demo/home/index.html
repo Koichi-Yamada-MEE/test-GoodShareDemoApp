@@ -92,7 +92,7 @@
       <!-- 画面中央 -->
       <div id="centerElement" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0;"></div>
       <!-- 連携機能アイコン -->
-      <div id="gsIcons" style="position: absolute; top: 215px; left: 0; width: 375px; height: 50px;"></div>
+      <!-- <div id="gsIcons" style="position: absolute; top: 215px; left: 0; width: 375px; height: 50px;"></div> -->
       <!-- エアコンの状態 -->
       <div id="racStatus" style="position: absolute; top: 284px; left: 0; width: 375px; height: 139px;"></div>
       <!-- 送風ファンの状態-->
@@ -133,7 +133,7 @@
         12: baseUrl + "home_cir_12.png", // 12: 空調シェア-暖房
         13: baseUrl + "home_cir_13.png", // 13: 空調シェア-除湿
         21: baseUrl + "home_air_21.png", // 21: 循環シェア
-        30: baseUrl + "home_man_30.png", // 30: 手動操作-冷房
+        30: baseUrl + "home_man_30.png", // 30: 手動操作-送風（アプリ初期起動画面）
         31: baseUrl + "home_man_31.png", // 31: 手動操作-冷房
         32: baseUrl + "home_man_32.png", // 32: 手動操作-暖房
         33: baseUrl + "home_man_33.png", // 33: 手動操作-除湿
@@ -143,20 +143,6 @@
         targetElementImg.src = imageMapBase[gsOpeMode];
         targetElementImg.style.display = 'block';
       }
-      // 運転切替ボタン
-      // const targetElementBtn = document.getElementById('gsOpeModeButton');
-      // const imageMapButton = {
-      //   11: baseUrl + "btn_gsOpeModeHome11.png",
-      //   12: baseUrl + "btn_gsOpeModeHome12.png",
-      //   13: baseUrl + "btn_gsOpeModeHome13.png",
-      //   21: baseUrl + "btn_gsOpeModeHome21.png",
-      //   31: baseUrl + "btn_gsOpeModeHome31.png",
-      //   41: baseUrl + "btn_gsOpeModeHome41.png",
-      // };
-      // if (targetElementBtn) {
-      //   targetElementBtn.src = imageMapButton[gsOpeMode];
-      //   targetElementBtn.style.display = 'block';
-      // }
     });
   </script>
 
@@ -188,13 +174,6 @@
                 description: '現在選択しているグッシェア運転モードを表示します。'
               }
             },
-            // {
-            //   element: '#gsIcons',
-            //   popover: {
-            //     title: '連携機能アイコン',
-            //     description: '運転モードと連携している機能を表示します。'
-            //   }
-            // },
             {
               element: '#racStatus',
               popover: {
@@ -237,7 +216,7 @@
       if (!propertyValue) {
         const gsOpeMode = getJsonValue("currentOperationMode");
         const baseUrl = getJsonValue("baseUrl");
-
+        // GIFアニメーションの画像URLを定義
         const imageMapBase = {
           11: baseUrl + "home_cir_11.gif",
           12: baseUrl + "home_cir_12.gif",
@@ -273,13 +252,6 @@
         }
       }
     });
-
-    // JSON値を取得する関数の例
-    // function getJsonValue(key) {
-    //   // ここにJSON値を取得するロジックを実装
-    //   // 例: ローカルストレージから取得
-    //   return JSON.parse(localStorage.getItem(key));
-    // }
   </script>
 
 

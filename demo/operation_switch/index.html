@@ -160,6 +160,7 @@
         12: "radioBtn11",
         13: "radioBtn11",
         21: "radioBtn21",
+        30: "radioBtn31",
         31: "radioBtn31",
         32: "radioBtn31",
         33: "radioBtn31",
@@ -179,19 +180,25 @@
 
       // 置換パーツ 各カード内の説明ラベル
       const imageMapReplaceParts = {
-        11: ["cardLabel11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.switchLabel")],
-        12: ["cardLabel11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.switchLabel")],
-        13: ["cardLabel11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.switchLabel")],
+        11: ["cardLabel11", getJsonValue("baseUrl"), getJsonValue("modes.mode1.operations.0.switchLabel")],
+        12: ["cardLabel11", getJsonValue("baseUrl"), getJsonValue("modes.mode1.operations.1.switchLabel")],
+        13: ["cardLabel11", getJsonValue("baseUrl"), getJsonValue("modes.mode1.operations.2.switchLabel")],
         // 21: 
-        31: ["cardLabel31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.switchLabel")],
-        32: ["cardLabel31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.switchLabel")],
-        33: ["cardLabel31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.switchLabel")],
-        41: ["cardLabel41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.switchLabel")],
+        30: ["", ""], // 空文字
+        31: ["cardLabel31", getJsonValue("baseUrl"), getJsonValue("modes.mode3.operations.0.switchLabel")],
+        32: ["cardLabel31", getJsonValue("baseUrl"), getJsonValue("modes.mode3.operations.1.switchLabel")],
+        33: ["cardLabel31", getJsonValue("baseUrl"), getJsonValue("modes.mode3.operations.2.switchLabel")],
+        41: ["cardLabel41", getJsonValue("baseUrl"), getJsonValue("modes.mode4.operations.0.switchLabel")],
       };
       const replaceParts = imageMapReplaceParts[gsOpeMode];
       const targetElementReplaceParts = document.getElementById(replaceParts[0]);
-      if (targetElementReplaceParts) {
-        targetElementReplaceParts.src = replaceParts[1];
+
+      console.log("replaceParts", replaceParts);
+      console.log("targetElementReplaceParts", targetElementReplaceParts);
+
+
+      if (targetElementReplaceParts && replaceParts[2]) {
+        targetElementReplaceParts.src = replaceParts[1] + replaceParts[2];
         targetElementReplaceParts.style.display = "block";
       }
     });
@@ -223,7 +230,6 @@
               popover: {
                 title: '運転モードの選択',
                 description: '<p>エアコン運転時に快適な空気をシェアします。エアコンが停止すると自動で循環シェアに切り替わります。</p>'
-                // description: '<img src="../assets/img/catalogImages01.png" style="width: 211px; height: 135px;"><p>エアコンのある部屋の空気をシェアして様々なスペースを快適にします。</p>'
               }
             },
             {
@@ -231,7 +237,6 @@
               popover: {
                 title: '運転モードの選択',
                 description: '<p>エアコンは停止時に室内温度や湿度、気象情報と連携して宅内を快適にします。エアコンが運転開始すると自動で空調シェアに切り替わります。</p>'
-                // description: '<img src="../assets/img/catalogImages06.png" style="width: 211px; height: 135px;"><p>気象情報による自然エネルギー（日射）活用で快適にします。</p>'
               }
             },
             {
@@ -239,7 +244,6 @@
               popover: {
                 title: '運転モードの選択',
                 description: '<p>エアコンや送風ファンを手動で停止するなどの設定が可能です。</p>'
-                // description: '<img src="../assets/img/catalogImages03.png" style="width: 211px; height: 135px;"><p>エアコンや送風ファンを停止するなど、手動による設定が可能です。</p>'
               }
             },
             {
@@ -247,7 +251,6 @@
               popover: {
                 title: '運転モードの選択',
                 description: '<p>送風ファンを強で運転して衣類乾燥をアシストします。</p>',
-                // description: '<img src="../assets/img/catalogImages02.png" style="width: 211px; height: 135px;"><p>外干しによる花粉やホコリが気になる方に部屋干しをアシストします。</p>',
               }
             }
           ]

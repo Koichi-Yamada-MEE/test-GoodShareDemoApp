@@ -140,21 +140,6 @@
             style="position: absolute; top: 425px; left: 284px; width: 71px; height: auto; cursor: pointer; display: none;"
             onclick="createModal(), btnClick()" alt="">
         </div>
-        <!-- 手動操作 送風ファン運転モードボタン -->
-        <!-- <div id="fanOpeModeBtn" class="elements-container">
-          <img id="fanSettingsStrong" class="toggle-btn" data-group="radio"
-            src="../assets/img/btn_fanSettingsStrong_off.png"
-            style="position: absolute; top: 538px; left: 20px; width: 164px; height: auto; cursor: pointer;"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="">
-          <img id="fanSettingsWeak" class="toggle-btn" data-group="radio"
-            src="../assets/img/btn_fanSettingsWeak_off.png"
-            style="position: absolute; top: 538px; left: 191px; width: 164px; height: auto; cursor: pointer;"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 12)" alt="">
-          <img id="fanSettingsStop" class="toggle-btn" data-group="radio"
-            src="../assets/img/btn_fanSettingsStop_off.png"
-            style="position: absolute; top: 594px; left: 20px; width: 164px; height: auto; cursor: pointer;"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 13)" alt="">
-        </div> -->
       </div>
 
       <!-- 衣類乾燥 -->
@@ -254,7 +239,6 @@
 
       // 置換パーツ 温湿度 タイマー時間
       const imageMapReplaceParts = {
-
         11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
         12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
         13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
@@ -263,13 +247,6 @@
         32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
         33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
         41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
-
-        // 11: "setElement11",
-        // 12: "setElement11",
-        // 13: "setElement11",
-        // // 21:
-        // 31: "setElement31",
-        // 41: "setElement41",
       };
       const replaceParts = imageMapReplaceParts[gsOpeMode];
       const targetElementReplaceParts = document.getElementById(replaceParts[0]);
@@ -383,24 +360,6 @@
             const [jsonPath, imageFileName] = jsonUpdate[gsOpeMode];
             setJsonValue(jsonPath, imageFileName);
           }
-
-          // 置換パーツを更新
-          // const imageMapReplaceParts = {
-          //   11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
-          //   12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
-          //   13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
-          //   // 21: 
-          //   31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
-          //   32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
-          //   33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
-          //   41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
-          // };
-          // const replaceParts = imageMapReplaceParts[gsOpeMode];
-          // const targetElementReplaceParts = document.getElementById(replaceParts[0]);
-          // if (targetElementReplaceParts) {
-          //   targetElementReplaceParts.src = replaceParts[1];
-          //   targetElementReplaceParts.style.display = "block";
-          // }
         });
       }
     });
