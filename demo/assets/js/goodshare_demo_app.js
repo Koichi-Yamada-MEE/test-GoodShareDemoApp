@@ -146,3 +146,25 @@ function replaceElement(targetElementId, replaceFileName) {
 function showDemoAppRestrictionMessage() {
   alert('デモアプリではこのボタンは操作できません。');
 }
+
+// driver.js（送風ファンの運転ボタンを選択した時）
+function pppover() {
+  const driver = window.driver.js.driver;
+  const driverObj = driver({
+    popoverClass: 'driverjs-theme',
+    overlayOpacity: 0.4,
+    animate: true,
+    nextBtnText: '進む',
+    prevBtnText: '戻る',
+    doneBtnText: '閉じる',
+    steps: [
+      {
+        element: null,
+        popover: {
+          description: 'エアコンの状態に関わらず送風ファンは運転します。ここでは「強」に設定します。',
+        },
+      }
+    ],
+  });
+  driverObj.drive();
+};

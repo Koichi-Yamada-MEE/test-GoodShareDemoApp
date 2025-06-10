@@ -75,17 +75,17 @@
         style="position: absolute; top: 225px; left: 214px; width: 146px; height: auto; cursor: pointer; display: block;"
         onclick="window.location.href = '../schedule_update/'" alt="">
 
-      <!-- ハンバーガーメニューのモーダル -->
+        <!-- ハンバーガーメニューのモーダル -->
       <div id="modalMenu" style="display:none;" class="modal-container">
         <div class="drawer_menu"
           style="position: absolute; top: 0; left: 0; width: 375px; height: 100%; background-color: rgba(128, 128, 128, 0.5);">
           <img src="../assets/img/drawer_menu.png" style="width: 375px; height: auto;" alt="">
-          <img src="../assets/img/modal_close.png"
-            style="position: absolute; top: 49px; left: 307px; width: 16px; height: auto; cursor: pointer;"
-            onclick="hideModal(this)" alt="">
-          <img id="settings" src="../assets/img/modal_menu.png"
-            style="position: absolute; top: 142px; left: 36px; width: 119px; height: auto; cursor: pointer;"
-            onclick="window.location.href='../setting/'" alt="">
+          <!-- 無効ボタン（aleart） -->
+          <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>  <!-- お知らせ -->
+          <div id="settings" style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;" onclick="window.location.href='../setting/'"></div>  <!-- グッシェア設定 -->
+          <div id="" style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>  <!-- アプリ情報 -->
+          <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>  <!-- ヘルプ -->
+          <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;" onclick="hideModal(this)"></div>  <!-- 閉じる -->
         </div>
       </div>
 

@@ -122,15 +122,15 @@
             onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
             alt="">
 
-          <!-- 無効ボタン -->
+          <!-- 無効ボタン（aleart） -->
           <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
           <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
           <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
           <div style="position: absolute; top: 325px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-
-          <div style="position: absolute; top: 538px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 538px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 594px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <!-- 無効ボタン（popover） -->
+          <div id="setting_31" style="position: absolute; top: 538px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="pppover()"></div>
+          <div id="setting_32" style="position: absolute; top: 538px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="pppover()"></div>
+          <div id="setting_33" style="position: absolute; top: 594px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="pppover()"></div>
 
 
         </div>
@@ -148,7 +148,7 @@
         <div>
           <img id="btnChange01_man" src="../assets/img/btn_change.png"
             style="position: absolute; top: 135px; left: 284px; width: 71px; height: auto; cursor: pointer;"
-            onclick="createModal()" alt="">
+            onclick="createModal(), btnClick()" alt="">
         </div>
       </div>
 
@@ -411,7 +411,7 @@
         "modes.mode3.operations.0.setTemp": "26.0 ℃",
         "modes.mode3.operations.1.setTemp": "22.0 ℃",
         "modes.mode3.operations.2.setHum": "50 %",
-        "modes.mode4": "5 時間"
+        "modes.mode4": "8 時間"
       };
       const variable = variableMap[propertyPath] || "条件に一致しません";
       const driverObj = new driver({
@@ -455,23 +455,31 @@
         },
         steps: [
           {
-            popover: {
-              title: '運転詳細の設定',
-              description: '次に空調機器の運転詳細を設定します。'
-            }
-          },
-          {
             element: '#btnBack',
             popover: {
               title: '運転詳細の設定',
               description: '設定後は「＜ ボタン」をタップし、前の画面に戻ります。',
             },
-          }
+          },
         ],
       });
       driverObj.drive();
     });
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
