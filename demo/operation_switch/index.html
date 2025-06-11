@@ -58,9 +58,8 @@
         <img src="../assets/img/header_op_mode_selection.svg" alt="">
       </div>
       <!-- 戻るボタン -->
-      <img src="../assets/img/btn_back.png"
-        style="position: absolute; top: 4px; left: 3px; width: 36px; height: auto; cursor: pointer;"
-        onclick="window.location.href='../home/'" alt="">
+      <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 55px; cursor: pointer;"
+        onclick="window.location.href='../home/'"></div>
     </div>
 
     <!-- メイン -->
@@ -124,13 +123,9 @@
           style="position: relative;  top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: auto;">
           <img id="modal-image" src="../assets/img/modal_switch.svg" style="width: 100%; height: auto;"
             alt="">
-          <img id="modal-ok-button" src="../assets/img/btn_ok.png"
-            style="position: absolute; top: 115px; left: 223px; width: 71px; height: auto; cursor: pointer;"
-            onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"
-            alt="">
-          <img id="modal-cancel-button" src="../assets/img/btn_cancel.png"
-            style="position: absolute; top: 115px; left: 38px; width: 96px; height: auto; cursor: pointer;"
-            onclick="hideModal(this)" alt="">
+          <div id="modal-ok-button" style="position: absolute; top: 115px; left: 223px; width: 71px; height: 50px; cursor: pointer;"
+            onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"></div>
+          <div id="modal-cancel-button" style="position: absolute; top: 115px; left: 38px; width: 96px; height: 50px; cursor: pointer;" onclick="hideModal(this)"></div>
         </div>
       </div>
     </div>
@@ -192,10 +187,6 @@
       };
       const replaceParts = imageMapReplaceParts[gsOpeMode];
       const targetElementReplaceParts = document.getElementById(replaceParts[0]);
-
-      console.log("replaceParts", replaceParts);
-      console.log("targetElementReplaceParts", targetElementReplaceParts);
-
 
       if (targetElementReplaceParts && replaceParts[2]) {
         targetElementReplaceParts.src = replaceParts[1] + replaceParts[2];

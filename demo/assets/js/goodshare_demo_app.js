@@ -148,7 +148,7 @@ function showDemoAppRestrictionMessage() {
 }
 
 // driver.js（送風ファンの運転ボタンを選択した時）
-function pppover() {
+function popoverFan() {
   const driver = window.driver.js.driver;
   const driverObj = driver({
     popoverClass: 'driverjs-theme',
@@ -168,3 +168,26 @@ function pppover() {
   });
   driverObj.drive();
 };
+
+// driver.js（環境センサー）
+function popoverSensor() {
+  const driver = window.driver.js.driver;
+  const driverObj = driver({
+    popoverClass: 'driverjs-theme',
+    overlayOpacity: 0.4,
+    animate: true,
+    nextBtnText: '進む',
+    prevBtnText: '戻る',
+    doneBtnText: '閉じる',
+    steps: [
+      {
+        element: null,
+        popover: {
+          description: 'ここでは脱衣所に設置した環境センサーとします。',
+        },
+      }
+    ],
+  });
+  driverObj.drive();
+};
+
