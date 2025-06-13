@@ -121,3 +121,18 @@ body {
   z-index: 100;
 }
 
+/* ウインドウの高さが608px以上の場合 */
+/* @media (min-height: 608px) {
+  .p_meamor_demo_wrap__footer {
+    top: 608px !important;
+    bottom: auto !important; 
+  }
+} */
+
+/* ウインドウの高さが1000px未満の場合 */
+/* @media (max-height: 607px) {
+  .p_meamor_demo_wrap__footer {
+    bottom: 0 !important;
+    top: auto !important; 
+  }
+} */
