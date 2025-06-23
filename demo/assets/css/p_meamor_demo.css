@@ -121,17 +121,25 @@ body {
   z-index: 100;
 }
 
-/* ウインドウの高さが608px以上の場合 */
-/* @media (min-height: 608px) {
-  .p_meamor_demo_wrap__footer {
+/* ウインドウの高さが668px以上の場合（ホーム画面／スケジュール画面） */
+@media (min-height: 668px) {
+  .screen_height_667 .p_meamor_demo_wrap__footer {
     top: 608px !important;
     bottom: auto !important; 
   }
-} */
+}
 
-/* ウインドウの高さが1000px未満の場合 */
-/* @media (max-height: 607px) {
-  .p_meamor_demo_wrap__footer {
+/* ウインドウの高さが968px以上の場合（運転切替画面） */
+@media (min-height: 968px) {
+  .screen_height_967 .p_meamor_demo_wrap__footer {
+    top: 887px !important;
+    bottom: auto !important; 
+  }
+}
+
+/* ウインドウの高さが667px未満の場合 */
+/* @media (max-height: 667px) {
+  .screen_height_667 {
     bottom: 0 !important;
     top: auto !important; 
   }
