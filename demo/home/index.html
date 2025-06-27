@@ -10,26 +10,10 @@
   <link rel="canonical" href="../demo.1" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <meta property="og:title" content="機能・特長｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.mitsubishielectric.co.jp/home/goodshare/demo/">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:image" content="https://www.mitsubishielectric.co.jp/home/goodshare/img/ogp_goodshare.jpg">
-  <meta property="og:site_name" content="三菱電機 オフィシャルサイト">
-  <meta property="og:description"
-    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
-  <!-- 三菱共通 -->
-  <!-- <link href="../shared_resp/v0006/css/base.css" rel="stylesheet"> -->
   <!-- demoベース -->
   <link rel="stylesheet" href="../assets/css/p_meamor_demo.css">
-  <!-- 三菱共通 -->
-  <!-- <script src="../shared_resp/v0006/js/init.min.js"></script>
-  <script src="../shared/js/head_include.js"></script> -->
-  <!-- /三菱共通 -->
   <!-- くらトク共通 -->
   <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
   <!-- GoodShareデモアプリ -->
@@ -68,10 +52,6 @@
     <div style="position: relative;">
       <!-- ホーム画面 -->
       <img id="gsImageHome" style="display: none;" alt="">
-      <!-- 運転モードボタン -->
-      <!-- <img id="gsOpeModeButton"
-        style="position: absolute; top: 157px; left: 37px; width:300px; height: auto; display: none; cursor: pointer;"
-        onclick="setJsonValue('isFirstVisit.homeScreen', false), window.location.href='../operation_switch/'" alt=""> -->
 
       <!-- ハンバーガーメニューのモーダル -->
       <div id="modalMenu" style="display:none;" class="modal-container">
@@ -106,9 +86,10 @@
       <div class="p_meamor_demo_wrap__footer_inr">
         <img src="../assets/img/footer_bar.svg" alt="">
       </div>
-      <div style="position: absolute; bottom: 0px; left: 140px; width: 94px; height: 49px; cursor: pointer;"
-        onclick="window.location.href='../home/'"></div>
-      <div style="position: absolute; bottom: 0px; left: 264px; width: 94px; height: 49px; cursor: pointer;"
+      <img src="../assets/img/footer_bar_home.svg"
+        style="position: absolute; bottom: 0px; left: 140px; width: 94px; height: auto; cursor: pointer;"
+        onclick="window.location.href='../home/'" alt="">
+      <div style="position: absolute; bottom: 0px; left: 264px; width: 94px; height: 48px; cursor: pointer;"
         onclick="window.location.href='../schedule/'"></div>
     </div>
   </div>
@@ -216,6 +197,7 @@
           11: baseUrl + "home_cir_11.gif",
           12: baseUrl + "home_cir_12.gif",
           13: baseUrl + "home_cir_13.gif",
+          21: null,
           31: baseUrl + "home_man_31.gif",
           32: baseUrl + "home_man_32.gif",
           33: baseUrl + "home_man_33.gif",
@@ -225,7 +207,7 @@
         const imageUrl = imageMapBase[gsOpeMode];
 
         // imageUrlが存在する場合のみDriver.jsのツアーを実行
-        if (imageUrl) {
+        if (!imageUrl === 21) {
           const driver = window.driver.js.driver;
           const driverObj = driver({
             popoverClass: 'driverjs-theme',
@@ -241,6 +223,21 @@
                   description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div>`
                   // description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div><p>部屋の温湿度がエアコンの設定値に近づくと、送風ファンが運転を開始し、快適な空気を保ちます。</p>`
                 }
+              },
+            ],
+          });
+          driverObj.drive();
+        } else {
+          const driver = window.driver.js.driver;
+          const driverObj = driver({
+            popoverClass: 'driverjs-theme',
+            overlayOpacity: 0.4,
+            animate: true,
+            showButtons: ("next"),
+            doneBtnText: '閉じる',
+            steps: [
+              {
+                element: null, popover: { description: '冬の日射で暖かくなった空気をシェアします。' }
               },
             ],
           });
