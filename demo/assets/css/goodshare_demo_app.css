@@ -1,3 +1,25 @@
+@import url('p_meamor_demo.css');
+
+/* ====================================
+   ウインドウの高さによるスタイル調整
+   ==================================== */
+
+/* ウインドウの高さが668px以上の場合（ホーム画面／スケジュール画面） */
+@media (min-height: 668px) {
+  .screen_height_667 .p_meamor_demo_wrap__footer {
+    top: 608px !important;
+    bottom: auto !important; 
+  }
+}
+
+/* ウインドウの高さが968px以上の場合（運転切替画面） */
+@media (min-height: 968px) {
+  .screen_height_967 .p_meamor_demo_wrap__footer {
+    top: 887px !important;
+    bottom: auto !important; 
+  }
+}
+
 /* ====================================
    チュートリアル
    ==================================== */
@@ -50,27 +72,10 @@ body {
   color: #666666;
 }
 
-/* .driver-popover.driverjs-theme button {
-  flex: 1;
-  text-align: center;
-  background-color: #000;
-  color: #ffffff;
-  border: 2px solid #000;
-  text-shadow: none;
-  font-size: 14px;
-  padding: 5px 8px;
-  border-radius: 6px;
-} */
-
 .driver-popover.driverjs-theme button:hover {
   background-color: #000;
   color: #ffffff;
 }
-
-/* .driver-popover.driverjs-theme .driver-popover-navigation-btns {
-  justify-content: space-between;
-  gap: 3px;
-} */
 
 .driver-popover.driverjs-theme .driver-popover-close-btn {
   color: #9b9b9b;
