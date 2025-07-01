@@ -1,4 +1,4 @@
-@import url('p_meamor_demo.css');
+@import url('demo_app.css');
 
 /* ====================================
    ウインドウの高さによるスタイル調整
@@ -6,7 +6,7 @@
 
 /* ウインドウの高さが668px以上の場合（ホーム画面／スケジュール画面） */
 @media (min-height: 668px) {
-  .screen_height_667 .p_meamor_demo_wrap__footer {
+  .screen_height_667 .demo_app_wrap__footer {
     top: 608px !important;
     bottom: auto !important; 
   }
@@ -14,7 +14,7 @@
 
 /* ウインドウの高さが968px以上の場合（運転切替画面） */
 @media (min-height: 968px) {
-  .screen_height_967 .p_meamor_demo_wrap__footer {
+  .screen_height_967 .demo_app_wrap__footer {
     top: 887px !important;
     bottom: auto !important; 
   }
@@ -36,7 +36,7 @@ body {
 }
 
 /* 縦スクロールした時にヘッダーの上にリンク領域が表示されないように */
-.p_meamor_demo_wrap__header {
+.demo_app_wrap__header {
   z-index: 10;
   /* ヘッダーを前面に表示 */
 }
