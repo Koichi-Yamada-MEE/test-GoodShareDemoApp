@@ -182,7 +182,7 @@
   
   <!-- driver.js/Gifアニメーション -->
   <script>
-    // isFirstVisitがtrueの場合にDriver.jsのツアーを実行
+    // isFirstVisitがtrue（ホーム画面を初めて表示する）なら、Driver.jsのツアーを実行
     window.addEventListener('load', () => {
       const propertyValue = getJsonValue('isFirstVisit.homeScreen');
       if (!propertyValue) {
@@ -201,9 +201,8 @@
 
         // gsOpeModeに対応する画像URLを取得
         const imageUrl = imageMapBase[gsOpeMode];
-
         // imageUrlが存在する場合のみDriver.jsのツアーを実行
-        if (!imageUrl === 21) {
+        if (imageUrl) {
           const driver = window.driver.js.driver;
           const driverObj = driver({
             popoverClass: 'driverjs-theme',
@@ -217,23 +216,7 @@
                 element: null,
                 popover: {
                   description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div>`
-                  // description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div><p>部屋の温湿度がエアコンの設定値に近づくと、送風ファンが運転を開始し、快適な空気を保ちます。</p>`
                 }
-              },
-            ],
-          });
-          driverObj.drive();
-        } else {
-          const driver = window.driver.js.driver;
-          const driverObj = driver({
-            popoverClass: 'driverjs-theme',
-            overlayOpacity: 0.4,
-            animate: true,
-            showButtons: ("next"),
-            doneBtnText: '閉じる',
-            steps: [
-              {
-                element: null, popover: { description: '冬の日射で暖かくなった空気をシェアします。' }
               },
             ],
           });

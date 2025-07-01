@@ -31,7 +31,7 @@
 
 /* 画面にカーソルが挿入されないように */
 body {
-  -webkit-user-select: none;  /* Safari用のベンダープレフィックス付きプロパティ */
+  -webkit-user-select: none; /* Safari用のベンダープレフィックス付きプロパティ */
   user-select: none;
 }
 
@@ -73,7 +73,7 @@ body {
 }
 
 .driver-popover.driverjs-theme button:hover {
-  background-color: #000;
+  background-color: #666666;
   color: #ffffff;
 }
 
