@@ -197,12 +197,13 @@
           31: baseUrl + "home_man_31.gif",
           32: baseUrl + "home_man_32.gif",
           33: baseUrl + "home_man_33.gif",
+          41: null,
         };
 
         // gsOpeModeに対応する画像URLを取得
         const imageUrl = imageMapBase[gsOpeMode];
         // imageUrlが存在する場合のみDriver.jsのツアーを実行
-        if (imageUrl) {
+        if (gsOpeMode === 11 || gsOpeMode === 12 || gsOpeMode === 13 || gsOpeMode === 31 || gsOpeMode === 32 || gsOpeMode === 33) {
           const driver = window.driver.js.driver;
           const driverObj = driver({
             popoverClass: 'driverjs-theme',
@@ -216,6 +217,46 @@
                 element: null,
                 popover: {
                   description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div>`
+                }
+              },
+            ],
+          });
+          driverObj.drive();
+        } else if (gsOpeMode === 21) {
+          // 循環シェアの場合は、GIFアニメーションを表示しない
+          const driver = window.driver.js.driver;
+          const driverObj = driver({
+            popoverClass: 'driverjs-theme',
+            overlayOpacity: 0.4,
+            animate: true,
+            nextBtnText: '進む',
+            prevBtnText: '戻る',
+            doneBtnText: '閉じる',
+            steps: [
+              {
+                element: null,
+                popover: {
+                  description: `冬の日射で暖かくなった空気をシェアします。`
+                }
+              },
+            ],
+          });
+          driverObj.drive();
+        } else {
+          // 41（衣類乾燥）の場合は、GIFアニメーションを表示しない
+          const driver = window.driver.js.driver;
+          const driverObj = driver({
+            popoverClass: 'driverjs-theme',
+            overlayOpacity: 0.4,
+            animate: true,
+            nextBtnText: '進む',
+            prevBtnText: '戻る',
+            doneBtnText: '閉じる',
+            steps: [
+              {
+                element: null,
+                popover: {
+                  description: `送風ファンで部屋干しをアシストします。`
                 }
               },
             ],
