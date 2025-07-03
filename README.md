@@ -6,7 +6,7 @@
 
 # Good Share！（グッシェア）デモアプリ
 
-7月公開予定の[Good Share！（グッシェア）](https://www.mitsubishielectric.co.jp/home/goodshare/)に登録されるデモアプリです。画面遷移はこちらの[リンク](https://koichi-yamada-mee.github.io/test-GoodShareDemoApp/demo/tutorial/index.html)をからレビューします。
+8月公開予定の[Good Share！（グッシェア）](https://www.mitsubishielectric.co.jp/home/goodshare/)に登録されるデモアプリです。画面遷移はこちらの[リンク](https://koichi-yamada-mee.github.io/test-GoodShareDemoApp/demo/tutorial/index.html)をからレビューします。
 
 ## 概要
 
