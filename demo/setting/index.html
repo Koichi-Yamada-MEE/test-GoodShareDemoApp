@@ -4,7 +4,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
-  <meta name="description" content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -15,8 +16,8 @@
   <!-- GoodShareデモアプリCSS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
-  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0" />
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 </head>
 
 <body>
@@ -48,17 +49,24 @@
       <img id="settingOperation01" src="../assets/img/settings.png" style="display: block;" alt="">
 
       <!-- 郵便番号 -->
-      <div id="btn_chg" style="position: absolute; top: 257px; left: 284px; width: 71px; height: 26px; cursor: pointer;" onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></div>
+      <div id="btn_chg" style="position: absolute; top: 257px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
+        onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></div>
       <!-- 連携する環境センサー -->
-      <div id="btn_sensor" style="position: absolute; top: 396px; left: 284px; width: 71px; height: 26px; cursor: pointer;" onclick="popoverSensor()"></div>
+      <div id="btn_sensor"
+        style="position: absolute; top: 396px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
+        onclick="popoverSensor()"></div>
       <!-- 異常時お知らせ通知 -->
-      <div style="position: absolute; top: 532px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <div style="position: absolute; top: 532px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></div>
       <!-- 衣類乾燥完了お知らせ通知 -->
-      <div style="position: absolute; top: 612px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <div style="position: absolute; top: 612px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></div>
       <!-- 常時送風設定 -->
-      <div style="position: absolute; top: 753px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <div style="position: absolute; top: 753px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></div>
       <!-- 空調連携時ひかえめ制御 -->
-      <div style="position: absolute; top: 892px; left: 284px; width: 71px; height: 30px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+      <div style="position: absolute; top: 892px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></div>
 
       <!-- モーダル 郵便番号 -->
       <div id="modalPostalCode" class="drawer_menu modal-container"
@@ -66,18 +74,22 @@
         <div id="modal-main"
           style="position: relative;  top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: auto;">
           <!-- モーダル -->
-          <img id="modal-image" src="../assets/img/modal_postalcode.png"
-            style="width: 100%; height: auto;" alt="">
+          <img id="modal-image" src="../assets/img/modal_postalcode.png" style="width: 100%; height: auto;" alt="">
           <!-- モーダル 決定ボタン -->
-          <div id="modal-ok-button"  style="position: absolute; top: 180px; left: 223px; width: 71px; height: 20px; cursor: pointer;"
-            onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png'), updatePostalCode()"></div>
+          <div id="modal-ok-button"
+            style="position: absolute; top: 180px; left: 223px; width: 71px; height: 20px; cursor: pointer;"
+            onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png'), updatePostalCode()">
+          </div>
           <!-- モーダル キャンセルボタン -->
-          <div id="modal-cancel-button" style="position: absolute; top: 180px; left: 38px; width: 96px; height: 20px; cursor: pointer;" onclick="hideModal(this)"></div>
+          <div id="modal-cancel-button"
+            style="position: absolute; top: 180px; left: 38px; width: 96px; height: 20px; cursor: pointer;"
+            onclick="hideModal(this)"></div>
         </div>
       </div>
 
       <!-- 置換パーツ 郵便番号 -->
-      <img id="postalCode" style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
+      <img id="postalCode"
+        style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
     </div>
   </div>
 
@@ -115,54 +127,34 @@
   <script>
     // 郵便番号 変更ボタン
     window.addEventListener('load', () => {
-
-      const driver = window.driver.js.driver;
-      const driverObj = driver({
-        popoverClass: 'driverjs-theme',
-        overlayOpacity: 0.4,
-        animate: true,
-        showButtons: ("next"),
-        doneBtnText: '閉じる',
-        scrollIntoViewOptions: {
-          behavior: 'smooth', // スムーズスクロール
-          block: 'center',    // 画面中央に配置
-          inline: 'center'
-        },
-        steps: [
-          {
-            element: '#btn_chg',
-            popover: {
-              title: 'グッシェア設定（郵便番号入力）', 
-              description: '変更ボタンをタップして郵便番号入力画面を表示させます。'
-            }
+      startDriverTour([
+        {
+          element: '#btn_chg',
+          popover: {
+            title: 'グッシェア設定（郵便番号入力）',
+            description: '変更ボタンをタップして郵便番号入力画面を表示させます。',
           },
-        ]
-      });
-      driverObj.drive();
+        },
+      ]);
     });
   </script>
 
   <!-- driver.js/郵便番号変更 -->
   <script>
-    function showChangePostalCodeModal() {
-      const driver = window.driver.js.driver;
-      const driverObj = driver({
-        popoverClass: 'driverjs-theme',
-        overlayOpacity: 0.4,
-        animate: true,
-        showButtons: ("next"),
-        doneBtnText: '閉じる',
-        steps: [
-          {
-            element: '#modal-main', popover: { description: 'ここでは東京都千代田区丸の内の郵便番号としています。' }
-          },
-        ],
-      });
-      driverObj.drive();
+    const showChangePostalCodeModal = () => {
+      startDriverTour([
+        {
+          element: '#modal-main',
+          popover: {
+            description: 'ここでは東京都千代田区丸の内の郵便番号としています。',
+          }
+        },
+      ]);
+
       // ボタンをタップするとpopoverを閉じる
       document.querySelectorAll('#modal-cancel-button, #modal-ok-button').forEach(button => {
         button.addEventListener('click', () => {
-          driverObj.destroy();
+          closePopover();
         });
       });
     }

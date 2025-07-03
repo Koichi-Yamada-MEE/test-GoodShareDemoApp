@@ -4,7 +4,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
-  <meta name="description" content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -15,8 +16,8 @@
   <!-- GoodShareデモアプリCSS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
-  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0" />
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 </head>
 
 <body>
@@ -66,16 +67,20 @@
             style="position: absolute; top: 213px; left: 20px; width: 164px; height: auto; cursor: pointer;"
             onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
             alt="">
-      
+
           <!-- 無効ボタン -->
-          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
         </div>
 
         <!-- 空調シェア 変更ボタン -->
         <div>
-          <div id="btnChange01" style="position: absolute; top: 370px; left: 284px; width: 71px; height: 52px; cursor: pointer; display: none;"
+          <div id="btnChange01"
+            style="position: absolute; top: 370px; left: 284px; width: 71px; height: 52px; cursor: pointer; display: none;"
             onclick="createModal(), btnClick()"></div>
         </div>
       </div>
@@ -101,20 +106,30 @@
             alt="">
 
           <!-- 無効ボタン（aleart） -->
-          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 325px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <div style="position: absolute; top: 325px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div>
           <!-- 無効ボタン（popover） -->
-          <div id="setting_31" style="position: absolute; top: 538px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="popoverFan()"></div>
-          <div id="setting_32" style="position: absolute; top: 538px; left: 191px; width: 164px; height: 48px; cursor: pointer;" onclick="popoverFan()"></div>
-          <div id="setting_33" style="position: absolute; top: 594px; left:  20px; width: 164px; height: 48px; cursor: pointer;" onclick="popoverFan()"></div>
-
-
+          <div id="setting_31"
+            style="position: absolute; top: 538px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="popoverFan()"></div>
+          <div id="setting_32"
+            style="position: absolute; top: 538px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="popoverFan()"></div>
+          <div id="setting_33"
+            style="position: absolute; top: 594px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
+            onclick="popoverFan()"></div>
         </div>
+
         <!-- 手動操作 変更ボタン -->
         <div>
-          <div id="btnChange02" style="position: absolute; top: 425px; left: 284px; width: 71px; height: 52px; cursor: pointer; display: none;"
+          <div id="btnChange02"
+            style="position: absolute; top: 425px; left: 284px; width: 71px; height: 52px; cursor: pointer; display: none;"
             onclick="createModal(), btnClick()"></div>
         </div>
       </div>
@@ -123,7 +138,8 @@
       <div id="buttonSetting41" style="display: none;">
         <!-- 衣類乾燥 変更ボタン -->
         <div>
-          <div id="btnChange01_man" style="position: absolute; top: 135px; left: 284px; width: 71px; height: 52px; cursor: pointer;"
+          <div id="btnChange01_man"
+            style="position: absolute; top: 135px; left: 284px; width: 71px; height: 52px; cursor: pointer;"
             onclick="createModal(), btnClick()"></div>
         </div>
       </div>
@@ -136,9 +152,13 @@
           <!-- モーダル -->
           <img id="modal-image" style="width: 346px; height: 257px;" alt="">
           <!-- モーダル 決定ボタン -->
-          <div id="modal-ok-button" style="position: absolute; top: 218px; left: 267px; width: 71px; height: 25px; cursor: pointer;" onclick="hideModal(this)"></div>
+          <div id="modal-ok-button"
+            style="position: absolute; top: 218px; left: 267px; width: 71px; height: 25px; cursor: pointer;"
+            onclick="hideModal(this)"></div>
           <!-- モーダル キャンセルボタン -->
-          <div id="modal-cancel-button" style="position: absolute; top: 218px; left: 166px; width: 96px; height: 25px; cursor: pointer;" onclick="hideModal(this)"></div>
+          <div id="modal-cancel-button"
+            style="position: absolute; top: 218px; left: 166px; width: 96px; height: 25px; cursor: pointer;"
+            onclick="hideModal(this)"></div>
         </div>
       </div>
 
@@ -337,7 +357,6 @@
     });
   </script>
 
-
   <!-- 初期画面 -->
   <script>
     // popoverの表示を2回目以降から無効にする
@@ -347,7 +366,7 @@
     });
 
     // グッシェア運転モードとエアコン運転モードの取得
-    function getPropertyPath() {
+    const getPropertyPath = () => {
       const parts = [
         "modes",
         getJsonValue("modalGsOpeMode"),
@@ -355,25 +374,26 @@
         getJsonValue("modalPropatyValue")
       ];
       return parts.filter(part => part != null).join('.');
-    }
+    };
 
     // 表示するモーダル選択
-    function createModal() {
+    const createModal = () => {
       const gsOpeMode = getJsonValue("currentOperationMode");
+      const baseUrl = getJsonValue("baseUrl");
       const modalMap = {
-        11: getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.modalUrl"),
-        12: getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.modalUrl"),
-        13: getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.modalUrl"),
-        31: getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.modalUrl"),
-        32: getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.modalUrl"),
-        33: getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.modalUrl"),
-        41: getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.modalUrl"),
+        11: `${baseUrl}` + getJsonValue("modes.mode1.operations.0.modalUrl"),
+        12: `${baseUrl}` + getJsonValue("modes.mode1.operations.1.modalUrl"),
+        13: `${baseUrl}` + getJsonValue("modes.mode1.operations.2.modalUrl"),
+        31: `${baseUrl}` + getJsonValue("modes.mode3.operations.0.modalUrl"),
+        32: `${baseUrl}` + getJsonValue("modes.mode3.operations.1.modalUrl"),
+        33: `${baseUrl}` + getJsonValue("modes.mode3.operations.2.modalUrl"),
+        41: `${baseUrl}` + getJsonValue("modes.mode4.operations.0.modalUrl"),
       };
       showModal('modal-container', modalMap[gsOpeMode]);
     }
 
     // モーダルに表示するpopoverの説明文を設定
-    function btnClick() {
+    const btnClick = () => {
       const driver = window.driver.js.driver;
       const propertyPath = getPropertyPath();
       const variableMap = {
@@ -386,24 +406,17 @@
         "modes.mode4": "8 時間"
       };
       const variable = variableMap[propertyPath] || "条件に一致しません";
-      const driverObj = new driver({
-        popoverClass: 'driverjs-theme',
-        overlayOpacity: 0.4,
-        animate: true,
-        showButtons: ("next"),
-        doneBtnText: '閉じる',
-        steps: [
-          {
-            element: '#modal-main',
-            popover: { description: `ここでは、<span style="color:#ff0000">${variable}</span>に設定するとします。` },
-          },
-        ],
-      });
-      driverObj.drive();
+      startDriverTour([
+        {
+          element: '#modal-main',
+          popover: { description: `ここでは、<span style="color:#ff0000">${variable}</span>に設定するとします。` },
+        }
+      ]);
+
       // ボタンをタップするとpopoverを閉じる
       document.querySelectorAll('#modal-cancel-button, #modal-ok-button').forEach(button => {
         button.addEventListener('click', () => {
-          driverObj.destroy();
+          closePopover();
         });
       });
     }
@@ -412,45 +425,14 @@
   <!-- driver.js -->
   <script>
     window.addEventListener('load', () => {
-      const driver = window.driver.js.driver;
-      const driverObj = driver({
-        popoverClass: 'driverjs-theme',
-        overlayOpacity: 0.4,
-        animate: true,
-        nextBtnText: '進む',
-        prevBtnText: '戻る',
-        doneBtnText: '閉じる',
-        scrollIntoViewOptions: {
-          behavior: 'smooth', // スムーズスクロール
-          block: 'center',    // 画面中央に配置
-          inline: 'center'
-        },
-        steps: [
-          {
-            element: '#btnBack',
-            popover: {
-              title: '運転詳細の設定',
-              description: '設定後は「＜ ボタン」をタップし、前の画面に戻ります。',
-            },
-          },
-        ],
-      });
-      driverObj.drive();
+      startDriverTour([
+        {
+          element: '#btnBack',
+          popover: { title: '運転詳細の設定', description: '設定後は「＜ ボタン」をタップし、前の画面に戻ります。' },
+        }
+      ]);
     });
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 

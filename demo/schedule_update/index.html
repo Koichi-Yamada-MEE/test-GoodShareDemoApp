@@ -4,7 +4,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
-  <meta name="description" content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -15,8 +16,8 @@
   <!-- GoodShareデモアプリCSS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
-  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0"/>
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 </head>
 
 <body>
@@ -45,7 +46,6 @@
     <!-- メイン -->
     <div style="position: relative; cursor: pointer;" onclick="showDemoAppRestrictionMessage()">
       <!-- スケジュール設定画面 -->
-      <!-- ツアー用 -->
       <img id="setUpSchedule00" src="../assets/img/schedule_update00.png" style="display: block;" alt="">
     </div>
   </div>
@@ -53,7 +53,7 @@
   <script src="../assets/js/goodshare_demo_app.js"></script>
 
   <script>
-    function getPropertyPath() {
+    const getPropertyPath = () => {
       const parts = [
         "modes",
         getJsonValue("modalGsOpeMode"),
@@ -67,7 +67,7 @@
   </script>
 
   <script>
-    function createModal() {
+    const createModal = () => {
       const propertyPath = getPropertyPath();
 
       if (propertyPath === "modes.mode1.operations.0.setTemp") {
@@ -92,37 +92,25 @@
 
   <!-- driver.js -->
   <script>
-    // 
     window.addEventListener('load', () => {
-      const driver = window.driver.js.driver;
-      const driverObj = driver({
-        popoverClass: 'driverjs-theme',
-        overlayOpacity: 0.4,
-        animate: true,
-        nextBtnText: '進む',
-        prevBtnText: '戻る',
-        doneBtnText: '閉じる',
-        allowClose: false,
-        steps: [
-          {
-            popover: {
-              title: 'スケジュールの設定（循環シェア）',
-              description: '今回は「循環シェア」のスケジュールを作成します。<ul style="margin: 1em 0 0 0"><li>時間：7時</li><li>曜日：月曜日～金曜曜日</li><li>グッシェア運転モード：循環シェア</li><li>エアコン運転モード：停止</li></ul>',
-            },
-          },
-          {
-            element: '#btnBack',
-            popover: {
-              title: 'スケジュールの設定（循環シェア）',
-              description: '設定後は「＜ ボタン」をタップし、前の画面に戻ります。',
-            },
+      startDriverTour([
+        {
+          element: null,
+          popover: {
+            title: 'スケジュールの設定（循環シェア）',
+            description: '今回は「循環シェア」のスケジュールを作成します。<ul style="margin: 1em 0 0 0"><li>時間：7時</li><li>曜日：月曜日～金曜曜日</li><li>グッシェア運転モード：循環シェア</li><li>エアコン運転モード：停止</li></ul>',
           }
-        ]
-      });
-      driverObj.drive();
+        },
+        {
+          element: '#btnBack',
+          popover: {
+            title: 'スケジュールの設定（循環シェア）',
+            description: '設定後は「＜ ボタン」をタップし、前の画面に戻ります。',
+          }
+        }
+      ]);
     });
   </script>
-
 
 </body>
 

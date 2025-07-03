@@ -4,7 +4,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
-  <meta name="description" content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -15,8 +16,8 @@
   <!-- GoodShareデモアプリCSS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
-  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0"/>
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 </head>
 
 <body>
@@ -49,59 +50,66 @@
 
       <!-- 運転モードカード -->
       <div id="racOpeModeBtn" class="elements-container">
-        <div id="operationMode11">
-          <div style="position: absolute; top: 88px; left: 56px; width: 343px; height: 190px; cursor: pointer;"
+        <div id="operationMode11" style="position: absolute; top: 88px; left: 16px; width: 343px; height: 190px;">
+          <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px; cursor: pointer;"
             onclick="setJsonValue('currentOperationMode', 11), setJsonValue('modalGsOpeMode', 'mode1'), window.location.href='../operation_detail_setting/'"
             alt=""></div>
           <img id="radioBtn11" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
-            style="position: absolute; top: 103px; left: 33px; width: 18px; height: auto; cursor: pointer; display: block"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="">
         </div>
-        <div id="operationMode21">
-          <div style="position: absolute; top: 286px; left: 56px; width: 343px; height: 190px;"
+        <div id="operationMode21" style="position: absolute; top: 286px; left: 16px; width: 343px; height: 190px;">
+          <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px;"
             onclick="setJsonValue('currentOperationMode', 21), setJsonValue('modalGsOpeMode', 'mode2')" alt=""></div>
           <img id="radioBtn21" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
-            style="position: absolute; top: 301px; left: 33px; width: 18px; height: auto; cursor: pointer; display: block"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 21)" alt="">
         </div>
-        <div id="operationMode31">
-          <div style="position: absolute; top: 484px; left: 56px; width: 343px; height: 190px; cursor: pointer;"
+        <div id="operationMode31" style="position: absolute; top: 484px; left: 16px; width: 343px; height: 190px;">
+          <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px; cursor: pointer;"
             onclick="setJsonValue('currentOperationMode', 31), setJsonValue('modalGsOpeMode', 'mode3'), window.location.href='../operation_detail_setting/'"
             alt=""></div>
           <img id="radioBtn31" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
-            style="position: absolute; top: 499px; left: 33px; width: 18px; height: auto; cursor: pointer; display: block"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 31)" alt="">
         </div>
-        <div id="operationMode41">
-          <div style="position: absolute; top: 682px; left: 56px; width: 343px; height: 190px; cursor: pointer;"
+        <div id="operationMode41" style="position: absolute; top: 682px; left: 16px; width: 343px; height: 190px;">
+          <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px; cursor: pointer;"
             onclick="setJsonValue('currentOperationMode', 41), setJsonValue('modalGsOpeMode', 'mode4'), setJsonValue('modalRacOpeMode', null), window.location.href='../operation_detail_setting/'"
             alt=""></div>
           <img id="radioBtn41" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
-            style="position: absolute; top: 697px; left: 33px; width: 18px; height: auto; cursor: pointer; display: block"
+            style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 41)" alt="">
         </div>
       </div>
 
       <!-- 運転モードカード 動的テキスト部分 -->
       <!-- 空調シェア -->
-      <img id="cardLabel11" style="position: absolute; top: 127px; left: 32px; width: 317px; height: 38px; display: none;">
+      <img id="cardLabel11"
+        style="position: absolute; top: 127px; left: 32px; width: 317px; height: 38px; display: none;">
       <!-- 循環シェア -->
-      <img id="cardLabel21" style="position: absolute; top: 327px; left: 32px; width: 317px; height: 38px; display: none;">
+      <img id="cardLabel21"
+        style="position: absolute; top: 327px; left: 32px; width: 317px; height: 38px; display: none;">
       <!-- 手動操作 -->
-      <img id="cardLabel31" style="position: absolute; top: 525px; left: 32px; width: 317px; height: 38px; display: none;">
+      <img id="cardLabel31"
+        style="position: absolute; top: 525px; left: 32px; width: 317px; height: 38px; display: none;">
       <!-- 衣類乾燥-->
-      <img id="cardLabel41" style="position: absolute; top: 723px; left: 32px; width: 317px; height: 38px; display: none;">
+      <img id="cardLabel41"
+        style="position: absolute; top: 723px; left: 32px; width: 317px; height: 38px; display: none;">
 
       <!-- モーダル 運転モード切替確認 -->
       <div id="modalOpeStart" class="drawer_menu modal-container"
         style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
         <div
           style="position: relative;  top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: auto;">
-          <img id="modal-image" src="../assets/img/modal_switch.svg" style="width: 100%; height: auto;"
-            alt="">
-          <div id="modal-ok-button" style="position: absolute; top: 115px; left: 223px; width: 71px; height: 50px; cursor: pointer;"
-            onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"></div>
-          <div id="modal-cancel-button" style="position: absolute; top: 115px; left: 38px; width: 96px; height: 50px; cursor: pointer;" onclick="hideModal(this)"></div>
+          <img id="modal-image" src="../assets/img/modal_switch.svg" style="width: 100%; height: auto;" alt="">
+          <div id="modal-ok-button"
+            style="position: absolute; top: 115px; left: 223px; width: 71px; height: 50px; cursor: pointer;"
+            onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'">
+          </div>
+          <div id="modal-cancel-button"
+            style="position: absolute; top: 115px; left: 38px; width: 96px; height: 50px; cursor: pointer;"
+            onclick="hideModal(this)"></div>
         </div>
       </div>
     </div>
@@ -125,7 +133,6 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const gsOpeMode = getJsonValue("currentOperationMode");
-      // ホーム画面
       const imageMapRadioButton = {
         11: "radioBtn11",
         12: "radioBtn11",
@@ -137,9 +144,12 @@
         33: "radioBtn31",
         41: "radioBtn41",
       };
-      const targetElement = document.getElementById(imageMapRadioButton[gsOpeMode])
-      targetElement.src = targetElement.src.replace('btn_radio_off.png', 'btn_radio_on.png');
-      targetElement.style.display = 'block';
+
+      const targetElement = document.getElementById(imageMapRadioButton[gsOpeMode]);
+      if (targetElement) {
+        targetElement.src = targetElement.src.replace('btn_radio_off.png', 'btn_radio_on.png');
+        targetElement.style.display = 'block';
+      }
     });
   </script>
 
@@ -149,23 +159,22 @@
       const gsOpeMode = getJsonValue("currentOperationMode");
       const baseUrl = getJsonValue("baseUrl");
 
-      // 置換パーツ 各カード内の説明ラベル
       const imageMapReplaceParts = {
-        11: ["cardLabel11", getJsonValue("baseUrl"), getJsonValue("modes.mode1.operations.0.switchLabel")],
-        12: ["cardLabel11", getJsonValue("baseUrl"), getJsonValue("modes.mode1.operations.1.switchLabel")],
-        13: ["cardLabel11", getJsonValue("baseUrl"), getJsonValue("modes.mode1.operations.2.switchLabel")],
-        // 21: 
+        11: ["cardLabel11", baseUrl, getJsonValue("modes.mode1.operations.0.switchLabel")],
+        12: ["cardLabel11", baseUrl, getJsonValue("modes.mode1.operations.1.switchLabel")],
+        13: ["cardLabel11", baseUrl, getJsonValue("modes.mode1.operations.2.switchLabel")],
         30: ["", ""], // 空文字
-        31: ["cardLabel31", getJsonValue("baseUrl"), getJsonValue("modes.mode3.operations.0.switchLabel")],
-        32: ["cardLabel31", getJsonValue("baseUrl"), getJsonValue("modes.mode3.operations.1.switchLabel")],
-        33: ["cardLabel31", getJsonValue("baseUrl"), getJsonValue("modes.mode3.operations.2.switchLabel")],
-        41: ["cardLabel41", getJsonValue("baseUrl"), getJsonValue("modes.mode4.operations.0.switchLabel")],
+        31: ["cardLabel31", baseUrl, getJsonValue("modes.mode3.operations.0.switchLabel")],
+        32: ["cardLabel31", baseUrl, getJsonValue("modes.mode3.operations.1.switchLabel")],
+        33: ["cardLabel31", baseUrl, getJsonValue("modes.mode3.operations.2.switchLabel")],
+        41: ["cardLabel41", baseUrl, getJsonValue("modes.mode4.operations.0.switchLabel")],
       };
-      const replaceParts = imageMapReplaceParts[gsOpeMode];
-      const targetElementReplaceParts = document.getElementById(replaceParts[0]);
 
-      if (targetElementReplaceParts && replaceParts[2]) {
-        targetElementReplaceParts.src = replaceParts[1] + replaceParts[2];
+      const [targetId, url, label] = imageMapReplaceParts[gsOpeMode] || [];
+      const targetElementReplaceParts = document.getElementById(targetId);
+
+      if (targetElementReplaceParts && label) {
+        targetElementReplaceParts.src = `${url}${label}`;
         targetElementReplaceParts.style.display = "block";
       }
     });
@@ -173,59 +182,43 @@
 
   <!-- driver.js -->
   <script>
-    // isFirstVisitがtrueの場合にDriver.jsのツアーを実行
     window.addEventListener('load', () => {
       const propertyValue = getJsonValue('isFirstVisit.opeModeSelection');
-
       if (propertyValue) {
-        const driver = window.driver.js.driver;
-        const driverObj = driver({
-          popoverClass: 'driverjs-theme',
-          overlayOpacity: 0.2,
-          animate: true,
-          nextBtnText: '進む',
-          prevBtnText: '戻る',
-          doneBtnText: '閉じる',
-          scrollIntoViewOptions: {
-            behavior: 'smooth', // スムーズスクロール
-            block: 'center',    // 画面中央に配置
-            inline: 'center'
-          },
-          steps: [
-            {
-              element: '#operationMode11',
-              popover: {
-                title: '運転モードの選択',
-                description: '<p>エアコン運転時に快適な空気をシェアします。エアコンが停止すると自動で循環シェアに切り替わります。</p>'
-              }
-            },
-            {
-              element: '#operationMode21',
-              popover: {
-                title: '運転モードの選択',
-                description: '<p>エアコンは停止時に室内温度や湿度、気象情報と連携して宅内を快適にします。エアコンが運転開始すると自動で空調シェアに切り替わります。</p>'
-              }
-            },
-            {
-              element: '#operationMode31',
-              popover: {
-                title: '運転モードの選択',
-                description: '<p>エアコンや送風ファンを手動で停止するなどの設定が可能です。</p>'
-              }
-            },
-            {
-              element: '#operationMode41',
-              popover: {
-                title: '運転モードの選択',
-                description: '<p>送風ファンを強で運転して衣類乾燥をアシストします。</p>',
-              }
+        startDriverTour([
+          {
+            element: '#operationMode11',
+            popover: {
+              title: '運転モードの選択',
+              description: 'エアコン運転時に快適な空気をシェアします。エアコンが停止すると自動で循環シェアに切り替わります。'
             }
-          ]
-        });
-        driverObj.drive();
+          },
+          {
+            element: '#operationMode21',
+            popover: {
+              title: '運転モードの選択',
+              description: 'エアコンは停止時に室内温度や湿度、気象情報と連携して宅内を快適にします。エアコンが運転開始すると自動で空調シェアに切り替わります。'
+            }
+          },
+          {
+            element: '#operationMode31',
+            popover: {
+              title: '運転モードの選択',
+              description: 'エアコンや送風ファンを手動で停止するなどの設定が可能です。'
+            }
+          },
+          {
+            element: '#operationMode41',
+            popover: {
+              title: '運転モードの選択',
+              description: '送風ファンを強で運転して衣類乾燥をアシストします。',
+            }
+          },
+        ]);
       }
     });
   </script>
 
 </body>
+
 </html>

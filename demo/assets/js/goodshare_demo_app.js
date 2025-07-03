@@ -21,7 +21,7 @@ function showImg(id) {
 /******************************************
  * JSON操作
  ******************************************/
-// JSONからプロパティ値を取得
+// プロパティの値を取得
 function getJsonValue(keyPath) {
   // セッションストレージからJSONデータを取得
   const jsonData = sessionStorage.getItem("demoAppData");
@@ -39,7 +39,7 @@ function getJsonValue(keyPath) {
   }
 }
 
-// JSONのプロパティ値を更新
+// プロパティの値を更新
 function setJsonValue(keyPath, newValue) {
   // セッションストレージからJSONデータを取得
   const jsonData = sessionStorage.getItem("demoAppData");
@@ -85,7 +85,7 @@ function setJsonValue(keyPath, newValue) {
 function showModal(modalId, modalPath) {
   const modalContainer = document.getElementById('modal-container');
   const modalImage = document.getElementById('modal-image');
-  
+
   modalContainer.id = modalId;
   modalImage.src = modalPath;
   modalContainer.style.display = 'block';
@@ -147,47 +147,46 @@ function showDemoAppRestrictionMessage() {
   alert('デモアプリではこのボタンは操作できません。');
 }
 
-// driver.js（送風ファンの運転ボタンを選択した時）
-function popoverFan() {
+/******************************************
+ * Driver.js操作
+ ******************************************/
+// Driver.jsのツアーを実行する（基本パターン：進む／戻る／閉じる）
+let driverObj; // グローバル定義
+const startDriverTour = (steps) => {
   const driver = window.driver.js.driver;
-  const driverObj = driver({
+  driverObj = driver({
     popoverClass: 'driverjs-theme',
     overlayOpacity: 0.4,
     animate: true,
     nextBtnText: '進む',
     prevBtnText: '戻る',
     doneBtnText: '閉じる',
-    steps: [
-      {
-        element: null,
-        popover: {
-          description: 'エアコンの状態に関わらず送風ファンは運転します。ここでは「強」に設定します。',
-        },
-      }
-    ],
+    steps,
   });
   driverObj.drive();
+};
+
+// driver.js（送風ファンの運転ボタンを選択した時）
+const popoverFan = () => {
+  startDriverTour([
+    {
+      element: null,
+      popover: { description: 'エアコンの状態に関わらず送風ファンは運転します。ここでは「強」に設定します。' }
+    }
+  ]);
 };
 
 // driver.js（環境センサー）
-function popoverSensor() {
-  const driver = window.driver.js.driver;
-  const driverObj = driver({
-    popoverClass: 'driverjs-theme',
-    overlayOpacity: 0.4,
-    animate: true,
-    nextBtnText: '進む',
-    prevBtnText: '戻る',
-    doneBtnText: '閉じる',
-    steps: [
-      {
-        element: null,
-        popover: {
-          description: 'ここでは脱衣所に設置した環境センサーとします。',
-        },
-      }
-    ],
-  });
-  driverObj.drive();
+const popoverSensor = () => {
+  startDriverTour([
+    {
+      element: null,
+      popover: { description: 'ここでは脱衣所に設置した環境センサーとします。' }
+    }
+  ]);
 };
 
+// ポップオーバーを閉じる
+const closePopover = () => {
+  driverObj.destroy(); // popoverを閉じる
+};

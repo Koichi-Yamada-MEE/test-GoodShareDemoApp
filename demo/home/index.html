@@ -4,7 +4,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
-  <meta name="description" content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
+  <meta name="description"
+    content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -15,8 +16,8 @@
   <!-- GoodShareデモアプリCSS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
-  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js?v=1.0.0"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css?v=1.0.0" />
+  <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 </head>
 
 <body>
@@ -55,17 +56,24 @@
           style="position: absolute; top: 0; left: 0; width: 375px; height: 100%; background-color: rgba(128, 128, 128, 0.5);">
           <img src="../assets/img/drawer_menu.png" style="width: 375px; height: auto;" alt="">
           <!-- 無効ボタン（aleart） -->
-          <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>  <!-- お知らせ -->
-          <div id="settings" style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;" onclick="window.location.href='../setting/'"></div>  <!-- グッシェア設定 -->
-          <div id="" style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>  <!-- アプリ情報 -->
-          <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;" onclick="showDemoAppRestrictionMessage()"></div>  <!-- ヘルプ -->
-          <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;" onclick="hideModal(this)"></div>  <!-- 閉じる -->
+          <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div> <!-- お知らせ -->
+          <div id="settings"
+            style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;"
+            onclick="window.location.href='../setting/'"></div> <!-- グッシェア設定 -->
+          <div id="" style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div> <!-- アプリ情報 -->
+          <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;"
+            onclick="showDemoAppRestrictionMessage()"></div> <!-- ヘルプ -->
+          <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;"
+            onclick="hideModal(this)"></div> <!-- 閉じる -->
         </div>
       </div>
 
       <!-- popover用エリア -->
       <!-- 画面中央 -->
-      <div id="centerElement" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0;"></div>
+      <div id="centerElement"
+        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0;"></div>
       <!-- エアコンの状態 -->
       <div id="racStatus" style="position: absolute; top: 284px; left: 0; width: 375px; height: 139px;"></div>
       <!-- 送風ファンの状態-->
@@ -73,8 +81,9 @@
       <!-- 環境センサーの状態 -->
       <div id="sensorStatus" style="position: absolute; top: 537px; left: 0; width: 375px; height: 76px;"></div>
       <!-- 運転モードボタン -->
-      <div id="gsOpeModeButton" style="position: absolute; top: 157px; left: 37px; width:300px; height: 58px; cursor: pointer;"
-      onclick="setJsonValue('isFirstVisit.homeScreen', false), window.location.href='../operation_switch/'"></div>
+      <div id="gsOpeModeButton"
+        style="position: absolute; top: 157px; left: 37px; width:300px; height: 58px; cursor: pointer;"
+        onclick="setJsonValue('isFirstVisit.homeScreen', false), window.location.href='../operation_switch/'"></div>
     </div>
 
     <!-- フッター -->
@@ -93,199 +102,146 @@
   <!-- GoodShareデモアプリJS -->
   <script src="../assets/js/goodshare_demo_app.js"></script>
 
-  <!-- 初期表示 ホーム画面＋運転モードボタン -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    // 初期画面の表示（ホーム画面＋運転モードボタン）
+    document.addEventListener('DOMContentLoaded', () => {
       const gsOpeMode = getJsonValue("currentOperationMode");
       const baseUrl = getJsonValue("baseUrl");
-      // ホーム画面
       const targetElementImg = document.getElementById('gsImageHome');
       const imageMapBase = {
-        11: baseUrl + "home_cir_11.png", // 11: 空調シェア-冷房
-        12: baseUrl + "home_cir_12.png", // 12: 空調シェア-暖房
-        13: baseUrl + "home_cir_13.png", // 13: 空調シェア-除湿
-        21: baseUrl + "home_air_21.png", // 21: 循環シェア
-        30: baseUrl + "home_man_30.png", // 30: 手動操作-送風（アプリ初期起動画面）
-        31: baseUrl + "home_man_31.png", // 31: 手動操作-冷房
-        32: baseUrl + "home_man_32.png", // 32: 手動操作-暖房
-        33: baseUrl + "home_man_33.png", // 33: 手動操作-除湿
-        41: baseUrl + "home_dry_41.png", // 41: 衣類乾燥
+        11: `${baseUrl}home_cir_11.png`,
+        12: `${baseUrl}home_cir_12.png`,
+        13: `${baseUrl}home_cir_13.png`,
+        21: `${baseUrl}home_air_21.png`,
+        30: `${baseUrl}home_man_30.png`,
+        31: `${baseUrl}home_man_31.png`,
+        32: `${baseUrl}home_man_32.png`,
+        33: `${baseUrl}home_man_33.png`,
+        41: `${baseUrl}home_dry_41.png`,
       };
       if (targetElementImg) {
         targetElementImg.src = imageMapBase[gsOpeMode];
         targetElementImg.style.display = 'block';
       }
     });
-  </script>
 
-  <!-- driver.js/初期画面 -->
-  <script>
-    // isFirstVisitがtrueの場合にDriver.jsのツアーを実行
+    // Driver.js/初期画面
     window.addEventListener('load', () => {
       const propertyValue = getJsonValue('isFirstVisit.homeScreen');
       if (propertyValue) {
-        const driver = window.driver.js.driver;
-        const driverObj = driver({
-          popoverClass: 'driverjs-theme',
-          overlayOpacity: 0.4,
-          animate: true,
-          nextBtnText: '進む',
-          prevBtnText: '戻る',
-          doneBtnText: '閉じる',
-          steps: [
-            {
-              element: null,
-              popover: {
-                description: '<div style="text-align: center;"><img src="../assets/img/splash_shr.png" style="width: 280px; height: 86px;"></div><p style="text-align: justify">このデモアプリでは、Good Share！（グッシェア）の操作・設定についてご案内します。</p><ul style="margin: 1em 0 0 2em"><li>運転モードの選択</li><li>運転詳細の設定</li><li>運転スケジュールの作成</li><li>グッシェアの設定</li></ul>'
-              }
-            },
-            {
-              element: '#gsOpeModeButton',
-              popover: {
-                title: '運転モード',
-                description: '現在選択しているグッシェア運転モードを表示します。'
-              }
-            },
-            {
-              element: '#racStatus',
-              popover: {
-                title: 'エアコンの状態',
-                description: 'エアコンの運転モードや設定した温湿度、お部屋で取得した温湿度を表示します。'
-              }
-            },
-            {
-              element: '#fanStatus',
-              popover: {
-                title: '送風ファンの状態',
-                description: '送風ファンの運転状態を表示します。送風が開始されると矢印の色が変化します。'
-              }
-            },
-            {
-              element: '#sensorStatus',
-              popover: {
-                title: '環境センサーの状態',
-                description: '環境センサーが取得した温度と湿度を表示します。連携している環境センサーには、<span style="color: #58DA6D;">●</span>が表示されます。'
-              }
-            },
-            {
-              element: '#gsOpeModeButton',
-              popover: {
-                description: '<p>このボタンをタップして始めましょう！！</p><p style="margin-top: 1em;">運転切替画面に進み、目的の運転モードを選択します。</p>'
-              }
-            },
-          ],
-        });
-        driverObj.drive();
+        startDriverTour([
+          {
+            element: null,
+            popover: {
+              description: `
+              <div style="text-align: center;">
+                <img src="../assets/img/splash_shr.png" style="width: 280px; height: 86px;">
+              </div>
+              <p style="text-align: justify">このデモアプリでは、Good Share！（グッシェア）の操作・設定についてご案内します。</p>
+              <ul style="margin: 1em 0 0 2em">
+                <li>運転モードの選択</li>
+                <li>運転詳細の設定</li>
+                <li>運転スケジュールの作成</li>
+                <li>グッシェアの設定</li>
+              </ul>
+            `
+            }
+          },
+          {
+            element: '#gsOpeModeButton',
+            popover: {
+              title: '運転モード',
+              description: '現在選択しているグッシェア運転モードを表示します。'
+            }
+          },
+          {
+            element: '#racStatus',
+            popover: {
+              title: 'エアコンの状態',
+              description: 'エアコンの運転モードや設定した温湿度、お部屋で取得した温湿度を表示します。'
+            }
+          },
+          {
+            element: '#fanStatus',
+            popover: {
+              title: '送風ファンの状態',
+              description: '送風ファンの運転状態を表示します。送風が開始されると矢印の色が変化します。'
+            }
+          },
+          {
+            element: '#sensorStatus',
+            popover: {
+              title: '環境センサーの状態',
+              description: '環境センサーが取得した温度と湿度を表示します。連携している環境センサーには、<span style="color: #58DA6D;">●</span>が表示されます。'
+            }
+          },
+          {
+            element: '#gsOpeModeButton',
+            popover: {
+              description: `
+              <p>このボタンをタップして始めましょう！！</p>
+              <p style="margin-top: 1em;">運転切替画面に進み、目的の運転モードを選択します。</p>
+            `
+            }
+          },
+        ]);
       }
     });
-  </script>
-  
-  <!-- driver.js/Gifアニメーション -->
-  <script>
-    // isFirstVisitがtrue（ホーム画面を初めて表示する）なら、Driver.jsのツアーを実行
+
+    // Driver.js/Gifアニメーション
     window.addEventListener('load', () => {
       const propertyValue = getJsonValue('isFirstVisit.homeScreen');
       if (!propertyValue) {
         const gsOpeMode = getJsonValue("currentOperationMode");
         const baseUrl = getJsonValue("baseUrl");
-        // GIFアニメーションの画像URLを定義
         const imageMapBase = {
-          11: baseUrl + "home_cir_11.gif",
-          12: baseUrl + "home_cir_12.gif",
-          13: baseUrl + "home_cir_13.gif",
+          11: `${baseUrl}home_cir_11.gif`,
+          12: `${baseUrl}home_cir_12.gif`,
+          13: `${baseUrl}home_cir_13.gif`,
           21: null,
-          31: baseUrl + "home_man_31.gif",
-          32: baseUrl + "home_man_32.gif",
-          33: baseUrl + "home_man_33.gif",
+          30: null,
+          31: `${baseUrl}home_man_31.gif`,
+          32: `${baseUrl}home_man_32.gif`,
+          33: `${baseUrl}home_man_33.gif`,
           41: null,
         };
 
-        // gsOpeModeに対応する画像URLを取得
         const imageUrl = imageMapBase[gsOpeMode];
-        // imageUrlが存在する場合のみDriver.jsのツアーを実行
-        if (gsOpeMode === 11 || gsOpeMode === 12 || gsOpeMode === 13 || gsOpeMode === 31 || gsOpeMode === 32 || gsOpeMode === 33) {
-          const driver = window.driver.js.driver;
-          const driverObj = driver({
-            popoverClass: 'driverjs-theme',
-            overlayOpacity: 0.4,
-            animate: true,
-            nextBtnText: '進む',
-            prevBtnText: '戻る',
-            doneBtnText: '閉じる',
-            steps: [
-              {
-                element: null,
-                popover: {
-                  description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div>`
-                }
-              },
-            ],
-          });
-          driverObj.drive();
+        if ([11, 12, 13, 31, 32, 33].includes(gsOpeMode)) {
+          startDriverTour([{
+            element: null,
+            popover: {
+              description: `<div style="text-align: center;"><img src="${imageUrl}" alt="チュートリアルGIF" style="width: 255px; height: 377px;" /></div>`
+            }
+          }]);
         } else if (gsOpeMode === 21) {
-          // 循環シェアの場合は、GIFアニメーションを表示しない
-          const driver = window.driver.js.driver;
-          const driverObj = driver({
-            popoverClass: 'driverjs-theme',
-            overlayOpacity: 0.4,
-            animate: true,
-            nextBtnText: '進む',
-            prevBtnText: '戻る',
-            doneBtnText: '閉じる',
-            steps: [
-              {
-                element: null,
-                popover: {
-                  description: `冬の日射で暖かくなった空気をシェアします。`
-                }
-              },
-            ],
-          });
-          driverObj.drive();
-        } else {
-          // 41（衣類乾燥）の場合は、GIFアニメーションを表示しない
-          const driver = window.driver.js.driver;
-          const driverObj = driver({
-            popoverClass: 'driverjs-theme',
-            overlayOpacity: 0.4,
-            animate: true,
-            nextBtnText: '進む',
-            prevBtnText: '戻る',
-            doneBtnText: '閉じる',
-            steps: [
-              {
-                element: null,
-                popover: {
-                  description: `送風ファンで部屋干しをアシストします。`
-                }
-              },
-            ],
-          });
-          driverObj.drive();
+          startDriverTour([{
+            element: null,
+            popover: {
+              description: `冬の日射で暖かくなった空気をシェアします。`
+            }
+          }]);
+        } else if (gsOpeMode === 41) {
+          startDriverTour([{
+            element: null,
+            popover: {
+              description: `送風ファンで部屋干しをアシストします。`
+            }
+          }]);
         }
       }
     });
-  </script>
 
-
-  <!-- driver.js/ハンバーガーメニュー -->
-  <script>
-    function showHamburgerMenuModal() {
-      const driver = window.driver.js.driver;
-      const driverObj = driver({
-        popoverClass: 'driverjs-theme',
-        overlayOpacity: 0.4,
-        animate: true,
-        showButtons: ("next"),
-        doneBtnText: '閉じる',
-        steps: [
-          {
-            element: '#settings', popover: { title: 'グッシェア設定', description: 'このボタンからグッシェア設定画面に移動します。' }
-          },
-        ],
-      });
-      driverObj.drive();
-    }
+    // Driver.js/ハンバーガーメニュー
+    const showHamburgerMenuModal = () => {
+      startDriverTour([{
+        element: '#settings',
+        popover: {
+          title: 'グッシェア設定',
+          description: 'このボタンからグッシェア設定画面に移動します。'
+        }
+      }]);
+    };
   </script>
 </body>
 
