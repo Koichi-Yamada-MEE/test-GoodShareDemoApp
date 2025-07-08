@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <title>ホーム｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
   <meta name="description"
     content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
@@ -17,7 +17,7 @@
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
   <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
       <span class="loading_spinner"></span>
     </div>
   </div>
-  <div class="demo_app_wrap screen_height_667" style="position: relative;">
+  <div class="demo_app_wrap screen_height_667">
     <div class="demo_app_wrap__fixed_txt">
       <div class="demo_app_wrap__fixed_txt_inr">
         実際のアプリとは仕様が異なる場合があります
@@ -34,39 +34,44 @@
     </div>
 
     <!-- ヘッダー -->
-    <div class="demo_app_wrap__header">
+    <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
         <img src="../assets/img/header_gs.svg" alt="">
       </div>
       <!-- ハンバーガーメニュー -->
-      <div id="hamburgerMenu">
+      <nav id="hamburgerMenu">
         <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 71px; cursor: pointer;"
           onclick="showImg('modalMenu'), showHamburgerMenuModal()"></div>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <!-- メイン -->
-    <div style="position: relative;">
+    <main style="position: relative;">
       <!-- ホーム画面 -->
       <img id="gsImageHome" style="display: none;" alt="">
 
       <!-- ハンバーガーメニューのモーダル -->
       <div id="modalMenu" style="display:none;" class="modal-container">
         <div class="drawer_menu"
-          style="position: absolute; top: 0; left: 0; width: 375px; height: 100%; background-color: rgba(128, 128, 128, 0.5);">
+          style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5);">
           <img src="../assets/img/drawer_menu.png" style="width: 375px; height: auto;" alt="">
           <!-- 無効ボタン（aleart） -->
+          <!-- お知らせ --> 
           <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div> <!-- お知らせ -->
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <!-- グッシェア設定 -->
           <div id="settings"
             style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;"
-            onclick="window.location.href='../setting/'"></div> <!-- グッシェア設定 -->
+            onclick="window.location.href='../setting/'"></div>
+          <!-- アプリ情報 -->
           <div id="" style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div> <!-- アプリ情報 -->
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <!-- ヘルプ -->
           <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div> <!-- ヘルプ -->
+            onclick="showDemoAppRestrictionMessage()"></div>
+          <!-- ✕（閉じる） -->
           <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;"
-            onclick="hideModal(this)"></div> <!-- 閉じる -->
+            onclick="hideModal(this)"></div>
         </div>
       </div>
 
@@ -82,12 +87,12 @@
       <div id="sensorStatus" style="position: absolute; top: 537px; left: 0; width: 375px; height: 76px;"></div>
       <!-- 運転モードボタン -->
       <div id="gsOpeModeButton"
-        style="position: absolute; top: 157px; left: 37px; width:300px; height: 58px; cursor: pointer;"
+        style="position: absolute; top: 157px; left: 37px; width: 300px; height: 58px; cursor: pointer;"
         onclick="setJsonValue('isFirstVisit.homeScreen', false), window.location.href='../operation_switch/'"></div>
-    </div>
+    </main>
 
     <!-- フッター -->
-    <div class="demo_app_wrap__footer">
+    <footer class="demo_app_wrap__footer">
       <div class="demo_app_wrap__footer_inr">
         <img src="../assets/img/footer_bar.svg" alt="">
       </div>
@@ -96,7 +101,7 @@
         onclick="window.location.href='../home/'" alt="">
       <div style="position: absolute; bottom: 0px; left: 264px; width: 94px; height: 48px; cursor: pointer;"
         onclick="window.location.href='../schedule/'"></div>
-    </div>
+    </footer>
   </div>
 
   <!-- GoodShareデモアプリJS -->

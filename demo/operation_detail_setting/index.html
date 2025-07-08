@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <title>運転詳細設定｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
   <meta name="description"
     content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
@@ -34,17 +34,17 @@
     </div>
 
     <!-- ヘッダー -->
-    <div class="demo_app_wrap__header">
+    <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
         <img id="header_setting" style="display: none;" alt="">
       </div>
       <!-- 戻る -->
       <div id="btnBack" style="position: absolute; top: 4px; left: 3px; width: 36px; height: 55px; cursor: pointer;"
         onclick="window.location.href='../operation_switch/'"></div>
-    </div>
+    </header>
 
     <!-- メイン -->
-    <div style="position: relative;">
+    <main style="position: relative;">
       <!-- ベース画面 空調シェア設定・手動操作設定・衣類乾燥設定 -->
       <img id="gsImageSetting" style="display: none;" alt="">
 
@@ -173,7 +173,7 @@
       <img id="setElement41"
         style="position: absolute; top: 149px; left: 22px; width: 268px; height: auto; display: none;" alt="">
 
-    </div>
+    </main>
   </div>
 
   <!-- GoodShareデモアプリJS -->
@@ -193,6 +193,8 @@
         13: baseUrl + "header_setting_11.svg",
         // 21:
         31: baseUrl + "header_setting_31.svg",
+        32: baseUrl + "header_setting_31.svg",
+        33: baseUrl + "header_setting_31.svg",
         41: baseUrl + "header_setting_41.svg",
       };
       if (targetElementHeader) {
@@ -208,6 +210,8 @@
         13: baseUrl + "main_setting_11.png",
         // 21:
         31: baseUrl + "main_setting_31.png",
+        32: baseUrl + "main_setting_31.png",
+        33: baseUrl + "main_setting_31.png",
         41: baseUrl + "main_setting_41.png",
       };
       if (targetElementImg) {
@@ -222,6 +226,8 @@
         13: "buttonSetting11",
         // 21:
         31: "buttonSetting31",
+        32: "buttonSetting31",
+        33: "buttonSetting31",
         41: "buttonSetting41",
       };
       const targetElementBtn = document.getElementById(imageMapBtn[gsOpeMode]);
@@ -231,14 +237,14 @@
 
       // 置換パーツ 温湿度 タイマー時間
       const imageMapReplaceParts = {
-        11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
-        12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
-        13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
+        11: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.0.imageUrl")],
+        12: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.1.imageUrl")],
+        13: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.2.imageUrl")],
         // 21: 
-        31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
-        32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
-        33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
-        41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
+        31: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.0.imageUrl")],
+        32: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.1.imageUrl")],
+        33: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.2.imageUrl")],
+        41: ["setElement41", baseUrl + getJsonValue("modes.mode4.operations.0.imageUrl")],
       };
       const replaceParts = imageMapReplaceParts[gsOpeMode];
       const targetElementReplaceParts = document.getElementById(replaceParts[0]);
@@ -258,15 +264,16 @@
         button.addEventListener('click', function () {
           // テキスト置換パーツ
           const gsOpeMode = getJsonValue("currentOperationMode");
+          const baseUrl = getJsonValue("baseUrl");
           const imageMapReplaceParts = {
-            11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
-            12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
-            13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
+            11: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.0.imageUrl")],
+            12: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.1.imageUrl")],
+            13: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.2.imageUrl")],
             // 21: 
-            31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
-            32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
-            33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
-            41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
+            31: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.0.imageUrl")],
+            32: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.1.imageUrl")],
+            33: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.2.imageUrl")],
+            41: ["setElement41", baseUrl + getJsonValue("modes.mode4.operations.0.imageUrl")],
           };
           const replaceParts = imageMapReplaceParts[gsOpeMode];
           const targetElementReplaceParts = document.getElementById(replaceParts[0]);
@@ -306,15 +313,16 @@
           }
 
           // 置換パーツを更新
+          const baseUrl = getJsonValue("baseUrl");
           const imageMapReplaceParts = {
-            11: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.0.imageUrl")],
-            12: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.1.imageUrl")],
-            13: ["setElement11", getJsonValue("baseUrl") + getJsonValue("modes.mode1.operations.2.imageUrl")],
+            11: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.0.imageUrl")],
+            12: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.1.imageUrl")],
+            13: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.2.imageUrl")],
             // 21: 
-            31: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.0.imageUrl")],
-            32: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.1.imageUrl")],
-            33: ["setElement31", getJsonValue("baseUrl") + getJsonValue("modes.mode3.operations.2.imageUrl")],
-            41: ["setElement41", getJsonValue("baseUrl") + getJsonValue("modes.mode4.operations.0.imageUrl")],
+            31: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.0.imageUrl")],
+            32: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.1.imageUrl")],
+            33: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.2.imageUrl")],
+            41: ["setElement41", baseUrl + getJsonValue("modes.mode4.operations.0.imageUrl")],
           };
           const replaceParts = imageMapReplaceParts[gsOpeMode];
           const targetElementReplaceParts = document.getElementById(replaceParts[0]);

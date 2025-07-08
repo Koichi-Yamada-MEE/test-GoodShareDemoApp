@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <title>運転切替｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
   <meta name="description"
     content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
@@ -34,53 +34,53 @@
     </div>
 
     <!-- ヘッダー -->
-    <div class="demo_app_wrap__header">
+    <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
         <img src="../assets/img/header_op_mode_selection.svg" alt="">
       </div>
       <!-- 戻るボタン -->
       <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 55px; cursor: pointer;"
         onclick="window.location.href='../home/'"></div>
-    </div>
+    </header>
 
     <!-- メイン -->
-    <div style="position: relative;">
+    <main style="position: relative;">
       <!-- 基本画面 -->
       <img src="../assets/img/operation_switch.png" alt="">
 
       <!-- 運転モードカード -->
       <div id="racOpeModeBtn" class="elements-container">
-        <div id="operationMode11" style="position: absolute; top: 88px; left: 16px; width: 343px; height: 190px;">
+        <section id="operationMode11" style="position: absolute; top: 88px; left: 16px; width: 343px; height: 190px;">
           <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px; cursor: pointer;"
             onclick="setJsonValue('currentOperationMode', 11), setJsonValue('modalGsOpeMode', 'mode1'), window.location.href='../operation_detail_setting/'"
             alt=""></div>
           <img id="radioBtn11" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
             style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="">
-        </div>
-        <div id="operationMode21" style="position: absolute; top: 286px; left: 16px; width: 343px; height: 190px;">
+        </section>
+        <section id="operationMode21" style="position: absolute; top: 286px; left: 16px; width: 343px; height: 190px;">
           <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px;"
             onclick="setJsonValue('currentOperationMode', 21), setJsonValue('modalGsOpeMode', 'mode2')" alt=""></div>
           <img id="radioBtn21" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
             style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 21)" alt="">
-        </div>
-        <div id="operationMode31" style="position: absolute; top: 484px; left: 16px; width: 343px; height: 190px;">
+        </section>
+        <section id="operationMode31" style="position: absolute; top: 484px; left: 16px; width: 343px; height: 190px;">
           <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px; cursor: pointer;"
             onclick="setJsonValue('currentOperationMode', 31), setJsonValue('modalGsOpeMode', 'mode3'), window.location.href='../operation_detail_setting/'"
             alt=""></div>
           <img id="radioBtn31" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
             style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 31)" alt="">
-        </div>
-        <div id="operationMode41" style="position: absolute; top: 682px; left: 16px; width: 343px; height: 190px;">
+        </section>
+        <section id="operationMode41" style="position: absolute; top: 682px; left: 16px; width: 343px; height: 190px;">
           <div style="position: absolute; top: 0px; left: 0px; width: 343px; height: 190px; cursor: pointer;"
             onclick="setJsonValue('currentOperationMode', 41), setJsonValue('modalGsOpeMode', 'mode4'), setJsonValue('modalRacOpeMode', null), window.location.href='../operation_detail_setting/'"
             alt=""></div>
           <img id="radioBtn41" src="../assets/img/btn_radio_off.png" class="toggle-btn" data-group="radio"
             style="position: absolute; top: 15px; left: 17px; width: 18px; height: auto; cursor: pointer; display: block"
             onclick="toggleButton(this), setJsonValue('currentOperationMode', 41)" alt="">
-        </div>
+        </section>
       </div>
 
       <!-- 運転モードカード 動的テキスト部分 -->
@@ -112,10 +112,10 @@
             onclick="hideModal(this)"></div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- フッター -->
-    <div class="demo_app_wrap__footer" style="z-index: 20;">
+    <footer class="demo_app_wrap__footer" style="z-index: 20;">
       <div class="demo_app_wrap__footer_inr" style="position: relative;">
         <img src="../assets/img/footer_ope_mode.svg" alt="">
         <!-- リンク領域／運転開始ボタン-->
@@ -123,7 +123,7 @@
           style="position: absolute; top: 12px; left: 33px; width: 311px; height: 48px; cursor: pointer;"
           onclick="showImg('modalOpeStart')" alt="">
       </div>
-    </div>
+    </footer>
   </div>
 
   <!-- GoodShareデモアプリJS -->

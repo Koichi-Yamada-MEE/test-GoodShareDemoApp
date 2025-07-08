@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
+  <title>設定｜三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）｜三菱電機</title>
   <meta name="description"
     content="三菱電機ホームソリューション ［マルチエリア空調］ Good Share！（グッシェア）の機能・特長ページです。空気をシェアして、暮らしを快適にするGood Share!（グッシェア）をご紹介します。あなたにちょうどいい心地よさで、一年を通して暮らし心地を支えます。">
   <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
@@ -34,39 +34,39 @@
     </div>
 
     <!-- ヘッダー -->
-    <div class="demo_app_wrap__header">
+    <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
         <img src="../assets/img/header_goodshare_settings.svg" alt="">
       </div>
       <!-- 戻るボタン -->
       <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 55px; cursor: pointer;"
         onclick="history.back()"></div>
-    </div>
+    </header>
 
     <!-- メイン -->
-    <div style="position: relative;">
+    <main style="position: relative;">
       <!-- ベース画面 グッシェア初期設定 -->
       <img id="settingOperation01" src="../assets/img/settings.png" style="display: block;" alt="">
 
       <!-- 郵便番号 -->
-      <div id="btn_chg" style="position: absolute; top: 257px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
-        onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></div>
+      <section id="btn_chg" style="position: absolute; top: 257px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
+        onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></section>
       <!-- 連携する環境センサー -->
-      <div id="btn_sensor"
+      <section id="btn_sensor"
         style="position: absolute; top: 396px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
-        onclick="popoverSensor()"></div>
+        onclick="popoverSensor()"></section>
       <!-- 異常時お知らせ通知 -->
-      <div style="position: absolute; top: 532px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></div>
+      <section style="position: absolute; top: 532px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></section>
       <!-- 衣類乾燥完了お知らせ通知 -->
-      <div style="position: absolute; top: 612px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></div>
+      <section style="position: absolute; top: 612px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></section>
       <!-- 常時送風設定 -->
-      <div style="position: absolute; top: 753px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></div>
+      <section style="position: absolute; top: 753px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></section>
       <!-- 空調連携時ひかえめ制御 -->
-      <div style="position: absolute; top: 892px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></div>
+      <section style="position: absolute; top: 892px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
+        onclick="showDemoAppRestrictionMessage()"></section>
 
       <!-- モーダル 郵便番号 -->
       <div id="modalPostalCode" class="drawer_menu modal-container"
@@ -90,26 +90,25 @@
       <!-- 置換パーツ 郵便番号 -->
       <img id="postalCode"
         style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
-    </div>
+    </main>
   </div>
 
   <!-- GoodShareデモアプリJS -->
   <script src="../assets/js/goodshare_demo_app.js"></script>
 
   <!-- 置換パーツ初期状態 郵便番号 -->
-  <script>
+  <!-- <script>
     window.addEventListener('DOMContentLoaded', () => {
       const targetElemen = document.getElementById('postalCode');
       const targetElementUrl = getJsonValue("baseUrl") + getJsonValue("gsSettinngs.postalCode")
       targetElemen.src = targetElementUrl;
       targetElemen.style.display = 'block'; // 必要に応じて表示する
     });
-  </script>
+  </script> -->
 
   <!-- 置換パーツ更新後 郵便番号 -->
   <script>
     const buttonIds = ['modal-ok-button'];
-    const targetURL = getJsonValue("baseUrl") + getJsonValue("gsSettinngs.postalCode");
     buttonIds.forEach(function (id) {
       const button = document.getElementById(id);
       if (button) {
