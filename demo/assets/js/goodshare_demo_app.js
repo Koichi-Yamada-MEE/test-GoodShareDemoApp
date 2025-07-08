@@ -123,20 +123,6 @@ function toggleButton(selectedImg) {
   }
 }
 
-// 新規スケジュール画面
-function resetBlock() {
-  document.getElementById('setUpSchedule02').style.display = 'none';
-  document.getElementById('setUpSchedule11').style.display = 'none';
-  document.getElementById('setUpSchedule12').style.display = 'none';
-  document.getElementById('setUpSchedule13').style.display = 'none';
-  document.getElementById('setUpSchedule14').style.display = 'none';
-  document.getElementById('blk1').style.display = 'none';
-  document.getElementById('blk2').style.display = 'none';
-  document.getElementById('blk3').style.display = 'none';
-  document.getElementById('blk4').style.display = 'none';
-  document.getElementById('blk5').style.display = 'none';
-}
-
 function replaceElement(targetElementId, replaceFileName) {
   const targetElement = document.getElementById(targetElementId);
   targetElement.src = getJsonValue(baseUrl) + replaceFileName;
