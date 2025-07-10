@@ -37,12 +37,12 @@ body {
 
 /* 縦スクロールした時にヘッダーの上にリンク領域が表示されないように */
 .demo_app_wrap__header {
-  z-index: 50;
+  z-index: 10;
   /* ヘッダーを前面に表示 */
 }
 
 .drawer_menu {
-  z-index: 10;
+  z-index: 50;
   /* ヘッダーを前面に表示 */
 }
 
