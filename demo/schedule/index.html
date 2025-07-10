@@ -41,12 +41,12 @@
       <!-- ハンバーガーメニュー -->
       <nav id="hamburgerMenu">
         <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 71px; cursor: pointer;"
-          onclick="showImg('modalMenu'), showHamburgerMenuModal()"></div>
+          onclick="showImg('modal-container'), showHamburgerMenuModal()"></div>
       </nav>
     </header>
 
     <!-- メイン -->
-    <main style="position: relative;">
+    <main style="position: relative; width: 375px; height: 667px;">
       <!-- スケジュール画面 -->
       <img id="schedule" src="../assets/img/schedule01.png" style="display: block;" alt="">
 
@@ -56,27 +56,32 @@
         onclick="window.location.href = '../schedule_update/'" alt="">
 
       <!-- ハンバーガーメニューのモーダル -->
-      <div id="modalMenu" style="display:none;" class="modal-container">
-        <div class="drawer_menu"
-          style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;">
-          <img src="../assets/img/drawer_menu.png" style="width: 375px; height: auto;" alt="">
-          <!-- 無効ボタン（aleart） -->
-          <!-- お知らせ -->
-          <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <!-- グッシェア設定 -->
-          <div id="settings"
-            style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;"
-            onclick="window.location.href='../setting/'"></div>
-          <!-- アプリ情報 -->
-          <div id="" style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <!-- ヘルプ -->
-          <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <!-- ✕（閉じる） -->
-          <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;"
-            onclick="hideModal(this)"></div>
+      <div id="modal-container" class="drawer_menu modal-container"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.5); display: none;">
+        <div id="modal-main"
+          style="position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+          <div style="position: relative; width: 375px; height: 667px;">
+            <!-- モーダル -->
+            <img id="modal-image" src="../assets/img/drawer_menu.png" style="width: 375px; height: 667px;" alt="">
+            <!-- 無効ボタン（aleart） -->
+            <!-- お知らせ -->
+            <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;"
+              onclick="showDemoAppRestrictionMessage()"></div>
+            <!-- グッシェア設定 -->
+            <div id="settings"
+              style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;"
+              onclick="window.location.href='../setting/'"></div>
+            <!-- アプリ情報 -->
+            <div id=""
+              style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;"
+              onclick="showDemoAppRestrictionMessage()"></div>
+            <!-- ヘルプ -->
+            <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;"
+              onclick="showDemoAppRestrictionMessage()"></div>
+            <!-- ✕（閉じる） -->
+            <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;"
+              onclick="hideModal(this)"></div>
+          </div>
         </div>
       </div>
 

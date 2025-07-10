@@ -1,43 +1,50 @@
 /******************************************
  * エラーメッセージを表示する
  ******************************************/
-function showAlert(errorCode) {
+const showAlert = (errorCode) => {
   const message = `最初からやり直してください。（${errorCode}）`;
   alert(message);
-}
+};
 
 /******************************************
  * ボタン関連
  ******************************************/
 // イメージ要素を表示する
-function showImg(id) {
+const showImg = (id) => {
   const element = document.getElementById(id);
-  if (element) {
-    // 要素を表示する
-    element.style.display = 'block';
-  }
-}
+  element ? (element.style.display = 'block') : null;
+};
+
 
 /******************************************
  * JSON操作
  ******************************************/
 // プロパティの値を取得
-function getJsonValue(keyPath) {
-  // セッションストレージからJSONデータを取得
+const getJsonValue = (keyPath) => {
   const jsonData = sessionStorage.getItem("demoAppData");
+  
+  // データが存在しない場合の処理
   if (!jsonData) {
-    console.error("データがセッションストレージにありません");
+    showAlert("E999"); // エラーコードを渡してアラートを表示
     return null;
   }
 
   try {
     const data = JSON.parse(jsonData);
-    return keyPath.split('.').reduce((obj, key) => obj && obj[key], data);
+    const value = keyPath.split('.').reduce((obj, key) => obj && obj[key], data);
+    
+    // プロパティが存在しない場合の処理
+    if (value === undefined) {
+      showAlert("E999"); // エラーコードを渡してアラートを表示
+      return null;
+    }
+    
+    return value;
   } catch (error) {
-    console.error("JSONの解析に失敗しました", error);
+    showAlert("E999"); // JSONの解析に失敗した場合もエラーアラートを表示
     return null;
   }
-}
+};
 
 // プロパティの値を更新
 function setJsonValue(keyPath, newValue) {
@@ -123,10 +130,10 @@ function toggleButton(selectedImg) {
   }
 }
 
-function replaceElement(targetElementId, replaceFileName) {
-  const targetElement = document.getElementById(targetElementId);
-  targetElement.src = getJsonValue(baseUrl) + replaceFileName;
-}
+// function replaceElement(targetElementId, replaceFileName) {
+//   const targetElement = document.getElementById(targetElementId);
+//   targetElement.src = getJsonValue(baseUrl) + replaceFileName;
+// }
 
 // 無効ボタンをクリックしたときの処理
 function showDemoAppRestrictionMessage() {
