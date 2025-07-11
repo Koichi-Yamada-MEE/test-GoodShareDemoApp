@@ -39,16 +39,15 @@
         <img src="../assets/img/header_gs.svg" alt="">
       </div>
       <!-- ハンバーガーメニュー -->
-      <nav id="hamburgerMenu">
-        <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 71px; cursor: pointer;"
-          onclick="showImg('modal-container'), showHamburgerMenuModal()"></div>
+      <nav>
+        <div id="hamburgerMenu" class="button" onclick="showImg('modal-container'), showHamburgerMenuModal()"></div>
       </nav>
     </header>
 
     <!-- メイン -->
-    <main style="position: relative; width: 375px; height: 667px;">
+    <main>
       <!-- ホーム画面 -->
-      <img id="gsImageHome" style="display: none;" alt="">
+      <img id="gsImageHome" alt="">
 
       <!-- ハンバーガーメニューのモーダル -->
       <div id="modal-container" class="drawer_menu modal-container"
@@ -57,42 +56,30 @@
           style="position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
           <div style="position: relative; width: 375px; height: 667px;">
             <!-- モーダル -->
-            <img id="modal-image" src="../assets/img/drawer_menu.png" style="width: 375px; height: 667px;" alt="">
+            <img id="modal-image" src="../assets/img/drawer_menu.png" alt="">
             <!-- 無効ボタン（aleart） -->
             <!-- お知らせ -->
-            <div id="" style="position: absolute; top: 95px; left: 36px; width: 68px; height: 26px; cursor: pointer;"
-              onclick="showDemoAppRestrictionMessage()"></div>
+            <div id="info" class="button" onclick="showDemoAppRestrictionMessage()"></div>
             <!-- グッシェア設定 -->
-            <div id="settings"
-              style="position: absolute; top: 142px; left: 36px; width: 119px; height: 26px; cursor: pointer;"
-              onclick="window.location.href='../setting/'"></div>
+            <div id="settings" class="button" onclick="window.location.href='../setting/'"></div>
             <!-- アプリ情報 -->
-            <div id=""
-              style="position: absolute; top: 189px; left: 36px; width: 85px; height: 26px; cursor: pointer;"
-              onclick="showDemoAppRestrictionMessage()"></div>
+            <div id="appInfo" class="button" onclick="showDemoAppRestrictionMessage()"></div>
             <!-- ヘルプ -->
-            <div id="" style="position: absolute; top: 236px; left: 36px; width: 50px; height: 26px; cursor: pointer;"
-              onclick="showDemoAppRestrictionMessage()"></div>
+            <div id="help" class="button" onclick="showDemoAppRestrictionMessage()"></div>
             <!-- ✕（閉じる） -->
-            <div id="" style="position: absolute; top: 49px; left: 307px; width: 16px; height: 16px; cursor: pointer;"
-              onclick="hideModal(this)"></div>
+            <div id="btn_close" class="button" onclick="hideModal(this)"></div>
           </div>
         </div>
       </div>
       <!-- popover用エリア -->
-      <!-- 画面中央 -->
-      <div id="centerElement"
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0;">
-      </div>
       <!-- エアコンの状態 -->
-      <div id="racStatus" style="position: absolute; top: 284px; left: 0; width: 375px; height: 139px;"></div>
+      <div id="racStatus"></div>
       <!-- 送風ファンの状態-->
-      <div id="fanStatus" style="position: absolute; top: 423px; left: 0; width: 375px; height: 114px;"></div>
+      <div id="fanStatus"></div>
       <!-- 環境センサーの状態 -->
-      <div id="sensorStatus" style="position: absolute; top: 537px; left: 0; width: 375px; height: 76px;"></div>
+      <div id="sensorStatus"></div>
       <!-- 運転モードボタン -->
-      <div id="gsOpeModeButton" style="position: absolute; top: 157px; left: 37px; width: 300px; height: 58px; cursor: pointer;"
-        onclick="setJsonValue('isFirstVisit.homeScreen', false), window.location.href='../operation_switch/'"></div>
+      <div id="gsOpeModeButton" class="button" onclick="setJsonValue('isFirstVisit.homeScreen', false), window.location.href='../operation_switch/'"></div>
     </main>
 
     <!-- フッター -->
@@ -100,11 +87,8 @@
       <div class="demo_app_wrap__footer_inr">
         <img src="../assets/img/footer_bar.svg" alt="">
       </div>
-      <img src="../assets/img/footer_bar_home.svg"
-        style="position: absolute; bottom: 0px; left: 140px; width: 94px; height: auto; cursor: pointer;"
-        onclick="window.location.href='../home/'" alt="">
-      <div style="position: absolute; bottom: 0px; left: 264px; width: 94px; height: 48px; cursor: pointer;"
-        onclick="window.location.href='../schedule/'"></div>
+      <img id="iconHome" src="../assets/img/footer_bar_home.svg" class="button" onclick="window.location.href='../home/'" alt="">
+      <div id="iconSchedule" class="button" onclick="window.location.href='../schedule/'"></div>
     </footer>
   </div>
 

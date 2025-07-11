@@ -39,34 +39,26 @@
         <img src="../assets/img/header_goodshare_settings.svg" alt="">
       </div>
       <!-- 戻るボタン -->
-      <div style="position: absolute; top: 4px; left: 3px; width: 36px; height: 55px; cursor: pointer;"
-        onclick="history.back()"></div>
+      <div  id="btnBack" class="button" onclick="history.back()"></div>
     </header>
 
     <!-- メイン -->
-    <main style="position: relative;">
+    <main>
       <!-- ベース画面 グッシェア初期設定 -->
-      <img id="settingOperation01" src="../assets/img/settings.png" style="display: block;" alt="">
+      <img id="settingOperation01" src="../assets/img/settings.png" alt="">
 
       <!-- 郵便番号 -->
-      <section id="btn_chg" style="position: absolute; top: 257px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
-        onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></section>
+      <section id="btn_setting01" class="button" onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></section>
       <!-- 連携する環境センサー -->
-      <section id="btn_sensor"
-        style="position: absolute; top: 396px; left: 284px; width: 71px; height: 26px; cursor: pointer;"
-        onclick="popoverSensor()"></section>
+      <section id="btn_setting02" class="button" onclick="popoverSensor()"></section>
       <!-- 異常時お知らせ通知 -->
-      <section style="position: absolute; top: 532px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></section>
+      <section id="btn_setting03" class="button" onclick="showDemoAppRestrictionMessage()"></section>
       <!-- 衣類乾燥完了お知らせ通知 -->
-      <section style="position: absolute; top: 612px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></section>
+      <section id="btn_setting04" class="button" onclick="showDemoAppRestrictionMessage()"></section>
       <!-- 常時送風設定 -->
-      <section style="position: absolute; top: 753px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></section>
+      <section id="btn_setting05" class="button" onclick="showDemoAppRestrictionMessage()"></section>
       <!-- 空調連携時ひかえめ制御 -->
-      <section style="position: absolute; top: 892px; left: 284px; width: 71px; height: 30px; cursor: pointer;"
-        onclick="showDemoAppRestrictionMessage()"></section>
+      <section id="btn_setting06" class="button" onclick="showDemoAppRestrictionMessage()"></section>
 
       <!-- モーダル 郵便番号 -->
       <div id="modalPostalCode" class="drawer_menu modal-container"
@@ -88,23 +80,12 @@
       </div>
 
       <!-- 置換パーツ 郵便番号 -->
-      <img id="postalCode"
-        style="position: absolute; top: 271px; left: 20px; width: 268px; height: auto; display: none;" alt="">
+      <img id="postalCode" class="button--hidden" alt="">
     </main>
   </div>
 
   <!-- GoodShareデモアプリJS -->
   <script src="../assets/js/goodshare_demo_app.js"></script>
-
-  <!-- 置換パーツ初期状態 郵便番号 -->
-  <!-- <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const targetElemen = document.getElementById('postalCode');
-      const targetElementUrl = getJsonValue("baseUrl") + getJsonValue("gsSettinngs.postalCode")
-      targetElemen.src = targetElementUrl;
-      targetElemen.style.display = 'block'; // 必要に応じて表示する
-    });
-  </script> -->
 
   <!-- 置換パーツ更新後 郵便番号 -->
   <script>
@@ -128,7 +109,7 @@
     window.addEventListener('load', () => {
       startDriverTour([
         {
-          element: '#btn_chg',
+          element: '#btn_setting01',
           popover: {
             title: 'グッシェア設定（郵便番号入力）',
             description: '変更ボタンをタップして郵便番号入力画面を表示させます。',

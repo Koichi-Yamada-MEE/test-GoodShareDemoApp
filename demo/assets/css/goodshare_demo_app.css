@@ -1,6 +1,583 @@
 @import url('demo_app.css');
 
 /* ====================================
+   コンポーネントスタイル 共有
+   ==================================== */
+#main {
+  position: relative;
+}
+
+.button {
+  cursor: pointer;
+  display: block;
+}
+
+.button--hidden {
+  display: none;
+}
+
+.button--hidden--cursor {
+  cursor: pointer;
+  display: none;
+}
+
+#setElement11,
+#setElement31,
+#setElement41,
+#gsImageHome,
+#gsImageSetting,
+#buttonSetting11,
+#buttonSetting31,
+#buttonSetting41,
+#header_setting {
+  display: none;
+}
+/* ====================================
+   ヘッダー コンポーネント ポジション
+   ==================================== */
+#btnBack {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 36px;
+  height: 55px;
+}
+
+/* ====================================
+   フッター コンポーネント ポジション
+   ==================================== */
+#iconHome {
+  position: absolute;
+  bottom: 0px;
+  left: 140px;
+  width: 94px;
+  height: 44px;
+}
+
+#iconSchedule {
+  position: absolute;
+  bottom: 0px;
+  left: 264px;
+  width: 94px;
+  height: 48px;
+}
+
+#btnRun {
+  position: absolute;
+  top: 12px;
+  left: 33px;
+  width: 311px;
+  height: 48px;
+}
+
+/* ====================================
+   ハンバーガーメニュー コンポーネント ポジション
+   ==================================== */
+/* ハンバーガーメニュー */
+#hamburgerMenu {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 36px;
+  height: 71px;
+}
+
+/* モーダル */
+#modal-image {
+  width: 375px; height: 667px;
+}
+
+/* お知らせ */
+#info {
+  position: absolute; top: 95px; left: 36px; width: 68px; height: 26px;
+}
+
+/* グッシェア設定 */
+#settings {
+  position: absolute; top: 142px; left: 36px; width: 119px; height: 26px;
+}
+
+/* アプリ情報 */
+#appInfo {
+  position: absolute; top: 189px; left: 36px; width: 85px; height: 26px;
+}
+
+/* ヘルプ */
+#help {
+  position: absolute; top: 236px; left: 36px; width: 50px; height: 26px;
+}
+
+/* ✕（閉じる） */
+#btn_close {
+  position: absolute; top: 49px; left: 307px; width: 16px; height: 16px;
+}
+
+
+/* ====================================
+   設定詳細画面 コンポーネント ポジション
+   ==================================== */
+/* 設定詳細｜手動操作｜エアコン冷房 */
+#racOpeModeBtn31 {
+  position: absolute;
+  top: 157px;
+  left: 20px;
+  width: 164px;
+  height: auto;
+}
+
+/* 設定詳細｜手動操作｜エアコン暖房 */
+#racOpeModeBtn32 {
+  position: absolute;
+  top: 157px;
+  left: 191px;
+  width: 164px;
+  height: auto;
+}
+
+/* 設定詳細｜手動操作｜エアコン除湿 */
+#racOpeModeBtn33 {
+  position: absolute;
+  top: 213px;
+  left: 20px;
+  width: 164px;
+  height: auto;
+}
+
+
+/* ====================================
+   運転切替画面 コンポーネント ポジション
+   ==================================== */
+/* 運転切替画面 */
+#operationMode11 {
+  position: absolute;
+  top: 88px;
+  left: 16px;
+  width: 343px;
+  height: 190px;
+}
+#operationMode21 {
+  position: absolute;
+  top: 286px;
+  left: 16px;
+  width: 343px;
+  height: 190px;
+}
+
+#operationMode31 {
+  position: absolute;
+  top: 484px;
+  left: 16px;
+  width: 343px;
+  height: 190px;
+}
+
+#operationMode41 {
+  position: absolute;
+  top: 682px;
+  left: 16px;
+  width: 343px;
+  height: 190px;
+}
+
+#operationCard11 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 343px;
+  height: 190px;
+}
+
+#operationCard21 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 343px;
+  height: 190px;
+}
+
+#operationCard31 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 343px;
+  height: 190px;
+}
+
+#operationCard41 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 343px;
+  height: 190px;
+}
+
+#cardLabel11 {
+  position: absolute;
+  top: 127px;
+  left: 32px;
+  width: 317px;
+  height: 38px;
+}
+
+#cardLabel21 {
+  position: absolute;
+  top: 327px;
+  left: 32px;
+  width: 317px;
+  height: 38px;
+}
+
+#cardLabel31 {
+  position: absolute;
+  top: 525px;
+  left: 32px;
+  width: 317px;
+  height: 38px;
+}
+
+#cardLabel41 {
+  position: absolute;
+  top: 723px;
+  left: 32px;
+  width: 317px;
+  height: 38px;
+}
+
+#radioBtn11 {
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  width: 18px;
+  height: 18px;
+}
+
+#radioBtn21 {
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  width: 18px;
+  height: auto;
+}
+
+#radioBtn31 {
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  width: 18px;
+  height: auto;
+}
+
+#radioBtn41 {
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  width: 18px;
+  height: auto;
+}
+
+/* 空調シェア設定画面 */
+#racOpeModeBtn11 {
+  position: absolute;
+  top: 157px;
+  left: 20px;
+  width: 164px;
+  height: auto;
+}
+
+#racOpeModeBtn12 {
+  position: absolute;
+  top: 157px;
+  left: 191px;
+  width: 164px;
+  height: auto;
+}
+
+#racOpeModeBtn13 {
+  position: absolute;
+  top: 213px;
+  left: 20px;
+  width: 164px;
+  height: auto;
+}
+
+#btnDisabled14 {
+  position: absolute;
+  top: 213px;
+  left: 191px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnDisabled15 {
+  position: absolute;
+  top: 269px;
+  left: 20px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnDisabled16 {
+  position: absolute;
+  top: 269px;
+  left: 191px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnDisabled34 {
+  position: absolute;
+  top: 213px;
+  left: 191px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnDisabled35 {
+  position: absolute;
+  top: 269px;
+  left: 20px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnDisabled36 {
+  position: absolute;
+  top: 269px;
+  left: 191px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnDisabled37 {
+  position: absolute;
+  top: 325px;
+  left: 20px;
+  width: 164px;
+  height: 48px;
+}
+
+#setting_31 {
+  position: absolute;
+  top: 538px;
+  left: 20px;
+  width: 164px;
+  height: 48px;
+}
+
+#setting_32 {
+  position: absolute;
+  top: 538px;
+  left: 191px;
+  width: 164px;
+  height: 48px;
+}
+
+#setting_33 {
+  position: absolute;
+  top: 594px;
+  left: 20px;
+  width: 164px;
+  height: 48px;
+}
+
+#btnChange01 {
+  position: absolute;
+  top: 370px;
+  left: 284px;
+  width: 71px;
+  height: 52px;
+}
+
+#btnChange03 {
+  position: absolute;
+  top: 425px;
+  left: 284px;
+  width: 71px;
+  height: 52px;
+}
+
+#btnChang04 {
+  position: absolute;
+  top: 135px;
+  left: 284px;
+  width: 71px;
+  height: 52px;
+}
+
+/*  */
+#setElement11 {
+  position: absolute;
+  top: 384px;
+  left: 40px;
+  width: 248px;
+  height: auto;
+}
+
+/*  */
+#setElement31 {
+  position: absolute;
+  top: 440px;
+  left: 40px;
+  width: 248px;
+  height: auto;
+}
+
+/*  */
+#setElement41 {
+  position: absolute;
+  top: 149px;
+  left: 22px;
+  width: 268px;
+  height: auto;
+}
+
+/* ＋スケジュールボタン */
+#scheduleAdd {
+  position: absolute;
+  top: 225px;
+  left: 214px;
+  width: 146px;
+  height: auto;
+}
+
+/* 郵便番号 */
+#btn_setting01 {
+  position: absolute;
+  top: 257px;
+  left: 284px;
+  width: 71px;
+  height: 26px;
+}
+
+/* 連携する環境センサー*/
+#btn_setting02 {
+  position: absolute;
+  top: 396px;
+  left: 284px;
+  width: 71px;
+  height: 26px;
+}
+
+/* 異常時お知らせ通知 */
+#btn_setting03 {
+  position: absolute;
+  top: 532px;
+  left: 284px;
+  width: 71px;
+  height: 30px;
+}
+
+/* 衣類乾燥完了お知らせ通知  */
+#btn_setting04 {
+  position: absolute;
+  top: 612px;
+  left: 284px;
+  width: 71px;
+  height: 30px;
+}
+
+/* 常時送風設定 */
+#btn_setting05 {
+  position: absolute;
+  top: 753px;
+  left: 284px;
+  width: 71px;
+  height: 30px;
+}
+
+/* 空調連携時ひかえめ制御 */
+#btn_setting06 {
+  position: absolute;
+  top: 892px;
+  left: 284px;
+  width: 71px;
+  height: 30px;
+}
+
+/* 置換パーツ 郵便番号 */
+#postalCode {
+  position: absolute;
+  top: 271px;
+  left: 20px;
+  width: 268px;
+  height: auto;
+}
+
+
+
+
+
+
+
+/* ====================================
+   popover用エリア
+   ==================================== */
+/* ホーム｜popover｜エアコンの状態 */
+#racStatus {
+  position: absolute;
+  top: 284px;
+  left: 0;
+  width: 375px;
+  height: 139px;
+}
+
+/* ホーム｜popover｜送風ファンの状態 */
+#fanStatus {
+  position: absolute;
+  top: 423px;
+  left: 0;
+  width: 375px;
+  height: 114px;
+}
+
+/* ホーム｜popover｜環境センサーの状態 */
+#sensorStatus {
+  position: absolute;
+  top: 537px;
+  left: 0;
+  width: 375px;
+  height: 76px;
+}
+
+/* ホーム｜popover｜運転モードボタン */
+#gsOpeModeButton {
+  position: absolute;
+  top: 157px;
+  left: 37px;
+  width: 300px;
+  height: 58px;
+}
+
+/* スケジュール｜popover｜スケジュール反映 */
+#scheduleUpdate {
+  position: absolute;
+  top: 286px;
+  left: 0;
+  width: 375px;
+  height: 39px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================
    ウインドウの高さによるスタイル調整
    ==================================== */
 
@@ -8,7 +585,7 @@
 @media (min-height: 668px) {
   .screen_height_667 .demo_app_wrap__footer {
     top: 608px !important;
-    bottom: auto !important; 
+    bottom: auto !important;
   }
 }
 
@@ -16,7 +593,7 @@
 @media (min-height: 968px) {
   .screen_height_967 .demo_app_wrap__footer {
     top: 887px !important;
-    bottom: auto !important; 
+    bottom: auto !important;
   }
 }
 
@@ -31,7 +608,8 @@
 
 /* 画面にカーソルが挿入されないように */
 body {
-  -webkit-user-select: none; /* Safari用のベンダープレフィックス付きプロパティ */
+  -webkit-user-select: none;
+  /* Safari用のベンダープレフィックス付きプロパティ */
   user-select: none;
 }
 
@@ -44,6 +622,10 @@ body {
 .drawer_menu {
   z-index: 50;
   /* ヘッダーを前面に表示 */
+}
+
+.demo_app_wrap__footer_inr{
+  position: relative;
 }
 
 /* ====================================

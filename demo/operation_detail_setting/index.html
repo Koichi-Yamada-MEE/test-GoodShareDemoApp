@@ -17,7 +17,7 @@
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
   <!-- driver.js -->
   <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
 </head>
 
 <body>
@@ -36,112 +36,79 @@
     <!-- ヘッダー -->
     <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
-        <img id="header_setting" style="display: none;" alt="">
+        <img id="header_setting" alt="">
       </div>
-      <!-- 戻る -->
-      <div id="btnBack" style="position: absolute; top: 4px; left: 3px; width: 36px; height: 55px; cursor: pointer;"
-        onclick="window.location.href='../operation_switch/'"></div>
+      <!-- 戻るボタン -->
+      <div id="btnBack" class="button" onclick="window.location.href='../operation_switch/'"></div>
     </header>
 
     <!-- メイン -->
-    <main style="position: relative;">
+    <main>
       <!-- ベース画面 空調シェア設定・手動操作設定・衣類乾燥設定 -->
-      <img id="gsImageSetting" style="display: none;" alt="">
+      <img id="gsImageSetting" alt="">
 
       <!-- 空調シェア設定 -->
-      <div id="buttonSetting11" class="elements-container" style="display: none;">
+      <div id="buttonSetting11" class="elements-container">
         <!-- 空調シェア エアコン運転モードボタン -->
         <div id="racOpeModeBtn">
-          <img id="racOpeModeBtn11" class="toggle-btn" data-group="radio" data-img="replace"
+          <img id="racOpeModeBtn11" class="toggle-btn button" data-group="radio" data-img="replace"
             src="../assets/img/btn_racSettingsCool_off.png"
-            style="position: absolute; top: 157px; left: 20px; width: 164px; height: auto; cursor: pointer;"
             onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 11), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
             alt="">
-          <img id="racOpeModeBtn12" class="toggle-btn" data-group="radio" data-img="replace"
+          <img id="racOpeModeBtn12" class="toggle-btn button" data-group="radio" data-img="replace"
             src="../assets/img/btn_racSettingsHeat_off.png"
-            style="position: absolute; top: 157px; left: 191px; width: 164px; height: auto; cursor: pointer;"
             onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 12), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
             alt="">
-          <img id="racOpeModeBtn13" class="toggle-btn" data-group="radio" data-img="replace"
+          <img id="racOpeModeBtn13" class="toggle-btn button" data-group="radio" data-img="replace"
             src="../assets/img/btn_racSettingsDry_off.png"
-            style="position: absolute; top: 213px; left: 20px; width: 164px; height: auto; cursor: pointer;"
             onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
             alt="">
 
           <!-- 無効ボタン -->
-          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
+          <div id="btnDisabled14" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
+          <div id="btnDisabled15" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
+          <div id="btnDisabled16" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
         </div>
 
         <!-- 空調シェア 変更ボタン -->
         <div>
-          <div id="btnChange01"
-            style="position: absolute; top: 370px; left: 284px; width: 71px; height: 52px; cursor: pointer; display: none;"
-            onclick="createModal(), btnClick()"></div>
+          <div id="btnChange01" class="button--hidden--cursor" onclick="createModal(), btnClick()"></div>
         </div>
       </div>
 
       <!-- 手動操作設定 -->
-      <div id="buttonSetting31" class="elements-container" style="display: none;">
+      <div id="buttonSetting31" class="elements-container">
         <!-- 手動操作 エアコン運転モードボタン -->
         <div>
           <img id="racOpeModeBtn31" class="toggle-btn" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsCool_off.png"
-            style="position: absolute; top: 157px; left: 20px; width: 164px; height: auto; cursor: pointer;"
-            onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
-            alt="">
+            src="../assets/img/btn_racSettingsCool_off.png" class="button"
+            onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')" alt="">
           <img id="racOpeModeBtn32" class="toggle-btn" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsHeat_off.png"
-            style="position: absolute; top: 157px; left: 191px; width: 164px; height: auto; cursor: pointer;"
-            onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
-            alt="">
+            src="../assets/img/btn_racSettingsHeat_off.png" class="button"
+            onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')" alt="">
           <img id="racOpeModeBtn33" class="toggle-btn" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsDry_off.png"
-            style="position: absolute; top: 213px; left: 20px; width: 164px; height: auto; cursor: pointer;"
-            onclick="toggleButton(this), showImg('btnChange02'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
-            alt="">
+            src="../assets/img/btn_racSettingsDry_off.png" class="button"
+            onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')" alt="">
 
           <!-- 無効ボタン（aleart） -->
-          <div style="position: absolute; top: 213px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 269px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
-          <div style="position: absolute; top: 325px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="showDemoAppRestrictionMessage()"></div>
+          <div id="btnDisabled34" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
+          <div id="btnDisabled35" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
+          <div id="btnDisabled36" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
+          <div id="btnDisabled37" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 停止 -->
           <!-- 無効ボタン（popover） -->
-          <div id="setting_31"
-            style="position: absolute; top: 538px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="popoverFan()"></div>
-          <div id="setting_32"
-            style="position: absolute; top: 538px; left: 191px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="popoverFan()"></div>
-          <div id="setting_33"
-            style="position: absolute; top: 594px; left:  20px; width: 164px; height: 48px; cursor: pointer;"
-            onclick="popoverFan()"></div>
+          <div id="setting_31" class="button" onclick="popoverFan()"></div> <!-- 強 -->
+          <div id="setting_32" class="button" onclick="popoverFan()"></div> <!-- 弱 -->
+          <div id="setting_33" class="button" onclick="popoverFan()"></div> <!-- 停止 -->
         </div>
 
         <!-- 手動操作 変更ボタン -->
-        <div>
-          <div id="btnChange02"
-            style="position: absolute; top: 425px; left: 284px; width: 71px; height: 52px; cursor: pointer; display: none;"
-            onclick="createModal(), btnClick()"></div>
-        </div>
+        <div id="btnChange03" class="button--hidden--cursor" onclick="createModal(), btnClick()"></div>
       </div>
 
       <!-- 衣類乾燥 -->
-      <div id="buttonSetting41" style="display: none;">
+      <div id="buttonSetting41">
         <!-- 衣類乾燥 変更ボタン -->
-        <div>
-          <div id="btnChange01_man"
-            style="position: absolute; top: 135px; left: 284px; width: 71px; height: 52px; cursor: pointer;"
-            onclick="createModal(), btnClick()"></div>
-        </div>
+        <div id="btnChang04" class="button" onclick="createModal(), btnClick()"></div>
       </div>
 
       <!-- モーダル/空調シェア 手動操作 衣類乾燥 -->
@@ -164,14 +131,11 @@
 
       <!-- 置換パーツ 温湿度・タイマー時間 -->
       <!-- 空調シェア 冷房・暖房・除湿 温湿度 -->
-      <img id="setElement11"
-        style="position: absolute; top: 384px; left: 40px; width: 248px; height: auto; display: none;" alt="">
+      <img id="setElement11" alt="">
       <!-- 手動操作 冷房・暖房・除湿 温湿度 -->
-      <img id="setElement31"
-        style="position: absolute; top: 440px; left: 40px; width: 248px; height: auto; display: none;" alt="">
+      <img id="setElement31" alt="">
       <!-- 衣類乾燥 タイマー時間 -->
-      <img id="setElement41"
-        style="position: absolute; top: 149px; left: 22px; width: 268px; height: auto; display: none;" alt="">
+      <img id="setElement41" alt="">
 
     </main>
   </div>
