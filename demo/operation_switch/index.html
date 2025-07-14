@@ -85,18 +85,11 @@
       <img id="cardLabel41" class="button--hidden" alt=""> <!-- 衣類乾燥 -->
 
       <!-- モーダル 運転モード切替確認 -->
-      <div id="modalOpeStart" class="drawer_menu modal-container"
-        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
-        <div
-          style="position: relative;  top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: auto;">
-          <img id="modal-image" src="../assets/img/modal_switch.svg" style="width: 100%; height: auto;">
-          <div id="modal-ok-button"
-            style="position: absolute; top: 115px; left: 223px; width: 71px; height: 50px; cursor: pointer;"
-            onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'">
-          </div>
-          <div id="modal-cancel-button"
-            style="position: absolute; top: 115px; left: 38px; width: 96px; height: 50px; cursor: pointer;"
-            onclick="hideModal(this)"></div>
+      <div id="modalOpeStart" class="drawer_menu modal-container">
+        <div id="modal-main" class="horizontal-center-vertical-center">
+          <img id="modal-image" src="../assets/img/modal_switch.svg" alt="">
+          <div id="modal-ok-button" class="modal-dialog-ok" onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"></div>
+          <div id="modal-cancel-button" class="modal-dialog-cancel" onclick="hideModal(this)"></div>
         </div>
       </div>
     </main>

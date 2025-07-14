@@ -71,8 +71,79 @@
 }
 
 /* ====================================
-   ハンバーガーメニュー コンポーネント ポジション
+   モーダル系 コンポーネント ポジション
    ==================================== */
+/* モーダルオーバーレイ */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.5);
+  display: none;
+}
+
+/* 水平方向センター／垂直方向センター ※ハンバーガーメニュー */
+.horizontal-center-vertical-top {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 375px;
+  height: 667px;
+}
+
+/* 水平方向センター／垂直方向トップ ※各種ダイアログ */
+.horizontal-center-vertical-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 346px;
+  height: auto;
+}
+
+/* モーダル（ダイアログ） キャンセル ボタン */
+.modal-dialog-cancel {
+  position: absolute;
+  bottom: 15px;
+  left: 38px;
+  width: 96px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* モーダル（ダイアログ） 決定 ボタン */
+.modal-dialog-ok {
+  position: absolute;
+  bottom: 15px;
+  left: 223px;
+  width: 71px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* モーダル（スピナー） キャンセル ボタン */
+.modal-spinner-cancel {
+  position: absolute;
+  top: 218px;
+  left: 166px;
+  width: 96px;
+  height: 25px;
+  cursor: pointer;
+}
+
+/* モーダル（スピナー） 決定 ボタン */
+.modal-spinner-ok {
+  position: absolute;
+  top: 218px;
+  left: 267px;
+  width: 71px;
+  height: 25px;
+  cursor: pointer;
+}
+
 /* ハンバーガーメニュー */
 #hamburgerMenu {
   position: absolute;
@@ -84,34 +155,54 @@
 
 /* モーダル */
 #modal-image {
-  width: 375px; height: 667px;
+  width: 100%;
+  height: auto;
 }
 
 /* お知らせ */
 #info {
-  position: absolute; top: 95px; left: 36px; width: 68px; height: 26px;
+  position: absolute;
+  top: 95px;
+  left: 36px;
+  width: 68px;
+  height: 26px;
 }
 
 /* グッシェア設定 */
 #settings {
-  position: absolute; top: 142px; left: 36px; width: 119px; height: 26px;
+  position: absolute;
+  top: 142px;
+  left: 36px;
+  width: 119px;
+  height: 26px;
 }
 
 /* アプリ情報 */
 #appInfo {
-  position: absolute; top: 189px; left: 36px; width: 85px; height: 26px;
+  position: absolute;
+  top: 189px;
+  left: 36px;
+  width: 85px;
+  height: 26px;
 }
 
 /* ヘルプ */
 #help {
-  position: absolute; top: 236px; left: 36px; width: 50px; height: 26px;
+  position: absolute;
+  top: 236px;
+  left: 36px;
+  width: 50px;
+  height: 26px;
 }
 
 /* ✕（閉じる） */
 #btn_close {
-  position: absolute; top: 49px; left: 307px; width: 16px; height: 16px;
+  position: absolute;
+  top: 49px;
+  left: 307px;
+  width: 16px;
+  height: 16px;
 }
-
 
 /* ====================================
    設定詳細画面 コンポーネント ポジション
@@ -142,7 +233,6 @@
   width: 164px;
   height: auto;
 }
-
 
 /* ====================================
    運転切替画面 コンポーネント ポジション
@@ -503,12 +593,6 @@
   height: auto;
 }
 
-
-
-
-
-
-
 /* ====================================
    popover用エリア
    ==================================== */
@@ -556,26 +640,6 @@
   width: 375px;
   height: 39px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ====================================
    ウインドウの高さによるスタイル調整

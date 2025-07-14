@@ -53,11 +53,8 @@
       <img id="scheduleAdd" src="../assets/img/btn_create_schedule.png" class="button" onclick="window.location.href = '../schedule_update/'" alt="">
 
       <!-- ハンバーガーメニューのモーダル -->
-      <div id="modal-container" class="drawer_menu modal-container"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.5); display: none;">
-        <div id="modal-main"
-          style="position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-          <div style="position: relative; width: 375px; height: 667px;">
+      <div id="modal-container" class="drawer_menu modal-container">
+        <div id="modal-main" class="horizontal-center-vertical-top">
             <!-- モーダル -->
             <img id="modal-image" src="../assets/img/drawer_menu.png" alt="">
             <!-- 無効ボタン（aleart） -->
@@ -71,7 +68,6 @@
             <div id="help" class="button" onclick="showDemoAppRestrictionMessage()"></div>
             <!-- ✕（閉じる） -->
             <div id="btn_close" class="button" onclick="hideModal(this)"></div>
-          </div>
         </div>
       </div>
 

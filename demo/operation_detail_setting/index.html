@@ -112,20 +112,14 @@
       </div>
 
       <!-- モーダル/空調シェア 手動操作 衣類乾燥 -->
-      <div id="modal-container" class="drawer_menu modal-container"
-        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(128, 128, 128, 0.5); display: none;">
-        <div id="modal-main"
-          style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 346px; height: 257px;">
+      <div id="modal-container" class="drawer_menu modal-container">
+        <div id="modal-main" class="horizontal-center-vertical-center">
           <!-- モーダル -->
-          <img id="modal-image" style="width: 346px; height: 257px;" alt="">
+          <img id="modal-image" alt="">
           <!-- モーダル 決定ボタン -->
-          <div id="modal-ok-button"
-            style="position: absolute; top: 218px; left: 267px; width: 71px; height: 25px; cursor: pointer;"
-            onclick="hideModal(this)"></div>
+          <div id="modal-ok-button" class="modal-spinner-ok" onclick="hideModal(this)"></div>
           <!-- モーダル キャンセルボタン -->
-          <div id="modal-cancel-button"
-            style="position: absolute; top: 218px; left: 166px; width: 96px; height: 25px; cursor: pointer;"
-            onclick="hideModal(this)"></div>
+          <div id="modal-cancel-button" class="modal-spinner-cancel" onclick="hideModal(this)"></div>
         </div>
       </div>
 
