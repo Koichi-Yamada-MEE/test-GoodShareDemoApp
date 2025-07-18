@@ -36,10 +36,12 @@
     <!-- ヘッダー -->
     <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
-        <img src="../assets/img/header_goodshare_settings.svg" alt="">
+        <img id="" src="../assets/img/header_goodshare_settings.svg" alt="" usemap="#backButtonMap">
+        <!-- 戻るボタン -->
+        <map name="backButtonMap">
+          <area shape="rect" coords="0, 22, 45, 67" href="javascript:void(0);" onclick="history.back()" alt="戻るボタン">
+        </map>
       </div>
-      <!-- 戻るボタン -->
-      <div  id="btnBack" class="button" onclick="history.back()"></div>
     </header>
 
     <!-- メイン -->

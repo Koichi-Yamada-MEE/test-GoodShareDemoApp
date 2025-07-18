@@ -32,6 +32,12 @@
 #header_setting {
   display: none;
 }
+
+
+#gsOpeModeButton {
+  pointer-events: none;
+}
+
 /* ====================================
    ヘッダー コンポーネント ポジション
    ==================================== */
@@ -41,6 +47,7 @@
   left: 3px;
   width: 36px;
   height: 55px;
+  pointer-events: none;
 }
 
 /* ====================================
@@ -52,22 +59,6 @@
   left: 140px;
   width: 94px;
   height: 44px;
-}
-
-#iconSchedule {
-  position: absolute;
-  bottom: 0px;
-  left: 264px;
-  width: 94px;
-  height: 48px;
-}
-
-#btnRun {
-  position: absolute;
-  top: 12px;
-  left: 33px;
-  width: 311px;
-  height: 48px;
 }
 
 /* ====================================
@@ -159,15 +150,6 @@
   height: auto;
 }
 
-/* お知らせ */
-#info {
-  position: absolute;
-  top: 95px;
-  left: 36px;
-  width: 68px;
-  height: 26px;
-}
-
 /* グッシェア設定 */
 #settings {
   position: absolute;
@@ -175,34 +157,9 @@
   left: 36px;
   width: 119px;
   height: 26px;
+  pointer-events: none;
 }
 
-/* アプリ情報 */
-#appInfo {
-  position: absolute;
-  top: 189px;
-  left: 36px;
-  width: 85px;
-  height: 26px;
-}
-
-/* ヘルプ */
-#help {
-  position: absolute;
-  top: 236px;
-  left: 36px;
-  width: 50px;
-  height: 26px;
-}
-
-/* ✕（閉じる） */
-#btn_close {
-  position: absolute;
-  top: 49px;
-  left: 307px;
-  width: 16px;
-  height: 16px;
-}
 
 /* ====================================
    設定詳細画面 コンポーネント ポジション
@@ -244,6 +201,7 @@
   left: 16px;
   width: 343px;
   height: 190px;
+  pointer-events: none;
 }
 #operationMode21 {
   position: absolute;
@@ -251,6 +209,7 @@
   left: 16px;
   width: 343px;
   height: 190px;
+  pointer-events: none;
 }
 
 #operationMode31 {
@@ -259,6 +218,7 @@
   left: 16px;
   width: 343px;
   height: 190px;
+  pointer-events: none;
 }
 
 #operationMode41 {
@@ -267,38 +227,7 @@
   left: 16px;
   width: 343px;
   height: 190px;
-}
-
-#operationCard11 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 343px;
-  height: 190px;
-}
-
-#operationCard21 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 343px;
-  height: 190px;
-}
-
-#operationCard31 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 343px;
-  height: 190px;
-}
-
-#operationCard41 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 343px;
-  height: 190px;
+  pointer-events: none;
 }
 
 #cardLabel11 {
@@ -335,35 +264,45 @@
 
 #radioBtn11 {
   position: absolute;
-  top: 15px;
-  left: 17px;
+  top: 103px;
+  left: 33px;
   width: 18px;
   height: 18px;
 }
 
 #radioBtn21 {
   position: absolute;
-  top: 15px;
-  left: 17px;
+  top: 301px;
+  left: 33px;
   width: 18px;
   height: auto;
 }
 
 #radioBtn31 {
   position: absolute;
-  top: 15px;
-  left: 17px;
+  top: 499px;
+  left: 33px;
   width: 18px;
   height: auto;
 }
 
 #radioBtn41 {
   position: absolute;
-  top: 15px;
-  left: 17px;
+  top: 697px;
+  left: 33px;
   width: 18px;
   height: auto;
 }
+
+/*  */
+#racOpeModeBtn {
+  position: absolute;
+  top: 88px;
+  left: 16px;
+  width: 343px;
+  height: 784px;
+}
+
 
 /* 空調シェア設定画面 */
 #racOpeModeBtn11 {
@@ -527,7 +466,8 @@
   top: 225px;
   left: 214px;
   width: 146px;
-  height: auto;
+  height: 32px;
+  pointer-events: none;
 }
 
 /* 郵便番号 */
@@ -593,6 +533,7 @@
   height: auto;
 }
 
+
 /* ====================================
    popover用エリア
    ==================================== */
@@ -626,7 +567,7 @@
 /* ホーム｜popover｜運転モードボタン */
 #gsOpeModeButton {
   position: absolute;
-  top: 157px;
+  top: 158px;
   left: 37px;
   width: 300px;
   height: 58px;
@@ -688,9 +629,6 @@ body {
   /* ヘッダーを前面に表示 */
 }
 
-.demo_app_wrap__footer_inr{
-  position: relative;
-}
 
 /* ====================================
    Driver.js

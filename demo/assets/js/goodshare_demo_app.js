@@ -22,26 +22,26 @@ const showImg = (id) => {
 // プロパティの値を取得
 const getJsonValue = (keyPath) => {
   const jsonData = sessionStorage.getItem("demoAppData");
-  
-  // データが存在しない場合の処理
+
+  // セッションストレージのJSON読み込みエラー
   if (!jsonData) {
-    showAlert("E999"); // エラーコードを渡してアラートを表示
+    showAlert("E001：セッションストレージのJSONデータが見つかりません");
     return null;
   }
 
   try {
     const data = JSON.parse(jsonData);
     const value = keyPath.split('.').reduce((obj, key) => obj && obj[key], data);
-    
-    // プロパティが存在しない場合の処理
+
+    // 指定されたプロパティが存在しない
     if (value === undefined) {
-      showAlert("E999"); // エラーコードを渡してアラートを表示
+      showAlert("E002：指定されたプロパティが存在しません");
       return null;
     }
-    
     return value;
+    // JSONの解析に失敗した場合
   } catch (error) {
-    showAlert("E999"); // JSONの解析に失敗した場合もエラーアラートを表示
+    showAlert("E003：JSONの解析に失敗しました");
     return null;
   }
 };
@@ -50,8 +50,9 @@ const getJsonValue = (keyPath) => {
 function setJsonValue(keyPath, newValue) {
   // セッションストレージからJSONデータを取得
   const jsonData = sessionStorage.getItem("demoAppData");
+  // セッションストレージのJSON読み込みエラー
   if (!jsonData) {
-    console.error("データがセッションストレージにありません");
+    showAlert("E004：セッションストレージのJSONデータが見つかりません");
     return false;
   }
 
@@ -63,7 +64,7 @@ function setJsonValue(keyPath, newValue) {
     // 最後のキーまで辿って対象のプロパティを更新
     for (let i = 0; i < keys.length - 1; i++) {
       if (!(keys[i] in obj)) {
-        console.error(`指定されたキーが存在しません: ${keys[i]}`);
+        showAlert(`E005：指定されたキーが存在しません: ${keys[i]}`);
         return false;
       }
       obj = obj[keys[i]];
@@ -72,7 +73,7 @@ function setJsonValue(keyPath, newValue) {
     // 最後のキーに値をセット
     const lastKey = keys[keys.length - 1];
     if (!(lastKey in obj)) {
-      console.error(`指定されたプロパティが見つかりません: ${lastKey}`);
+      showAlert(`E006：指定されたプロパティが見つかりません: ${lastKey}`);
       return false;
     }
 
@@ -83,7 +84,7 @@ function setJsonValue(keyPath, newValue) {
 
     return true;
   } catch (error) {
-    console.error("JSONの解析または更新に失敗しました", error);
+    showAlert("E007：JSONの解析または更新に失敗しました", error);
     return false;
   }
 }
@@ -93,29 +94,46 @@ function showModal(modalId, modalPath) {
   const modalContainer = document.getElementById('modal-container');
   const modalImage = document.getElementById('modal-image');
 
-  modalContainer.id = modalId;
-  modalImage.src = modalPath;
-  modalContainer.style.display = 'block';
+  // modalContainer と modalImage が存在する場合
+  if (modalContainer && modalImage) {
+    modalContainer.id = modalId;
+    modalImage.src = modalPath;
+    modalContainer.style.display = 'block';
+  } else {
+    // エラー処理
+    showAlert("E101：モーダルウインドウの表示に失敗しました");
+  }
 }
 
 // モーダルウインドウを非表示
 function hideModal(element) {
   const modal = element.closest(".modal-container");
+
   if (modal) {
     modal.style.display = "none";
+  } else {
+    // エラー処理
+    showAlert("E102：モーダルウインドウの非表示に失敗しました");
   }
 }
 
 // 汎用的な処理（toggle/radio/mode）
 function toggleButton(selectedImg) {
-  // 1. クリックされた要素から、最も近い親の .elements-container を取得
+  // クリックされた要素から、最も近い親要素 .elements-container を取得
   const container = selectedImg.closest(".elements-container");
-  if (!container) return; // 見つからなかった場合は処理を中断
+  if (!container) {
+    showAlert("E201：ボタンのクラスセレクタが見つかりませんでした");
+    return; // 見つからなかった場合は処理を中断
+  }
 
-  // 2. クリックされたボタンが属するグループを、data-group 属性から取得
+  // クリックされたボタンの属性を[data-group]属性から取得
   const group = selectedImg.dataset.group;
+  if (!group) {
+    showAlert("E202：ボタンの属性値が見つかりませんでした");
+    return; // 属性値が見つからなかった場合は処理を中断
+  }
 
-  // 3. トグル動作かどうかを判定
+  // [data-group]属性から処理を分岐
   if (group === "toggle") {
     // ----- トグルスイッチ動作 -----
     const baseName = selectedImg.src.replace(/_on\.png|_off\.png/, "");
@@ -129,11 +147,6 @@ function toggleButton(selectedImg) {
     });
   }
 }
-
-// function replaceElement(targetElementId, replaceFileName) {
-//   const targetElement = document.getElementById(targetElementId);
-//   targetElement.src = getJsonValue(baseUrl) + replaceFileName;
-// }
 
 // 無効ボタンをクリックしたときの処理
 function showDemoAppRestrictionMessage() {

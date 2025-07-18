@@ -36,53 +36,52 @@
     <!-- ヘッダー -->
     <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
-        <img src="../assets/img/header_schedule.svg" alt="">
+        <img src="../assets/img/header_gs.svg" alt="" usemap="#hamburger-menu-icon">
+        <map name="hamburger-menu-icon">
+          <area shape="rect" coords="0, 22, 45, 67" href="javascript:void(0);" alt="ハンバーガーメニューアイコン" onclick="showImg('modal-container'), showHamburgerMenuModal()"">
+        </map>
       </div>
-      <!-- ハンバーガーメニュー -->
-      <nav>
-        <div id="hamburgerMenu" class="button" onclick="showImg('modal-container'), showHamburgerMenuModal()"></div>
-      </nav>
     </header>
 
     <!-- メイン -->
     <main>
       <!-- スケジュール画面 -->
-      <img id="schedule" src="../assets/img/schedule01.png" alt="">
-
-      <!-- ＋スケジュールボタン -->
-      <img id="scheduleAdd" src="../assets/img/btn_create_schedule.png" class="button" onclick="window.location.href = '../schedule_update/'" alt="">
-
+      <img id="schedule" src="../assets/img/schedule01.png" alt="" usemap="#scheduleMap">
+      <map name="scheduleMap">
+        <area shape="rect" coords="214, 225, 360, 257" href="../schedule_update/" alt="＋スケジュールボタン" onclick="">
+      </map>
+    
       <!-- ハンバーガーメニューのモーダル -->
       <div id="modal-container" class="drawer_menu modal-container">
         <div id="modal-main" class="horizontal-center-vertical-top">
-            <!-- モーダル -->
-            <img id="modal-image" src="../assets/img/drawer_menu.png" alt="">
-            <!-- 無効ボタン（aleart） -->
-            <!-- お知らせ -->
-            <div id="info" class="button" onclick="showDemoAppRestrictionMessage()"></div>
-            <!-- グッシェア設定 -->
-            <div id="settings" class="button" onclick="window.location.href='../setting/'"></div>
-            <!-- アプリ情報 -->
-            <div id="appInfo" class="button" onclick="showDemoAppRestrictionMessage()"></div>
-            <!-- ヘルプ -->
-            <div id="help" class="button" onclick="showDemoAppRestrictionMessage()"></div>
-            <!-- ✕（閉じる） -->
-            <div id="btn_close" class="button" onclick="hideModal(this)"></div>
+          <img id="modal-image" src="../assets/img/drawer_menu.png" usemap="#hamburgerMenu" alt="ハンバーガーメニュー">
+          <map name="hamburgerMenu">
+            <area shape="rect" coords="36, 95, 155, 121" href="#" onclick="showDemoAppRestrictionMessage()" alt="お知らせ">
+            <area shape="rect" coords="36, 142, 155, 168" href="../setting/" alt="グッシェア設定">
+            <area shape="rect" coords="36, 189, 155, 212" href="#" onclick="showDemoAppRestrictionMessage()" alt="アプリ情報">
+            <area shape="rect" coords="36, 236, 155, 256" href="#" onclick="showDemoAppRestrictionMessage()" alt="ヘルプ">
+            <area shape="rect" coords="307, 50, 323, 65" href="#" onclick="hideModal(this)" alt="✕（閉じる）">
+          </map>
         </div>
       </div>
-
+    
       <!-- popover用エリア -->
       <!-- スケジュール反映 -->
+      <div id="scheduleAdd"></div>
       <div id="scheduleUpdate"></div>
+      <div id="iconHome"></div>
+      
     </main>
 
     <!-- フッター -->
     <footer class="demo_app_wrap__footer">
       <div class="demo_app_wrap__footer_inr">
-        <img src="../assets/img/footer_bar.svg" alt="">
-      </div>
-      <img id="iconHome" src="../assets/img/footer_bar_home.svg" class="button" onclick="window.location.href='../home/'" alt="">
-      <div id="iconSchedule" class="button" onclick="window.location.href='../schedule/'"></div>
+        <img src="../assets/img/footer_schedule_selected.svg" usemap="#footerMap" alt="フッター">
+        <!-- ホームボタン／スケジュールボタン -->
+        <map name="footerMap">
+          <area shape="rect" coords="140, 0, 234, 44" href="../home/" alt="ホーム">
+          <area shape="rect" coords="264, 0, 358, 44" href="../schedule/" alt="スケジュール">
+        </map>
     </footer>
   </div>
 

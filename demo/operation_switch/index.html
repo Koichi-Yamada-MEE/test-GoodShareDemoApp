@@ -36,53 +36,45 @@
     <!-- ヘッダー -->
     <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
-        <img src="../assets/img/header_op_mode_selection.svg" alt="">
+        <img id="" src="../assets/img/header_op_mode_selection.svg" alt="" usemap="#backButtonMap">
+        <!-- 戻るボタン -->
+        <map name="backButtonMap">
+          <area shape="rect" coords="0, 22, 45, 67" href="../home/" alt="戻るボタン">
+        </map>
       </div>
-      <!-- 戻るボタン -->
-      <div id="btnBack" class="button" onclick="window.location.href='../home/'"></div>
     </header>
 
     <!-- メイン -->
     <main>
-      <!-- 基本画面 -->
-      <img src="../assets/img/operation_switch.png" alt="">
+      <!-- 運転切替イメージ -->
+      <img src="../assets/img/operation_switch.png" alt="" usemap="#operationCardMap">
+      <!-- 運転切替マップ -->
+      <map name="operationCardMap">
+        <area shape="rect" coords="51, 88, 359, 278"  href="../operation_detail_setting/" alt="空調シェア" onclick="setJsonValue('currentOperationMode', 11), setJsonValue('modalGsOpeMode', 'mode1')">
+        <area shape="rect" coords="51, 286, 359, 476" alt="循環シェア" onclick="setJsonValue('currentOperationMode', 21), setJsonValue('modalGsOpeMode', 'mode2')">
+        <area shape="rect" coords="51, 484, 359, 674" href="../operation_detail_setting/" alt="手動操作" onclick="setJsonValue('currentOperationMode', 31), setJsonValue('modalGsOpeMode', 'mode3')">
+        <area shape="rect" coords="51, 682, 359, 872" href="../operation_detail_setting/" alt="衣類乾燥" onclick="setJsonValue('currentOperationMode', 41)">
+      </map>
 
-      <!-- 運転モードカード -->
-      <div id="racOpeModeBtn" class="elements-container">
-        <section id="operationMode11">
-          <div id="operationCard11" class="button"
-            onclick="setJsonValue('currentOperationMode', 11), setJsonValue('modalGsOpeMode', 'mode1'), window.location.href='../operation_detail_setting/'">
-          </div>
-          <img id="radioBtn11" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="">
-        </section>
-        <section id="operationMode21">
-          <div id="operationCard21"
-            onclick="setJsonValue('currentOperationMode', 21), setJsonValue('modalGsOpeMode', 'mode2')"></div>
-          <img id="radioBtn21" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 21)" alt="">
-        </section>
-        <section id="operationMode31">
-          <div id="operationCard31" class="button"
-            onclick="setJsonValue('currentOperationMode', 31), setJsonValue('modalGsOpeMode', 'mode3'), window.location.href='../operation_detail_setting/'">
-          </div>
-          <img id="radioBtn31" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 31)" alt="">
-        </section>
-        <section id="operationMode41">
-          <div id="operationCard41" class="button"
-            onclick="setJsonValue('currentOperationMode', 41), setJsonValue('modalGsOpeMode', 'mode4'), setJsonValue('modalRacOpeMode', null), window.location.href='../operation_detail_setting/'">
-          </div>
-          <img id="radioBtn41" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio"
-            onclick="toggleButton(this), setJsonValue('currentOperationMode', 41)" alt="">
-        </section>
+      <!-- ラジオボタン -->
+      <div id="" class="elements-container">
+          <img id="radioBtn11" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio" onclick="toggleButton(this), setJsonValue('currentOperationMode', 11)" alt="空調シェア">
+          <img id="radioBtn21" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio" onclick="toggleButton(this), setJsonValue('currentOperationMode', 21)" alt="循環シェア">
+          <img id="radioBtn31" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio" onclick="toggleButton(this), setJsonValue('currentOperationMode', 31)" alt="手動操作">
+          <img id="radioBtn41" src="../assets/img/btn_radio_off.png" class="toggle-btn button" data-group="radio" onclick="toggleButton(this), setJsonValue('currentOperationMode', 41)" alt="衣類乾燥">
       </div>
 
       <!-- 運転モードカード 動的テキスト部分 -->
-      <img id="cardLabel11" class="button--hidden" alt=""> <!-- 空調シェア -->
-      <img id="cardLabel21" class="button--hidden" alt=""> <!-- 循環シェア -->
-      <img id="cardLabel31" class="button--hidden" alt=""> <!-- 手動操作 -->
-      <img id="cardLabel41" class="button--hidden" alt=""> <!-- 衣類乾燥 -->
+      <img id="cardLabel11" class="button--hidden" alt="空調シェア">
+      <img id="cardLabel21" class="button--hidden" alt="循環シェア">
+      <img id="cardLabel31" class="button--hidden" alt="手動操作">
+      <img id="cardLabel41" class="button--hidden" alt="衣類乾燥">
+
+      <!-- popover用エリア -->
+      <div id="operationMode11"></div> <!-- 空調シェア -->
+      <div id="operationMode21"></div> <!-- 循環シェア -->
+      <div id="operationMode31"></div> <!-- 手動操作 -->
+      <div id="operationMode41"></div> <!-- 衣類乾燥 -->
 
       <!-- モーダル 運転モード切替確認 -->
       <div id="modalOpeStart" class="drawer_menu modal-container">
@@ -97,10 +89,11 @@
     <!-- フッター -->
     <footer class="demo_app_wrap__footer">
       <div class="demo_app_wrap__footer_inr">
-        <img src="../assets/img/footer_ope_mode.svg" alt="">
-        <!-- リンク領域／運転開始ボタン-->
-        <img id="btnRun" src="../assets/img/btn_ope_start.svg" class="button" onclick="showImg('modalOpeStart')" alt="">
-      </div>
+        <img src="../assets/img/footer_ope_mode.svg" usemap="#footerMap" alt="フッター">
+        <!-- 運転開始ボタン -->
+        <map name="footerMap">
+          <area shape="rect" coords="33, 12, 344, 60" href="javascript:void(0);" onclick="showImg('modalOpeStart')" alt="ホーム">
+        </map>
     </footer>
   </div>
 

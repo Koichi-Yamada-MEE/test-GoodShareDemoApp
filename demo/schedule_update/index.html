@@ -36,10 +36,12 @@
     <!-- ヘッダー -->
     <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
-        <img src="../assets/img/header_schedule_update.svg" alt="">
+        <img id="" src="../assets/img/header_schedule_update.svg" alt="" usemap="#backButtonMap">
+        <!-- 戻るボタン -->
+        <map name="backButtonMap">
+          <area shape="rect" coords="0, 22, 45, 67" href="../schedule/" onclick="setJsonValue('isFirstVisit.scheduleUpdate', false); window.location.href='../schedule/'" alt="戻るボタン">
+        </map>
       </div>
-      <!-- 戻るボタン -->
-      <div id="btnBack" class="button" onclick="setJsonValue('isFirstVisit.scheduleUpdate', false); window.location.href='../schedule/'"></div>
     </header>
 
     <!-- メイン -->

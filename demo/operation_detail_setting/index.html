@@ -36,10 +36,12 @@
     <!-- ヘッダー -->
     <header class="demo_app_wrap__header">
       <div class="demo_app_wrap__header_inr">
-        <img id="header_setting" alt="">
+        <img id="header_setting" alt="" usemap="#backButtonMap">
+        <!-- 戻るボタン -->
+        <map name="backButtonMap">
+          <area shape="rect" coords="0, 22, 45, 67" href="../operation_switch/" alt="戻るボタン">
+        </map>
       </div>
-      <!-- 戻るボタン -->
-      <div id="btnBack" class="button" onclick="window.location.href='../operation_switch/'"></div>
     </header>
 
     <!-- メイン -->
@@ -50,56 +52,38 @@
       <!-- 空調シェア設定 -->
       <div id="buttonSetting11" class="elements-container">
         <!-- 空調シェア エアコン運転モードボタン -->
-        <div id="racOpeModeBtn">
-          <img id="racOpeModeBtn11" class="toggle-btn button" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsCool_off.png"
-            onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 11), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
-            alt="">
-          <img id="racOpeModeBtn12" class="toggle-btn button" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsHeat_off.png"
-            onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 12), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
-            alt="">
-          <img id="racOpeModeBtn13" class="toggle-btn button" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsDry_off.png"
-            onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
-            alt="">
+        <img id="racOpeModeBtn11" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsCool_off.png" onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 11), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')" alt="暖房">
+        <img id="racOpeModeBtn12" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsHeat_off.png" onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 12), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')" alt="冷房">
+        <img id="racOpeModeBtn13" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsDry_off.png" onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')" alt="除湿">
 
-          <!-- 無効ボタン -->
-          <div id="btnDisabled14" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
-          <div id="btnDisabled15" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
-          <div id="btnDisabled16" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
-        </div>
+        <!-- 無効ボタン -->
+        <div id="btnDisabled14" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
+        <div id="btnDisabled15" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
+        <div id="btnDisabled16" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
 
         <!-- 空調シェア 変更ボタン -->
-        <div>
-          <div id="btnChange01" class="button--hidden--cursor" onclick="createModal(), btnClick()"></div>
-        </div>
+        <div id="btnChange01" class="button--hidden--cursor" onclick="createModal(), btnClick()"></div>
       </div>
 
       <!-- 手動操作設定 -->
       <div id="buttonSetting31" class="elements-container">
         <!-- 手動操作 エアコン運転モードボタン -->
-        <div>
-          <img id="racOpeModeBtn31" class="toggle-btn" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsCool_off.png" class="button"
-            onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')" alt="">
-          <img id="racOpeModeBtn32" class="toggle-btn" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsHeat_off.png" class="button"
-            onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')" alt="">
-          <img id="racOpeModeBtn33" class="toggle-btn" data-group="radio" data-img="replace"
-            src="../assets/img/btn_racSettingsDry_off.png" class="button"
-            onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')" alt="">
+        <img id="racOpeModeBtn31" class="toggle-btn" data-group="radio" src="../assets/img/btn_racSettingsCool_off.png" class="button"
+          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')" alt="">
+        <img id="racOpeModeBtn32" class="toggle-btn" data-group="radio" src="../assets/img/btn_racSettingsHeat_off.png" class="button"
+          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')" alt="">
+        <img id="racOpeModeBtn33" class="toggle-btn" data-group="radio" src="../assets/img/btn_racSettingsDry_off.png" class="button"
+          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')" alt="">
 
-          <!-- 無効ボタン（aleart） -->
-          <div id="btnDisabled34" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
-          <div id="btnDisabled35" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
-          <div id="btnDisabled36" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
-          <div id="btnDisabled37" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 停止 -->
-          <!-- 無効ボタン（popover） -->
-          <div id="setting_31" class="button" onclick="popoverFan()"></div> <!-- 強 -->
-          <div id="setting_32" class="button" onclick="popoverFan()"></div> <!-- 弱 -->
-          <div id="setting_33" class="button" onclick="popoverFan()"></div> <!-- 停止 -->
-        </div>
+        <!-- 無効ボタン（aleart） -->
+        <div id="btnDisabled34" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
+        <div id="btnDisabled35" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
+        <div id="btnDisabled36" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
+        <div id="btnDisabled37" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 停止 -->
+        <!-- 無効ボタン（popover） -->
+        <div id="setting_31" class="button" onclick="popoverFan()"></div> <!-- 強 -->
+        <div id="setting_32" class="button" onclick="popoverFan()"></div> <!-- 弱 -->
+        <div id="setting_33" class="button" onclick="popoverFan()"></div> <!-- 停止 -->
 
         <!-- 手動操作 変更ボタン -->
         <div id="btnChange03" class="button--hidden--cursor" onclick="createModal(), btnClick()"></div>
@@ -124,12 +108,14 @@
       </div>
 
       <!-- 置換パーツ 温湿度・タイマー時間 -->
-      <!-- 空調シェア 冷房・暖房・除湿 温湿度 -->
-      <img id="setElement11" alt="">
-      <!-- 手動操作 冷房・暖房・除湿 温湿度 -->
-      <img id="setElement31" alt="">
-      <!-- 衣類乾燥 タイマー時間 -->
-      <img id="setElement41" alt="">
+      <img id="setElement11" alt="空調シェア 冷房・暖房・除湿 温湿度">
+      <img id="setElement31" alt="手動操作 冷房・暖房・除湿 温湿度">
+      <img id="setElement41" alt="衣類乾燥 タイマー時間">
+
+      <!-- popover用エリア -->      
+      <div id="btnBack"></div> <!-- 戻るボタン -->
+
+
 
     </main>
   </div>
