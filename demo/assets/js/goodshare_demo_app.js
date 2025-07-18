@@ -192,7 +192,13 @@ const popoverSensor = () => {
   ]);
 };
 
-// ポップオーバーを閉じる
+// ポップオーバー（単体）を閉じる
 const closePopover = () => {
-  driverObj.destroy(); // popoverを閉じる
+  driverObj.destroy();
+};
+
+
+// ポップオーバー（モーダル）を閉じる
+const closeModalPopover = () => {
+  closePopover();
 };

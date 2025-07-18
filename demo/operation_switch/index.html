@@ -13,8 +13,9 @@
   <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
   <!-- くらトク共通 -->
   <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
-  <!-- GoodShareデモアプリCSS -->
+  <!-- GoodShareデモアプリCSS/JS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
+  <script src="../assets/js/goodshare_demo_app.js" defer></script>
   <!-- driver.js -->
   <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
@@ -80,8 +81,8 @@
       <div id="modalOpeStart" class="drawer_menu modal-container">
         <div id="modal-main" class="horizontal-center-vertical-center">
           <img id="modal-image" src="../assets/img/modal_switch.svg" alt="">
-          <div id="modal-ok-button" class="modal-dialog-ok" onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"></div>
-          <div id="modal-cancel-button" class="modal-dialog-cancel" onclick="hideModal(this)"></div>
+          <div id="modalOkButton" class="modal-dialog-ok" onclick="hideModal(this), setJsonValue('isFirstVisit.opeModeSelection', false), window.location.href='../home/'"></div>
+          <div id="modalCancelButton" class="modal-dialog-cancel" onclick="hideModal(this)"></div>
         </div>
       </div>
     </main>
@@ -96,9 +97,6 @@
         </map>
     </footer>
   </div>
-
-  <!-- GoodShareデモアプリJS -->
-  <script src="../assets/js/goodshare_demo_app.js"></script>
 
   <!-- 初期画面 ラジオボタン -->
   <script>

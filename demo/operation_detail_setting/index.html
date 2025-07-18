@@ -13,8 +13,10 @@
   <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
   <!-- くらトク共通 -->
   <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
-  <!-- GoodShareデモアプリCSS -->
+  <!-- GoodShareデモアプリCSS/JS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
+  <script src="../assets/js/goodshare_demo_app.js" defer></script>
+
   <!-- driver.js -->
   <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
@@ -99,14 +101,14 @@
       <div id="modal-container" class="drawer_menu modal-container">
         <div id="modal-main" class="horizontal-center-vertical-center">
           <!-- モーダル -->
-          <img id="modal-image" alt="">
-          <!-- モーダル 決定ボタン -->
-          <div id="modal-ok-button" class="modal-spinner-ok" onclick="hideModal(this)"></div>
-          <!-- モーダル キャンセルボタン -->
-          <div id="modal-cancel-button" class="modal-spinner-cancel" onclick="hideModal(this)"></div>
+          <img id="modal-image" usemap="#modalMap" alt="モーダル">
+          <map name="modalMap">
+            <area shape="rect" coords="166, 218, 262, 243" href="javascript:void(0);" onclick="closeModalPopover(), hideModal(this)" alt="キャンセルボタン">
+            <area shape="rect" coords="267, 218, 338, 243" href="javascript:void(0);" onclick="modalOkButton(), closeModalPopover(), hideModal(this)" alt="決定ボタン">
+          </map>
         </div>
       </div>
-
+      
       <!-- 置換パーツ 温湿度・タイマー時間 -->
       <img id="setElement11" alt="空調シェア 冷房・暖房・除湿 温湿度">
       <img id="setElement31" alt="手動操作 冷房・暖房・除湿 温湿度">
@@ -114,14 +116,8 @@
 
       <!-- popover用エリア -->      
       <div id="btnBack"></div> <!-- 戻るボタン -->
-
-
-
     </main>
   </div>
-
-  <!-- GoodShareデモアプリJS -->
-  <script src="../assets/js/goodshare_demo_app.js"></script>
 
   <!-- 初期表示 空調シェア設定画面・手動操作設定画面・衣類乾燥設定画面 -->
   <script>
@@ -178,24 +174,6 @@
       if (targetElementBtn) {
         targetElementBtn.style.display = 'block';
       }
-
-      // 置換パーツ 温湿度 タイマー時間
-      const imageMapReplaceParts = {
-        11: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.0.imageUrl")],
-        12: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.1.imageUrl")],
-        13: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.2.imageUrl")],
-        // 21: 
-        31: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.0.imageUrl")],
-        32: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.1.imageUrl")],
-        33: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.2.imageUrl")],
-        41: ["setElement41", baseUrl + getJsonValue("modes.mode4.operations.0.imageUrl")],
-      };
-      const replaceParts = imageMapReplaceParts[gsOpeMode];
-      const targetElementReplaceParts = document.getElementById(replaceParts[0]);
-      if (targetElementReplaceParts) {
-        targetElementReplaceParts.src = replaceParts[1];
-        targetElementReplaceParts.style.display = "block";
-      }
     });
   </script>
 
@@ -230,84 +208,63 @@
     });
   </script>
 
-  <!-- モーダルで温湿度の設定後のJSONアップデート（運転詳細設定画面） -->
+  <!-- モーダルで「決定」タップ後の処理 -->
   <script>
-    const buttonOkIds = ['modal-ok-button'];
-    buttonOkIds.forEach(function (id) {
-      const button = document.getElementById(id);
-      if (button) {
-        button.addEventListener('click', function () {
-          const gsOpeMode = getJsonValue("currentOperationMode");
-          // jsonを更新
-          const jsonUpdate = {
-            11: ["modes.mode1.operations.0.imageUrl", "tmp_260.png"],
-            12: ["modes.mode1.operations.1.imageUrl", "tmp_220.png"],
-            13: ["modes.mode1.operations.2.imageUrl", "hum_050.png"],
-            // 21: 
-            31: ["modes.mode3.operations.0.imageUrl", "tmp_260.png"],
-            32: ["modes.mode3.operations.1.imageUrl", "tmp_220.png"],
-            33: ["modes.mode3.operations.2.imageUrl", "hum_050.png"],
-            41: ["modes.mode4.operations.0.imageUrl", "timer_on.png"],
-          };
+    let jsonPath = null;
+    let imageFileName = null;
+    const modalOkButton = () => {
+      const gsOpeMode = getJsonValue("currentOperationMode");
+      const jsonUpdateTmpHumTimer = {
+        11: ["modes.mode1.operations.0.imageUrl", "tmp_260.png"],
+        12: ["modes.mode1.operations.1.imageUrl", "tmp_220.png"],
+        13: ["modes.mode1.operations.2.imageUrl", "hum_050.png"],
+        31: ["modes.mode3.operations.0.imageUrl", "tmp_260.png"],
+        32: ["modes.mode3.operations.1.imageUrl", "tmp_220.png"],
+        33: ["modes.mode3.operations.2.imageUrl", "hum_050.png"],
+        41: ["modes.mode4.operations.0.imageUrl", "timer_on.png"],
+      };
 
-          // 該当する設定がある場合のみ setJsonValue を実行
-          if (jsonUpdate[gsOpeMode]) {
-            const [jsonPath, imageFileName] = jsonUpdate[gsOpeMode];
-            setJsonValue(jsonPath, imageFileName);
-          }
+      // JSON更新
+      [jsonPath, imageFileName] = jsonUpdateTmpHumTimer[gsOpeMode];
+      setJsonValue(jsonPath, imageFileName);
 
-          // 置換パーツを更新
-          const baseUrl = getJsonValue("baseUrl");
-          const imageMapReplaceParts = {
-            11: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.0.imageUrl")],
-            12: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.1.imageUrl")],
-            13: ["setElement11", baseUrl + getJsonValue("modes.mode1.operations.2.imageUrl")],
-            // 21: 
-            31: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.0.imageUrl")],
-            32: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.1.imageUrl")],
-            33: ["setElement31", baseUrl + getJsonValue("modes.mode3.operations.2.imageUrl")],
-            41: ["setElement41", baseUrl + getJsonValue("modes.mode4.operations.0.imageUrl")],
-          };
-          const replaceParts = imageMapReplaceParts[gsOpeMode];
-          const targetElementReplaceParts = document.getElementById(replaceParts[0]);
-          if (targetElementReplaceParts) {
-            targetElementReplaceParts.src = replaceParts[1];
-            targetElementReplaceParts.style.display = "block";
-          }
-        });
+      // 置換パーツのデータ作成
+      const baseUrl = getJsonValue("baseUrl");
+      const imageMapReplaceParts = {
+        11: ["setElement11", baseUrl + imageFileName],
+        12: ["setElement11", baseUrl + imageFileName],
+        13: ["setElement11", baseUrl + imageFileName],
+        31: ["setElement31", baseUrl + imageFileName],
+        32: ["setElement31", baseUrl + imageFileName],
+        33: ["setElement31", baseUrl + imageFileName],
+        41: ["setElement41", baseUrl + imageFileName],
+      };
+
+      // 置換パーツを更新
+      const replaceParts = imageMapReplaceParts[gsOpeMode];
+      const targetElementReplaceParts = document.getElementById(replaceParts[0]);
+      if (targetElementReplaceParts) {
+        targetElementReplaceParts.src = replaceParts[1];
+        targetElementReplaceParts.style.display = "block";
       }
-    });
+
+      const jsonUpdateLabel = {
+        11: ["modes.mode1.operations.0.switchLabel", "opeSwitch11.png"],
+        12: ["modes.mode1.operations.1.switchLabel", "opeSwitch12.png"],
+        13: ["modes.mode1.operations.2.switchLabel", "opeSwitch13.png"],
+        31: ["modes.mode3.operations.0.switchLabel", "opeSwitch31.png"],
+        32: ["modes.mode3.operations.1.switchLabel", "opeSwitch32.png"],
+        33: ["modes.mode3.operations.2.switchLabel", "opeSwitch33.png"],
+        41: ["modes.mode4.operations.0.switchLabel", "opeSwitch41.png"],
+      };
+
+      // JSON更新
+      [jsonPath, imageFileName] = jsonUpdateLabel[gsOpeMode];
+      setJsonValue(jsonPath, imageFileName);
+    }
+
   </script>
 
-  <!-- モーダルで温湿度の設定後のJSONアップデート（運転切替画面） -->
-  <script>
-    // const buttonOkIds = ['modal-ok-button']; // 宣言済みのため
-    buttonOkIds.forEach(function (id) {
-      const button = document.getElementById(id);
-      if (button) {
-        button.addEventListener('click', function () {
-          const gsOpeMode = getJsonValue("currentOperationMode");
-          // jsonを更新
-          const jsonUpdate = {
-            11: ["modes.mode1.operations.0.switchLabel", "opeSwitch11.png"],
-            12: ["modes.mode1.operations.1.switchLabel", "opeSwitch12.png"],
-            13: ["modes.mode1.operations.2.switchLabel", "opeSwitch13.png"],
-            // 21: 
-            31: ["modes.mode3.operations.0.switchLabel", "opeSwitch31.png"],
-            32: ["modes.mode3.operations.1.switchLabel", "opeSwitch32.png"],
-            33: ["modes.mode3.operations.2.switchLabel", "opeSwitch33.png"],
-            41: ["modes.mode4.operations.0.switchLabel", "opeSwitch41.png"],
-          };
-
-          // 該当する設定がある場合のみ setJsonValue を実行
-          if (jsonUpdate[gsOpeMode]) {
-            const [jsonPath, imageFileName] = jsonUpdate[gsOpeMode];
-            setJsonValue(jsonPath, imageFileName);
-          }
-        });
-      }
-    });
-  </script>
 
   <!-- 初期画面 -->
   <script>
@@ -364,13 +321,6 @@
           popover: { description: `ここでは、<span style="color:#ff0000">${variable}</span>に設定するとします。` },
         }
       ]);
-
-      // ボタンをタップするとpopoverを閉じる
-      document.querySelectorAll('#modal-cancel-button, #modal-ok-button').forEach(button => {
-        button.addEventListener('click', () => {
-          closePopover();
-        });
-      });
     }
   </script>
 

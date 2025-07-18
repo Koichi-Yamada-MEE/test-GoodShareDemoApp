@@ -13,8 +13,9 @@
   <link rel="apple-touch-icon" href="https://www.mitsubishielectric.co.jp/shared_resp/v0006/img/apple-touch-icon.png">
   <!-- くらトク共通 -->
   <script src="../assets/vendor/jquery/jquery-3.6.0.min.js"></script>
-  <!-- GoodShareデモアプリCSS -->
+  <!-- GoodShareデモアプリCSS/JS -->
   <link href="../assets/css/goodshare_demo_app.css" rel="stylesheet">
+  <script src="../assets/js/goodshare_demo_app.js" defer></script>
   <!-- driver.js -->
   <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
@@ -68,10 +69,10 @@
           <!-- モーダル -->
           <img id="modal-image" src="../assets/img/modal_postalcode.png" alt="">
           <!-- モーダル 決定ボタン -->
-          <div id="modal-ok-button" class="modal-dialog-ok" onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png')">
+          <div id="modalOkButton" class="modal-dialog-ok" onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png')">
           </div>
           <!-- モーダル キャンセルボタン -->
-          <div id="modal-cancel-button" class="modal-dialog-cancel" onclick="hideModal(this)"></div>
+          <div id="modalCancelButton" class="modal-dialog-cancel" onclick="hideModal(this)"></div>
         </div>
       </div>
 
@@ -80,12 +81,9 @@
     </main>
   </div>
 
-  <!-- GoodShareデモアプリJS -->
-  <script src="../assets/js/goodshare_demo_app.js"></script>
-
   <!-- 置換パーツ更新後 郵便番号 -->
   <script>
-    const buttonIds = ['modal-ok-button'];
+    const buttonIds = ['modalOkButton'];
     buttonIds.forEach(function (id) {
       const button = document.getElementById(id);
       if (button) {
@@ -128,7 +126,7 @@
       ]);
 
       // ボタンをタップするとpopoverを閉じる
-      document.querySelectorAll('#modal-cancel-button, #modal-ok-button').forEach(button => {
+      document.querySelectorAll('#modalCancelButton, #modalOkButton').forEach(button => {
         button.addEventListener('click', () => {
           closePopover();
         });
