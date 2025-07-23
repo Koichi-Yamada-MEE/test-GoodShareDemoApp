@@ -54,15 +54,21 @@
       <!-- 空調シェア設定 -->
       <div id="buttonSetting11" class="elements-container">
         <!-- 空調シェア エアコン運転モードボタン -->
-        <img id="racOpeModeBtn11" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsCool_off.png" onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 11), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')" alt="暖房">
-        <img id="racOpeModeBtn12" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsHeat_off.png" onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 12), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')" alt="冷房">
-        <img id="racOpeModeBtn13" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsDry_off.png" onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')" alt="除湿">
-
+        <img id="racOpeModeBtn11" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsCool_off.png"
+          onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 11), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
+          alt="暖房">
+        <img id="racOpeModeBtn12" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsHeat_off.png"
+          onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 12), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
+          alt="冷房">
+        <img id="racOpeModeBtn13" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsDry_off.png"
+          onclick="toggleButton(this), showImg('btnChange01'), setJsonValue('currentOperationMode', 13), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
+          alt="除湿">
+      
         <!-- 無効ボタン -->
         <div id="btnDisabled14" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
         <div id="btnDisabled15" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI冷房 -->
         <div id="btnDisabled16" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- AI暖房 -->
-
+      
         <!-- 空調シェア 変更ボタン -->
         <div id="btnChange01" class="button--hidden--cursor" onclick="createModal(), btnClick()"></div>
       </div>
@@ -70,12 +76,15 @@
       <!-- 手動操作設定 -->
       <div id="buttonSetting31" class="elements-container">
         <!-- 手動操作 エアコン運転モードボタン -->
-        <img id="racOpeModeBtn31" class="toggle-btn" data-group="radio" src="../assets/img/btn_racSettingsCool_off.png" class="button"
-          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')" alt="">
-        <img id="racOpeModeBtn32" class="toggle-btn" data-group="radio" src="../assets/img/btn_racSettingsHeat_off.png" class="button"
-          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')" alt="">
-        <img id="racOpeModeBtn33" class="toggle-btn" data-group="radio" src="../assets/img/btn_racSettingsDry_off.png" class="button"
-          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')" alt="">
+        <img id="racOpeModeBtn31" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsCool_off.png"
+          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 31), setJsonValue('modalRacOpeMode', 'operations.0.setTemp')"
+          alt="">
+        <img id="racOpeModeBtn32" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsHeat_off.png"
+          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 32), setJsonValue('modalRacOpeMode', 'operations.1.setTemp')"
+          alt="">
+        <img id="racOpeModeBtn33" class="toggle-btn button" data-group="radio" src="../assets/img/btn_racSettingsDry_off.png"
+          onclick="toggleButton(this), showImg('btnChange03'), setJsonValue('currentOperationMode', 33), setJsonValue('modalRacOpeMode', 'operations.2.setHum')"
+          alt="">
 
         <!-- 無効ボタン（aleart） -->
         <div id="btnDisabled34" class="button" onclick="showDemoAppRestrictionMessage()"></div> <!-- 送風 -->
@@ -173,6 +182,17 @@
       const targetElementBtn = document.getElementById(imageMapBtn[gsOpeMode]);
       if (targetElementBtn) {
         targetElementBtn.style.display = 'block';
+      }
+
+      // 衣類乾燥設定画面のタイマー時間の初期表示／JSONのmodalRacOpeModeを設定（衣類乾燥設定に不要だがScript処理で他に合わせるため）
+      if (gsOpeMode === 41) {
+        const targetElementSrc = baseUrl + getJsonValue("modes.mode4.operations.0.imageUrl");
+        const targetElementImg = document.getElementById('setElement41');
+        setJsonValue('modalRacOpeMode', 'operations.0.setTimer')
+        if (targetElementImg) {
+          targetElementImg.src = targetElementSrc;
+          targetElementImg.style.display = 'block';
+        }
       }
     });
   </script>
@@ -275,8 +295,9 @@
     });
 
     // グッシェア運転モードとエアコン運転モードの取得
+    let parts =[];
     const getPropertyPath = () => {
-      const parts = [
+      parts = [
         "modes",
         getJsonValue("modalGsOpeMode"),
         getJsonValue("modalRacOpeMode"),
@@ -304,6 +325,7 @@
     // モーダルに表示するpopoverの説明文を設定
     const btnClick = () => {
       const driver = window.driver.js.driver;
+      // const propertyPath = getPropertyPath();
       const propertyPath = getPropertyPath();
       const variableMap = {
         "modes.mode1.operations.0.setTemp": "26.0 ℃",
@@ -312,9 +334,10 @@
         "modes.mode3.operations.0.setTemp": "26.0 ℃",
         "modes.mode3.operations.1.setTemp": "22.0 ℃",
         "modes.mode3.operations.2.setHum": "50 %",
-        "modes.mode4": "8 時間"
+        "modes.mode4.operations.0.setTimer": "8 時間"
       };
-      const variable = variableMap[propertyPath] || "条件に一致しません";
+      const variable = variableMap[propertyPath] || "セットする値が見つかりません";
+
       startDriverTour([
         {
           element: '#modal-main',
