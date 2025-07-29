@@ -2,8 +2,9 @@
  * エラーメッセージを表示する
  ******************************************/
 const showAlert = (errorCode) => {
-  const message = `最初からやり直してください。（${errorCode}）`;
+  const message = `セッションが切れているか、データが読み込まれていないため、最初の画面に戻ります。（${errorCode}）`;
   alert(message);
+  window.location.href = "../tutorial/";
 };
 
 /******************************************
