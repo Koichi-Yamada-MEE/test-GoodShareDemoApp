@@ -1,9 +1,18 @@
 /******************************************
  * エラーメッセージを表示する
  ******************************************/
+
 const showAlert = (errorCode) => {
+  // すでにアラートを表示したか確認
+  if (sessionStorage.getItem("alertShown")) return;
+
   const message = `セッションが切れているか、データが読み込まれていないため、最初の画面に戻ります。（${errorCode}）`;
   alert(message);
+
+  // アラート表示済みフラグをセット
+  sessionStorage.setItem("alertShown", "true");
+
+  // 遷移
   window.location.href = "../tutorial/";
 };
 

@@ -49,47 +49,24 @@
     <main class="button" onclick="showDemoAppRestrictionMessage()">
       <!-- スケジュール設定画面 -->
       <img id="setUpSchedule00" src="../assets/img/schedule_update00.png" alt="">
+      <!-- popover用エリア -->
+      <div id="btnBack"></div> <!-- 戻るボタン -->
+
     </main>
   </div>
-
+  
   <script>
-    const getPropertyPath = () => {
-      const parts = [
-        "modes",
-        getJsonValue("modalGsOpeMode"),
-        getJsonValue("modalRacOpeMode"),
-        getJsonValue("modalPropatyValue")
-      ];
-      // null または undefined の部分を除外して結合
-      const propertyPath = parts.filter(part => part != null).join('.');
-      return propertyPath;
-    }
-  </script>
-
-  <script>
-    const createModal = () => {
-      const propertyPath = getPropertyPath();
-
-      if (propertyPath === "modes.mode1.operations.0.setTemp") {
-        showModal('modal-container', 'modal_tmp260.png');
-      } else if (propertyPath === "modes.mode1.operations.1.setTemp") {
-        showModal('modal-container', 'modal_tmp220.png');
-      } else if (propertyPath === "modes.mode1.operations.2.setHum") {
-        showModal('modal-container', 'modal_hum400.png');
-      } else if (propertyPath === "modes.mode3.operations.0.setTemp") {
-        showModal('modal-container', 'modal_tmp260.png');
-      } else if (propertyPath === "modes.mode3.operations.1.setTemp") {
-        showModal('modal-container', 'modal_tmp220.png');
-      } else if (propertyPath === "modes.mode3.operations.2.setHum") {
-        showModal('modal-container', 'modal_hum400.png');
-      } else if (propertyPath === "modes.mode4") {
-        showModal('modal-container', 'modal_timer.png');
-      } else {
-        console.log("条件に一致しません")
+    // セッションスト―レージのチェック
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonData = sessionStorage.getItem("demoAppData");
+      // セッションストレージのJSON読み込みエラー
+      if (!jsonData) {
+        showAlert("E001：セッションストレージのJSONデータが見つかりません");
+        return null;
       }
-    }
+    })
   </script>
-
+  
   <!-- driver.js -->
   <script>
     window.addEventListener('load', () => {

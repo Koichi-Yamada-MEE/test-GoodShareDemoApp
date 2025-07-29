@@ -18,7 +18,7 @@
   <script src="../assets/js/goodshare_demo_app.js" defer></script>
   <!-- driver.js -->
   <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
 </head>
 
 <body>
@@ -51,7 +51,8 @@
       <img id="settingOperation01" src="../assets/img/settings.png" alt="">
 
       <!-- 郵便番号 -->
-      <section id="btn_setting01" class="button" onclick="showImg('modalPostalCode'), showChangePostalCodeModal()"></section>
+      <section id="btn_setting01" class="button" onclick="showImg('modalPostalCode'), showChangePostalCodeModal()">
+      </section>
       <!-- 連携する環境センサー -->
       <section id="btn_setting02" class="button" onclick="popoverSensor()"></section>
       <!-- 異常時お知らせ通知 -->
@@ -69,7 +70,8 @@
           <!-- モーダル -->
           <img id="modal-image" src="../assets/img/modal_postalcode.png" alt="">
           <!-- モーダル 決定ボタン -->
-          <div id="modalOkButton" class="modal-dialog-ok" onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png')">
+          <div id="modalOkButton" class="modal-dialog-ok"
+            onclick="hideModal(this), setJsonValue('gsSettinngs.postalCode', 'postal-code_on.png')">
           </div>
           <!-- モーダル キャンセルボタン -->
           <div id="modalCancelButton" class="modal-dialog-cancel" onclick="hideModal(this)"></div>
@@ -80,6 +82,18 @@
       <img id="postalCode" class="button--hidden" alt="">
     </main>
   </div>
+
+  <script>
+    // セッションスト―レージのチェック
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonData = sessionStorage.getItem("demoAppData");
+      // セッションストレージのJSON読み込みエラー
+      if (!jsonData) {
+        showAlert("E001：セッションストレージのJSONデータが見つかりません");
+        return null;
+      }
+    })
+  </script>
 
   <!-- 置換パーツ更新後 郵便番号 -->
   <script>
