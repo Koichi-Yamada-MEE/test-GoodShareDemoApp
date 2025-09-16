@@ -32,7 +32,7 @@ const demoAppData = {
           "id": 12,
           "name": "暖房",
           "imageUrl": "tmp_150.png",
-          "modalUrl": "modal_tmp220.png",
+          "modalUrl": "modal_tmp210.png",
           "switchLabel": null
         },
         {
@@ -67,7 +67,7 @@ const demoAppData = {
           "id": 32,
           "name": "暖房",
           "imageUrl": "tmp_150.png",
-          "modalUrl": "modal_tmp220.png",
+          "modalUrl": "modal_tmp210.png",
           "switchLabel": null
         },
         {
