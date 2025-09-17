@@ -184,14 +184,17 @@
           13: `${baseUrl}home_cir_13.gif`,
           21: null,
           30: null,
-          31: `${baseUrl}home_man_31.gif`,
-          32: `${baseUrl}home_man_32.gif`,
-          33: `${baseUrl}home_man_33.gif`,
+          31: null,
+          32: null,
+          33: null,
+          // 31: `${baseUrl}home_man_31.gif`,
+          // 32: `${baseUrl}home_man_32.gif`,
+          // 33: `${baseUrl}home_man_33.gif`,
           41: null,
         };
 
         const imageUrl = imageMapBase[gsOpeMode];
-        if ([11, 12, 13, 31, 32, 33].includes(gsOpeMode)) {
+        if ([11, 12, 13].includes(gsOpeMode)) {
           startDriverTour([{
             element: null,
             popover: {
